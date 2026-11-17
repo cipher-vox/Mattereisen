@@ -1,0 +1,10 @@
+<!doctype html><html lang="nb"><head><meta charset="utf-8"><link rel="stylesheet" href="../css/style.css"></head><body><main style="max-width:900px;margin:auto;padding:1rem" id="main"></main>
+<script src="../data/curriculum.js"></script><script src="../js/util.js"></script><script src="../js/widgets.js"></script><script src="../js/w-alg.js"></script><script src="../js/pyinterp.js"></script><script src="../js/w-verktoy.js"></script>
+<script>
+const M=window.MATTE;const list=[
+['kode',{kode:'navn = "Ola"\nalder = 13\nprint("Hei", navn)\nfor i in range(3):\n    print(i * alder)\nprint(f"{alder / 3:.2f}")',forvent:'Hei Ola\n0\n13\n26\n4.33'}],
+['kode',{kode:'print(1/0)'}],
+['regneark',{start:{A1:'Navn',B1:'Poeng',A2:'Ida',B2:'12',A3:'Per',B3:'18',A4:'Mia',B4:'15',A5:'Sum',B5:'=SUMMA(B2:B4)',C2:'=B2*2'},sjekk:[{celle:'B5',verdi:45}]}],
+['geo',{start:['f(x)=x^2-2','g(x)=x+1','A=(1,2)','B=(4,3)','Linje(A,B)','Skjæring(f,g)','Sirkel(A,2)','a=2']}]];
+list.forEach(([n,o],i)=>{const d=document.createElement('div');d.id='w'+i;document.getElementById('main').appendChild(d);try{M.mountWidget(d,n,o)}catch(e){d.textContent='FEIL '+n+': '+e.message;console.error('FEIL',n,e.stack)}});
+</script></body></html>

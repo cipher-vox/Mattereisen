@@ -1,0 +1,10 @@
+<!doctype html><html lang="nb"><head><meta charset="utf-8"><link rel="stylesheet" href="../css/style.css"></head><body><main style="max-width:900px;margin:auto;padding:1rem" id="main"></main>
+<script src="../data/curriculum.js"></script><script src="../js/util.js"></script><script src="../js/widgets.js"></script><script src="../js/w-alg.js"></script>
+<script>
+const M=window.MATTE;const list=[['faktortre',{n:84}],['potens',{a:3,n:2}],['potens',{a:2,n:3}],['potens',{tier:1,n:5}],['kvadrat',{s:5}],['kvadrat',{rot:1,mal:50}],['figurtall',{type:'trapp',n:4}],['figurtall',{type:'fyrstikk',n:4}],['figurtall',{type:'plus',n:3}],['figurtall',{type:'ramme',n:3}],['figurtall',{type:'dobling',n:4}],['arealmodell',{}],['arealmodell',{type:'sum'}],['arealmodell',{type:'diff',a:6,b:2}],['arealmodell',{type:'konj',a:6,b:2}],['balanse',{}],['ulikhet',{}],['maskin',{}],
+['graf',{params:{a:{min:-5,max:5,v:2},b:{min:-5,max:5,v:1}},funksjoner:[{f:'a*x+b',pen:'lin'}],tabell:1,punkt:1}],
+['graf',{params:{a:{min:-3,max:3,v:1},b:{min:-4,max:4,v:0},c:{min:-5,max:5,v:-2}},funksjoner:[{f:'a*x^2+b*x+c',pen:'kv'}]}],
+['graf',{funksjoner:[{f:'2x+1'},{f:'-x+7'}],skjaering:1,xmin:-2,xmax:8,ymin:-2,ymax:12}],
+['graf',{funksjoner:[{f:'1/x'}]}]];
+list.forEach(([n,o],i)=>{const d=document.createElement('div');d.id='w'+i;document.getElementById('main').appendChild(d);try{M.mountWidget(d,n,o)}catch(e){d.textContent='FEIL '+n+': '+e.message;console.error('FEIL',n,e.message)}});
+</script></body></html>
