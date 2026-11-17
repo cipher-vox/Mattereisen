@@ -16,7 +16,8 @@ const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m); } else conso
   const errors = [];
   page.on('pageerror', e => errors.push('pageerror: ' + e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
-  const go = async h => { await page.goto(url + h); await page.reload(); await page.waitForTimeout(250); };
+  /* Forklaringsseksjonene («Les først») fjernes og seksjonene nummereres på nytt, slik at testene under kan bruke s1, s2 … som før. De testes for seg lenger ned. */
+  const go = async (h, beholdForklaring) => { await page.goto(url + h); await page.reload(); await page.waitForTimeout(250); if (!beholdForklaring) await page.evaluate(() => { document.querySelectorAll('.forklaring-sek').forEach(e => e.remove()); document.querySelectorAll('.topic-innhold > .seksjon').forEach((e, i) => { e.id = 's' + (i + 1); }); }); };
   const shot = async n => page.screenshot({ path: path.join(out, n + '.png'), fullPage: false });
   const shotEl = async (sel, n) => { const el = await page.$(sel); if (el) { await el.scrollIntoViewIfNeeded(); await el.screenshot({ path: path.join(out, n + '.png') }); } };
 
@@ -24,6 +25,7 @@ const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m); } else conso
   await go('#/');
   ok((await page.textContent('h1')).includes('Mattereisen'), 'h1 Mattereisen');
   ok((await page.$$('.trinn-kort')).length === 3, '3 trinn-kort');
+  ok((await page.$$('.hero-kompakt')).length === 1 && (await page.$$('.hero-linje')).length === 0, 'ny forside uten tallinje');
   ok((await page.$$('.modus-kort')).length === 2, '2 arbeidsmåter');
   await shot('01-forside');
 
@@ -158,7 +160,6 @@ const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m); } else conso
   ok((await page.$$('.ekstra-seksjon')).length === 8, '8 deler med ekstraoppgaver');
   const pl = await page.$('#x-pluss');
   await pl.scrollIntoViewIfNeeded();
-  await (await pl.$('.fasit-liste summary')).click();
   const fasit = await pl.$$eval('.fasit-liste li', l => l.map(x => x.textContent));
   const forste = fasit[0].split('=').pop().trim();
   const felt = (await pl.$$('.ekstra-felt'))[0];
@@ -172,6 +173,39 @@ const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m); } else conso
   ok(førTekst !== etterTekst, 'nytt sett lager nye oppgaver');
   await shotEl('#x-pluss', '16-ekstra-pluss');
   await shot('17-ekstra');
+
+  /* ---- forklaringsseksjoner ---- */
+  console.log('Forklaring');
+  for (const h of ['#/8/negative-tall', '#/steg/8/negative-tall', '#/10/python', '#/9/pytagoras']) {
+    await go(h, true);
+    const n = (await page.$$('.forklaring-sek')).length;
+    ok(n >= 2, h + ': ' + n + ' forklaringsseksjoner');
+    ok((await page.$$('.forklaring-sek .eksempel')).length >= n, h + ': forklaringene har eksempler');
+    const første = await page.$eval('.topic-innhold > .seksjon', e => e.classList.contains('forklaring-sek'));
+    ok(første, h + ': første seksjon er en forklaring');
+    const trinn = await page.$eval('.eks-neste', e => e.closest('.eksempel').querySelectorAll('li').length);
+    ok(trinn >= 3, h + ': eksempel har trinnvis visning');
+  }
+  /* fasit i ekstraoppgaver er låst til alle er prøvd */
+  await go('#/ekstra/8/negative-tall');
+  const lås = await page.$('.fasit-lås');
+  await lås.click();
+  ok(await page.$eval('.fasit-liste ol', e => e.hidden), 'ekstra: fasit er låst før man har prøvd');
+  const felter = await page.$$('#x-pluss .ekstra-felt');
+  for (const f of felter) { await f.fill('1'); await f.press('Enter'); await f.evaluate(e => e.blur()); }
+  await (await page.$('#x-pluss .fasit-lås')).click();
+  ok(!(await page.$eval('#x-pluss .fasit-liste ol', e => e.hidden)), 'ekstra: fasit åpnes når alle er prøvd');
+  /* åpen oppgave (fritekst): krever tekst før løsningsforslag */
+  await go('#/8/negative-tall');
+  const fri = await page.$('.oppg[data-type="fritekst"]');
+  if (fri) {
+    await fri.scrollIntoViewIfNeeded();
+    await (await fri.$('.losning-knapp')).click();
+    ok(await (await fri.$('.losning-boks')).evaluate(e => e.hidden), 'fritekst: løsning er låst uten forsøk');
+    await (await fri.$('.fritekst-felt')).fill('Jeg ville tegnet en tallinje');
+    await (await fri.$('.losning-knapp')).click();
+    ok(!(await (await fri.$('.losning-boks')).evaluate(e => e.hidden)), 'fritekst: løsning åpnes etter forsøk');
+  }
 
   /* ---- mobil ---- */
   console.log('Mobil');

@@ -10,6 +10,9 @@ Ingenting lagres, ingen navn eller personopplysninger samles inn, og det finnes 
 - **10. trinn** – 10 temaer (algebra, kvadratsetningene, ligningssett, stigningstall, funksjonstyper, vekstfaktor, kjøp/sparing/lån, økonomiprosjekt, modellering, Python)
 - **To versjoner av hvert tema:** *Utforsk* (full) og *Steg for steg* (små steg, færre oppgaver, hint på alle).
 - **Ekstra oppgaver** per tema: generert på nytt for hvert sett, med fasit.
+- **Forklaringsseksjoner (📖 Les først):** alle 32 temaer har, i både Utforsk og Steg for steg, egne seksjoner før oppgavene med grundig forklaring, trinnvise eksempler og figurer. Temaer med flere nye delemner har flere slike seksjoner, plassert foran riktig oppgavegruppe.
+- **Spill for å lære** (`#/spill`): 25 spill der poeng og liv bare finnes mens spillet er åpent (ingenting lagres). Hvert tema som har et passende spill, lenker til det.
+- **Fasit etter forsøk:** løsninger og fasit åpnes først etter at eleven har prøvd (svar, tekst i fritekstfeltet, kjørt kode eller redigert regneark). Ekstraoppgavene låser fasit til alle oppgavene i en del er forsøkt.
 - **Verktøy:** kurs fra bunnen i Python (egen tolk i nettleseren), GeoGebra og regneark.
 - **Lesehjelp:** opplesning, ordforklaringer og luftigere tekst. Kan slås av og på.
 
@@ -31,8 +34,10 @@ Siden har `noindex`, så den dukker ikke opp i Google. Den virker også ved å �
 - `data/00-hjelp.js` – hjelpefunksjoner for å skrive innhold (se under)
 - `data/*.js` – innhold. 8. trinn: ett tema per fil. 9. og 10. trinn: `t9-a…e.js` og `t10-a…e.js`, to temaer per fil
 - `data/verktoy-*.js` – kursene i Python, GeoGebra og regneark
+- `data/z-fork-*.js` – forklaringsseksjonene (settes inn i begge versjoner av hvert tema med `H.FK`). Filnavnene begynner med `z-` slik at de lastes etter temaene.
+- `js/spill.js` – spillkjerne (register, sider, hjelpere), `js/spill-a.js … spill-d.js` – selve spillene. Nye spill legges til med `M.G.add({ id, tittel, ikon, trinn, temaer, kort, hvordan, lærer, start(el) })`.
 
-Adresser: `#/` forside, `#/9` trinn, `#/9/<tema>` Utforsk, `#/steg/9/<tema>` Steg for steg, `#/ekstra/9/<tema>` ekstraoppgaver, `#/verktoy`.
+Adresser: `#/` forside, `#/9` trinn, `#/9/<tema>` Utforsk, `#/steg/9/<tema>` Steg for steg, `#/ekstra/9/<tema>` ekstraoppgaver, `#/verktoy`, `#/spill` og `#/spill/<id>`.
 
 ## Legge til eller endre et tema
 Et tema registreres slik (se `data/t10-a.js` for ferdige eksempler):
@@ -53,6 +58,7 @@ Hjelpefunksjonene i `M.H`: `V` (flervalg), `T` (tallsvar), `F` (åpent svar med 
 Krever Node (og Playwright + Chrome for nettlesertestene).
 - `node tests/check-data.js` – sjekker alle oppgaver: fasit og løsningsforslag stemmer overens, hint finnes på Steg-oppgaver, Python-oppgaver gir faktisk det oppgitte svaret, og ekstraoppgavene testes med 400 tilfeldige sett i begge versjoner.
 - `node tests/browser-test.js` – åpner siden og tester navigasjon, oppgaver, Lesehjelp og mobilvisning.
+- `node tests/spill-test.js [filter]` – åpner hvert spill på mobilbredde, klikker tilfeldig rundt og leter etter JavaScript-feil og sidelengs scrolling.
 - `node tests/alle-sider.js [filter]` – besøker alle ferdige temaer i fire visninger (+ verktøy) på mobilbredde og leter etter feil og sidelengs scrolling.
 
 ## Merknader

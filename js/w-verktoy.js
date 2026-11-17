@@ -60,8 +60,9 @@
     }
     q(root, '.kode-kjor').addEventListener('click', kjor);
     const rs = q(root, '.kode-reset'); if (rs) rs.addEventListener('click', () => { ta.value = start; sync(); pre.textContent = ''; q(root, '.kode-ut').hidden = true; sj.innerHTML = ''; });
-    const lk = q(root, '.kode-losning-knapp');
-    if (lk) lk.addEventListener('click', function () { const b = q(root, '.kode-losning'); b.hidden = !b.hidden; b.innerHTML = b.hidden ? '' : '<strong>Løsningsforslag</strong> (det finnes flere måter å løse det på):<pre class="kode-hl kode-lf">' + M.highlightPy(o.losningKode) + '</pre>'; lk.textContent = b.hidden ? '💡 Vis løsningsforslag' : 'Skjul løsningsforslag'; });
+    const lk = q(root, '.kode-losning-knapp'); let harKjort = false;
+    q(root, '.kode-kjor').addEventListener('click', function () { harKjort = true; });
+    if (lk) lk.addEventListener('click', function () { if (!harKjort) { const b0 = q(root, '.kode-losning'); b0.hidden = false; b0.innerHTML = '<p class="lesbar">Prøv først! Trykk <strong>▶ Kjør</strong> og se hva som skjer – deretter kan du se et løsningsforslag. 🙂</p>'; return; } const b = q(root, '.kode-losning'); b.hidden = !b.hidden; b.innerHTML = b.hidden ? '' : '<strong>Løsningsforslag</strong> (det finnes flere måter å løse det på):<pre class="kode-hl kode-lf">' + M.highlightPy(o.losningKode) + '</pre>'; lk.textContent = b.hidden ? '💡 Vis løsningsforslag' : 'Skjul løsningsforslag'; });
     sync(); setTimeout(sync, 50);
     if (o.autokjor) kjor();
   };
@@ -244,7 +245,9 @@
     q(root, '.rn-diagram').addEventListener('click', () => diagram('bar')); q(root, '.rn-linje').addEventListener('click', () => diagram('line'));
     q(root, '.rn-reset').addEventListener('click', () => { Object.keys(S.raw).forEach(k => delete S.raw[k]); Object.assign(S.raw, orig); diag.innerHTML = ''; sjUt.textContent = ''; draw(); });
     const lb = q(root, '.rn-losning');
-    if (lb) lb.addEventListener('click', function () { Object.keys(o.losning).forEach(k => { S.raw[k] = String(o.losning[k]); }); sjUt.innerHTML = '<p class="lesbar">💡 Løsningsforslaget er skrevet inn i regnearket. ' + (o.losningTekst || '') + '</p>'; draw(); });
+    let harProvd = false; ['.rn-sjekk', '.rn-diagram', '.rn-linje', '.rn-fyll'].forEach(function (s) { const e = q(root, s); if (e) e.addEventListener('click', function () { harProvd = true; }); });
+    ['input', 'change', 'keydown'].forEach(function (ev) { fi.addEventListener(ev, function () { harProvd = true; }); });
+    if (lb) lb.addEventListener('click', function () { if (!harProvd) { sjUt.innerHTML = '<p class="lesbar">Prøv først! Skriv i regnearket og trykk «Sjekk», så kan du se et løsningsforslag. 🙂</p>'; return; } Object.keys(o.losning).forEach(k => { S.raw[k] = String(o.losning[k]); }); sjUt.innerHTML = '<p class="lesbar">💡 Løsningsforslaget er skrevet inn i regnearket. ' + (o.losningTekst || '') + '</p>'; draw(); });
     const sk = q(root, '.rn-sjekk');
     if (sk) sk.addEventListener('click', function () {
       S.recalc(); let ok = 0; const msg = [];

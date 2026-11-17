@@ -26,7 +26,7 @@
       '<div class="seg" role="group" aria-label="Velg hvordan du vil jobbe">' +
       '<a href="' + hU + '"' + (mode === 'utforsk' ? ' aria-current="true"' : '') + '>🔭 Utforsk</a>' +
       '<a href="' + hS + '"' + (mode === 'steg' ? ' aria-current="true"' : '') + '>🪜 Steg for steg</a></div>' +
-      '<nav class="topnav" aria-label="Meny"><a href="' + M.href(mode, 'ekstra') + '">📚 Ekstra oppgaver</a><a href="' + M.href(mode, 'verktoy') + '">🛠️ Verktøy</a></nav>' +
+      '<nav class="topnav" aria-label="Meny"><a href="' + M.href(mode, 'spill') + '">🎮 Spill</a><a href="' + M.href(mode, 'ekstra') + '">📚 Ekstra oppgaver</a><a href="' + M.href(mode, 'verktoy') + '">🛠️ Verktøy</a></nav>' +
       '<button type="button" id="lh-knapp" class="knapp liten lh-knapp" aria-pressed="' + ntt + '" aria-controls="lh-panel">📖 Lesehjelp</button></div>';
   }
 
@@ -35,11 +35,13 @@
     document.body.classList.toggle('modus-steg', mode === 'steg');
     document.body.classList.toggle('modus-utforsk', mode !== 'steg');
     if (M.lesehjelpStopp) M.lesehjelpStopp();
+    if (M.spillStopp) M.spillStopp();
     M._after = null;
     let html;
     const tr = parts[0] && M.findTrinn(parts[0]);
     if (!parts.length) html = P.home(mode);
     else if (parts[0] === 'verktoy') html = parts.length >= 2 ? P.topic(mode, 'verktoy', parts[1]) : P.verktoy(mode);
+    else if (parts[0] === 'spill') html = parts.length >= 2 ? P.spill(mode, parts[1]) : P.spillIndex(mode);
     else if (parts[0] === 'ekstra') html = parts.length >= 3 ? P.ekstra(mode, parts[1], parts[2]) : P.ekstraIndex(mode);
     else if (tr) html = parts.length === 1 ? P.trinn(mode, parts[0]) : P.topic(mode, parts[0], parts[1]);
     else html = P.ikkeFunnet(mode);

@@ -88,7 +88,8 @@
       inn = '<div class="svar-rad"><label class="sr-only" for="f-' + id + '">Svar</label><input id="f-' + id + '" class="svar-felt bred" type="text" autocomplete="off" spellcheck="false" placeholder="Tallene med komma imellom, f.eks. −5, 0, 3" />' +
         '<button type="button" class="knapp primær sjekk">Sjekk</button></div>';
     } else {
-      inn = '<p class="skrivehjelp">✏️ Tenk eller skriv i skriveboka di. Når du har prøvd, kan du se et løsningsforslag.</p>';
+      inn = '<p class="skrivehjelp">✏️ Skriv tankene dine her (teksten lagres ikke og forsvinner når du forlater siden). Når du har prøvd, kan du se et løsningsforslag.</p>' +
+        '<label class="sr-only" for="f-' + id + '">Ditt forsøk</label><textarea id="f-' + id + '" class="fritekst-felt" rows="3" placeholder="Skriv forsøket ditt her …"></textarea>';
     }
     return '<li class="oppg" data-id="' + id + '" data-type="' + t.type + '">' +
       '<div class="oppg-tekst lesbar">' + tekst + '</div>' + vis + inn +
@@ -231,11 +232,16 @@
     if (s.vist && !box.hidden) { box.hidden = true; li.querySelector('.losning-knapp').textContent = '👀 Vis fasit og løsning'; return; }
     if (s.vist) { box.hidden = false; li.querySelector('.losning-knapp').textContent = '🙈 Skjul løsningen'; return; }
     if (t.type === 'fritekst') {
+      const ta = li.querySelector('.fritekst-felt');
       if (!s.forsok) {
+        if (!ta || ta.value.trim().length < 4) {
+          feedback(li, false, 'Prøv først! Skriv hva du tenker eller hvordan du ville startet (minst noen ord) – deretter kan du se løsningsforslaget. ✏️');
+          if (ta) ta.focus();
+          return;
+        }
         s.forsok = 1;
-        feedback(li, false, 'Har du prøvd selv? Skriv eller tegn i skriveboka først. Trykk på knappen igjen når du er klar. ✏️');
-        return;
       }
+      feedback(li, true, 'Bra at du prøvde selv! Sammenlikn med løsningsforslaget under. 👇');
       visLosning(li); return;
     }
     if (!s.forsok) { feedback(li, false, 'Prøv først! Skriv et svar og trykk «Sjekk» – etterpå kan du se fasit og løsning. 🙂'); return; }

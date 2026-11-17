@@ -77,28 +77,40 @@
   /* ---------- sidene ---------- */
   function trinnFarge(t) { const x = findTrinn(t); return x ? x.farge : 't8'; }
 
+  function reiseSvg() {
+    /* Dekorativ «reise»: en vei med tre stopp (8., 9., 10. trinn) og svevende matte-symboler */
+    const sym = [['π', 10, 30, 0], ['√', 90, 26, 1], ['%', 150, 34, 2], ['x²', 226, 24, 3], ['∑', 296, 34, 4], ['÷', 40, 120, 5], ['=', 196, 134, 6], ['∞', 276, 126, 7], ['±', 118, 142, 8]];
+    return '<svg viewBox="0 0 340 160" class="reise-svg" role="img" aria-label="En vei med tre stopp: 8., 9. og 10. trinn">' +
+      '<path id="reisevei" d="M18 120 C 70 120, 80 60, 130 70 S 200 118, 232 84 S 290 40, 322 52" class="rv-bakgrunn"/>' +
+      '<path d="M18 120 C 70 120, 80 60, 130 70 S 200 118, 232 84 S 290 40, 322 52" class="rv-stiplet"/>' +
+      sym.map(s => '<text x="' + s[1] + '" y="' + s[2] + '" class="sym s' + s[3] + '">' + s[0] + '</text>').join('') +
+      '<g class="stopp t8"><circle cx="84" cy="88" r="17"/><text x="84" y="94" text-anchor="middle">8</text></g>' +
+      '<g class="stopp t9"><circle cx="170" cy="96" r="17"/><text x="170" y="102" text-anchor="middle">9</text></g>' +
+      '<g class="stopp t10"><circle cx="262" cy="62" r="17"/><text x="262" y="68" text-anchor="middle">10</text></g>' +
+      '<text x="14" y="146" class="reise-start">Start</text><text x="306" y="44" class="reise-mal">🏁</text>' +
+      '<g class="reisende"><text class="reisende-ikon" text-anchor="middle" dy=".35em">🧭<animateMotion dur="14s" repeatCount="indefinite" rotate="0"><mpath href="#reisevei"/></animateMotion></text></g></svg>';
+  }
+
   function pageHome(mode) {
     const steg = mode === 'steg';
-    const ant = t => t.temaer.filter(x => x.klar).length + ' av ' + t.temaer.length + ' temaer klare';
-    return '<section class="hero"><div class="hero-tekst"><h1>' + M.siteName + '</h1>' +
-      '<p class="ingress lesbar">Matte for 8., 9. og 10. trinn. Forklart med bilder, farger og modeller du kan prøve selv, og med oppgaver fra helt enkle til utfordrende.</p></div>' +
-      '<div class="hero-art" aria-hidden="true"><svg viewBox="0 0 320 150" class="hero-linje"><line x1="14" y1="100" x2="306" y2="100" class="hl"/>' +
-      [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5].map((v, i) => '<line x1="' + (30 + i * 26) + '" x2="' + (30 + i * 26) + '" y1="92" y2="108" class="ht ' + (v < 0 ? 'neg' : v > 0 ? 'pos' : 'zero') + '"/><text x="' + (30 + i * 26) + '" y="130" text-anchor="middle" class="htx ' + (v < 0 ? 'neg' : v > 0 ? 'pos' : 'zero') + '">' + M.fmt(v) + '</text>').join('') +
-      '<circle cx="' + (30 + 8 * 26) + '" cy="60" r="16" class="hp"/><text x="' + (30 + 8 * 26) + '" y="66" text-anchor="middle" class="hpt">+3</text>' +
-      '<circle cx="' + (30 + 2 * 26) + '" cy="60" r="16" class="hn"/><text x="' + (30 + 2 * 26) + '" y="66" text-anchor="middle" class="hpt">−3</text></svg></div></section>' +
+    const ant = t => t.temaer.filter(x => x.klar).length + ' temaer';
+    return '<section class="hero hero-kompakt"><div class="hero-tekst"><h1>' + M.siteName + '</h1>' +
+      '<p class="ingress lesbar">Matte for 8., 9. og 10. trinn. Forklart med bilder, farger og modeller du kan prøve selv, med oppgaver fra helt enkle til utfordrende, og spill som gjør det gøy å lære.</p></div>' +
+      '<div class="hero-art" aria-hidden="false">' + reiseSvg() + '</div></section>' +
 
-      '<section class="modus-velger" aria-labelledby="modus-tittel"><h2 id="modus-tittel" class="seksjon-tittel">Hvordan vil du jobbe?</h2><div class="modus-rad">' +
-      '<a class="modus-kort utforsk' + (!steg ? ' valgt' : '') + '" href="' + H('utforsk') + '" ' + (!steg ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🔭</span><strong>Utforsk</strong><span class="lesbar">Grundige forklaringer, modeller og oppgaver fra enkle til utfordrende.</span></a>' +
-      '<a class="modus-kort steg' + (steg ? ' valgt' : '') + '" href="' + H('steg') + '" ' + (steg ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🪜</span><strong>Steg for steg</strong><span class="lesbar">Små steg, mange eksempler og mye hjelp underveis. Du bestemmer tempoet.</span></a>' +
-      '</div></section>' +
-
-      '<section aria-labelledby="trinn-tittel"><h2 id="trinn-tittel" class="seksjon-tittel">Velg trinn</h2><div class="trinn-grid">' +
+      '<section aria-labelledby="trinn-tittel"><h2 id="trinn-tittel" class="seksjon-tittel første-tittel">Velg trinn</h2><div class="trinn-grid">' +
       CUR.map(t => '<a class="trinn-kort ' + t.farge + '" href="' + H(mode, t.trinn) + '"><span class="trinn-nr">' + t.trinn + '.</span><span class="trinn-info"><strong>' + t.tittel + '</strong><span class="lesbar">' + t.undertittel + '</span><span class="trinn-status">' + ant(t) + '</span></span><span class="pil" aria-hidden="true">→</span></a>').join('') +
       '</div></section>' +
 
       '<section aria-labelledby="mer-tittel"><h2 id="mer-tittel" class="seksjon-tittel">Mer å utforske</h2><div class="mer-grid">' +
-      '<a class="mer-kort" href="' + H(mode, 'ekstra') + '"><span class="mini-ikon" aria-hidden="true">📚</span><strong>Ekstra oppgaver</strong><span class="lesbar">Mange flere oppgaver, delt inn i trinn og temaer. Fasit står til slutt.</span></a>' +
+      '<a class="mer-kort spill-kort" href="' + H(mode, 'spill') + '"><span class="mini-ikon" aria-hidden="true">🎮</span><strong>Spill for å lære</strong><span class="lesbar">Spill og puslespill som lærer deg matte uten at du merker det. Ingenting lagres.</span></a>' +
+      '<a class="mer-kort" href="' + H(mode, 'ekstra') + '"><span class="mini-ikon" aria-hidden="true">📚</span><strong>Ekstra oppgaver</strong><span class="lesbar">Mange flere oppgaver, delt inn i trinn og temaer. Fasit kommer når du har prøvd.</span></a>' +
       '<a class="mer-kort" href="' + H(mode, 'verktoy') + '"><span class="mini-ikon" aria-hidden="true">🛠️</span><strong>Python, GeoGebra og Excel</strong><span class="lesbar">Lær å bruke digitale verktøy i matte, helt fra start.</span></a>' +
+      '</div></section>' +
+
+      '<section class="modus-velger" aria-labelledby="modus-tittel"><h2 id="modus-tittel" class="seksjon-tittel">Hvordan vil du jobbe?</h2><div class="modus-rad">' +
+      '<a class="modus-kort utforsk' + (!steg ? ' valgt' : '') + '" href="' + H('utforsk') + '" ' + (!steg ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🔭</span><strong>Utforsk</strong><span class="lesbar">Grundige forklaringer, modeller og oppgaver fra enkle til utfordrende.</span></a>' +
+      '<a class="modus-kort steg' + (steg ? ' valgt' : '') + '" href="' + H('steg') + '" ' + (steg ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🪜</span><strong>Steg for steg</strong><span class="lesbar">Små steg, mange eksempler og mye hjelp underveis. Du bestemmer tempoet.</span></a>' +
       '</div></section>';
   }
 
@@ -136,6 +148,7 @@
       return crumbs + '<header class="side-hode ' + tr.farge + '"><h1>' + meta.ikon + ' ' + meta.tittel + '</h1></header>' +
         '<div class="callout tips"><div class="callout-ikon">🚧</div><div class="callout-tekst"><strong>Dette temaet er under arbeid.</strong><div>Her kommer forklaringer, modeller og oppgaver snart.</div></div></div>';
     }
+    const spillHer = M.gamesFor ? M.gamesFor(trinn + '/' + id) : [];
     const ctx = { ordliste: topic.ordliste || [], seen: {}, widgets: [], wid: 0, topicKey: trinn + '-' + id, blokkN: 0 };
     M.setOrdliste(ctx.ordliste);
     const andre = mode === 'steg' ? 'utforsk' : 'steg';
@@ -147,14 +160,14 @@
       (topic.ingress ? '<p class="ingress lesbar">' + M.markup(topic.ingress, ctx) + '</p>' : '') + '</div></header>' +
       '<div class="topic-topp">' + (topic.mal ? '<section class="mal-boks"><h2>🎯 ' + (mode === 'steg' ? 'Dette skal du lære' : 'Mål for temaet') + '</h2><ul>' + topic.mal.map(m => '<li class="lesbar">' + M.markup(m, ctx) + '</li>').join('') + '</ul>' + (mode !== 'steg' ? dekkerHTML(tr, meta) : '') + '</section>' : '') + '</div>';
     h += '<div class="topic-layout"><nav class="toc ' + (mode === 'steg' ? 'toc-sti' : '') + '" aria-label="Innhold"><h2>' + (mode === 'steg' ? 'Stien din' : 'Innhold') + '</h2><ol>' +
-      topic.seksjoner.map((s, i) => '<li><button type="button" class="toc-lenke" data-scroll="s' + (i + 1) + '" data-toc="s' + (i + 1) + '"><span class="toc-nr">' + (i + 1) + '</span><span class="toc-tittel">' + (mode === 'steg' ? (s.kort || s.tittel) : s.tittel) + '</span></button></li>').join('') +
-      '</ol>' + (M.ekstra[trinn + '/' + id] ? '<div class="toc-lenker"><a href="' + H(mode, 'ekstra', trinn, id) + '">📚 Ekstra oppgaver</a></div>' : '') + '</nav><div class="topic-innhold">';
+      topic.seksjoner.map((s, i) => '<li><button type="button" class="toc-lenke" data-scroll="s' + (i + 1) + '" data-toc="s' + (i + 1) + '"><span class="toc-nr">' + (i + 1) + '</span><span class="toc-tittel">' + (s.forklaring ? '📖 ' : '') + (mode === 'steg' ? (s.kort || s.tittel) : s.tittel) + '</span></button></li>').join('') +
+      '</ol>' + ((M.ekstra[trinn + '/' + id] || spillHer.length) ? '<div class="toc-lenker">' + (M.ekstra[trinn + '/' + id] ? '<a href="' + H(mode, 'ekstra', trinn, id) + '">📚 Ekstra oppgaver</a>' : '') + spillHer.map(g => '<a href="' + H(mode, 'spill', g.id) + '">' + g.ikon + ' Spill: ' + g.tittel + '</a>').join('') + '</div>' : '') + '</nav><div class="topic-innhold">';
     topic.seksjoner.forEach(function (s, i) {
       ctx.seen = {}; ctx.sek = 's' + (i + 1); ctx.blokkN = 0;
-      h += '<section class="seksjon farge-' + ((i % 6) + 1) + '" id="s' + (i + 1) + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + (s.ikon || (i + 1)) + '</span><h2>' + s.tittel + '</h2></header>' +
+      h += '<section class="seksjon farge-' + ((i % 6) + 1) + (s.forklaring ? ' forklaring-sek' : '') + '" id="s' + (i + 1) + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + (s.ikon || (i + 1)) + '</span><h2>' + s.tittel + '</h2>' + (s.forklaring ? '<span class="fork-merke">📖 Les først</span>' : '') + '</header>' +
         s.blokker.map(b => blockHTML(b, ctx)).join('') + '</section>';
     });
-    h += '<p class="lenke-rad slutt-rad">' + (M.ekstra[trinn + '/' + id] ? '<a class="knapp primær" href="' + H(mode, 'ekstra', trinn, id) + '">📚 Øv mer med ekstra oppgaver</a> ' : '') + (trinn === 'verktoy' ? '' : bytt) + '</p></div></div>';
+    h += '<p class="lenke-rad slutt-rad">' + (M.ekstra[trinn + '/' + id] ? '<a class="knapp primær" href="' + H(mode, 'ekstra', trinn, id) + '">📚 Øv mer med ekstra oppgaver</a> ' : '') + spillHer.map(g => '<a class="knapp" href="' + H(mode, 'spill', g.id) + '">' + g.ikon + ' Spill: ' + g.tittel + '</a> ').join('') + (trinn === 'verktoy' ? '' : bytt) + '</p></div></div>';
     M._after = function () { mountWidgets(ctx); M.initTaskCounters(document.getElementById('main')); };
     return h;
   }
@@ -179,7 +192,7 @@
     return '<ol class="ekstra-liste">' + items.map((it, k) =>
       '<li data-k="' + k + '"><span class="eq lesbar">' + it.q + '</span><span class="svar-gruppe"><label class="sr-only" for="e-' + sek.id + '-' + k + '">Svar på oppgave ' + (k + 1) + '</label>' +
       '<input id="e-' + sek.id + '-' + k + '" class="ekstra-felt" type="text" autocomplete="off" spellcheck="false" placeholder="svar"><span class="ekstra-status" aria-live="polite"></span></span></li>').join('') + '</ol>' +
-      '<details class="fasit-liste"><summary>Vis fasit for «' + sek.tittel + '»</summary><ol>' + items.map(it => '<li>' + it.a + '</li>').join('') + '</ol></details>';
+      '<div class="fasit-liste" data-sek="' + sek.id + '"><button type="button" class="knapp liten fasit-lås" aria-expanded="false">🔒 Fasit for «' + sek.tittel + '»</button> <span class="fasit-status lesbar" aria-live="polite">Prøv alle oppgavene først (0 av ' + items.length + ' prøvd).</span><ol hidden>' + items.map(it => '<li>' + it.a + '</li>').join('') + '</ol></div>';
   }
   function pageEkstra(mode, trinn, id) {
     const key = trinn + '/' + id; const meta = findTema(trinn, id), tr = findTrinn(trinn);
@@ -187,7 +200,7 @@
     const def = M.ekstra[key](mode);
     M.setOrdliste((M.topics[mode][key] || M.topics.utforsk[key] || {}).ordliste || []);
     let h = '<nav class="brødsmule"><a href="' + H(mode) + '">Forsiden</a> › <a href="' + H(mode, 'ekstra') + '">Ekstra oppgaver</a> › <span>' + meta.tittel + '</span></nav>' +
-      '<header class="side-hode ' + tr.farge + '"><h1>📚 ' + def.tittel + '</h1><p class="lesbar">' + def.intro + '</p><p><button type="button" class="knapp liten skriv-ut">🖨️ Skriv ut</button> <a class="knapp liten" href="' + H(mode, trinn, id) + '">← Tilbake til forklaringen</a></p></header>';
+      '<header class="side-hode ' + tr.farge + '"><h1>📚 ' + def.tittel + '</h1><p class="lesbar">' + def.intro + '</p><p><button type="button" class="knapp liten skriv-ut" data-med="0">🖨️ Skriv ut uten fasit</button> <button type="button" class="knapp liten skriv-ut" data-med="1">🖨️ Skriv ut med fasit (lærer)</button> <a class="knapp liten" href="' + H(mode, trinn, id) + '">← Tilbake til forklaringen</a></p></header>';
     def.seksjoner.forEach(function (sek, i) {
       ekstraState[sek.id] = { def: sek, items: ekstraItems(sek, Math.floor(Math.random() * 1e9)) };
       h += '<section class="seksjon ekstra-seksjon farge-' + ((i % 6) + 1) + '" id="x-' + sek.id + '" data-sek="' + sek.id + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + sek.ikon + '</span><h2>' + sek.tittel + '</h2><button type="button" class="knapp liten nytt-sett" data-sek="' + sek.id + '">🎲 Nytt sett</button></header>' +
@@ -196,10 +209,18 @@
     M._after = function () { /* ingenting */ };
     return h;
   }
+  function fasitStatus(sekEl, st) {
+    const f = sekEl.querySelector('.fasit-liste'); if (!f) return;
+    const n = st.items.length, k = Object.keys(st.tried || {}).length, s = f.querySelector('.fasit-status'), b = f.querySelector('.fasit-lås');
+    if (f.classList.contains('åpen')) return;
+    if (k >= n) { s.textContent = 'Du har prøvd alle! Nå kan du sjekke fasit.'; b.textContent = '🔓 Vis fasit'; b.classList.add('primær'); }
+    else s.textContent = 'Prøv alle oppgavene først (' + k + ' av ' + n + ' prøvd).';
+  }
   function ekstraSjekk(input) {
     const li = input.closest('li'); const sekEl = input.closest('[data-sek]'); const st = ekstraState[sekEl.dataset.sek];
     const it = st.items[+li.dataset.k]; const stat = li.querySelector('.ekstra-status');
     const v = input.value.trim(); if (!v) { stat.textContent = ''; li.classList.remove('ok', 'nei'); return; }
+    (st.tried = st.tried || {})[li.dataset.k] = true; fasitStatus(sekEl, st);
     let ok;
     if (it.str !== undefined) ok = v.replace(/\s+/g, '') === it.str;
     else { const n = M.parseNum(v); ok = !isNaN(n) && Math.abs(n - it.num) < 1e-9; }
@@ -236,10 +257,22 @@
       }
       const alle = t.closest('.eks-alle');
       if (alle) { const eks = alle.closest('.eksempel'); eks.querySelectorAll('.eks-steg li[hidden]').forEach(li => { li.hidden = false; li.classList.add('synlig'); }); eks.querySelector('.eks-knapper').hidden = true; if (M.addReadButtons) M.addReadButtons(eks); return; }
-      if (t.closest('.skriv-ut')) { document.querySelectorAll('.fasit-liste').forEach(d => d.open = true); window.print(); return; }
+      const fl = t.closest('.fasit-lås');
+      if (fl) {
+        const box = fl.closest('.fasit-liste'), st = ekstraState[box.dataset.sek];
+        if (box.classList.contains('åpen')) { box.classList.remove('åpen'); box.querySelector('ol').hidden = true; fl.textContent = '🔓 Vis fasit'; fl.setAttribute('aria-expanded', 'false'); return; }
+        if (Object.keys(st.tried || {}).length < st.items.length) { fasitStatus(box.closest('[data-sek]'), st); box.querySelector('.fasit-status').classList.add('rist'); setTimeout(() => box.querySelector('.fasit-status').classList.remove('rist'), 600); return; }
+        box.classList.add('åpen'); box.querySelector('ol').hidden = false; box.querySelector('.fasit-status').textContent = ''; fl.textContent = '🙈 Skjul fasit'; fl.setAttribute('aria-expanded', 'true'); return;
+      }
+      const pr = t.closest('.skriv-ut');
+      if (pr) {
+        const med = pr.dataset.med === '1';
+        document.querySelectorAll('.fasit-liste').forEach(d => { d.classList.toggle('skjul-print', !med); if (med) { d.querySelector('ol').hidden = false; } });
+        window.print(); return;
+      }
       const ny = t.closest('.nytt-sett');
       if (ny) {
-        const st = ekstraState[ny.dataset.sek]; st.items = ekstraItems(st.def, Math.floor(Math.random() * 1e9));
+        const st = ekstraState[ny.dataset.sek]; st.items = ekstraItems(st.def, Math.floor(Math.random() * 1e9)); st.tried = {};
         const sek = document.getElementById('x-' + ny.dataset.sek); sek.querySelector('.ekstra-innhold').innerHTML = ekstraSekHTML(st.def);
         if (M.addReadButtons) M.addReadButtons(sek);
       }
