@@ -4,7 +4,7 @@
 
   L('10/algebra', {
     tid: '4–5 timer',
-    forkunn: ['Uttrykk og ligninger fra 8. og 9. trinn'],
+    forkunn: ['Uttrykk og likninger fra 8. og 9. trinn'],
     husk: ['Fordelingsregelen: a(b + c) = ab + ac.', 'Trekk sammen like ledd.', 'For å vise at noe alltid stemmer: bruk bokstaver, ikke bare eksempler.'],
     feil: ['Å glemme å gange med alle ledd i parentesen.', 'Å trekke sammen ulike ledd.', 'Å tro at eksempler er bevis.'],
     start: 'Tenk på et tall, legg til 3, gang med 2, trekk fra 6, del på 2. Alle får samme som de startet med! Hvorfor?',
@@ -30,13 +30,13 @@
 
   L('10/ligningssett', {
     tid: '5 timer',
-    forkunn: ['Ligninger', 'Lineære funksjoner'],
-    husk: ['Løsningen er skjæringspunktet mellom to linjer.', 'Innsettingsmetoden: løs for én variabel og sett inn.', 'Addisjonsmetoden: legg sammen ligningene for å fjerne en variabel.'],
-    feil: ['Å løse for bare én variabel.', 'Å regne feil fortegn når ligninger trekkes fra hverandre.', 'Å ikke sette prøve i begge ligningene.'],
+    forkunn: ['Likninger', 'Lineære funksjoner'],
+    husk: ['Løsningen er skjæringspunktet mellom to linjer.', 'Innsettingsmetoden: løs for én variabel og sett inn.', 'Addisjonsmetoden: legg sammen likningene for å fjerne en variabel.'],
+    feil: ['Å løse for bare én variabel.', 'Å regne feil fortegn når likninger trekkes fra hverandre.', 'Å ikke sette prøve i begge likningene.'],
     start: 'To mobilabonnement: ett med 100 kr fast og 2 kr per GB, ett med 50 kr fast og 4 kr per GB. Når er de like dyre?',
-    midt: 'Grafisk løsning først (GeoGebra), deretter innsetting og addisjon. Lag ligningssett fra tekst.',
+    midt: 'Grafisk løsning først (GeoGebra), deretter innsetting og addisjon. Lag likningssett fra tekst.',
     slutt: 'Utgangsbillett: «Løs x + y = 8 og x − y = 2 og sett prøve.»',
-    samtale: ['Hva forteller skjæringspunktet i situasjonen?', 'Når passer innsetting best?', 'Kan et ligningssett ha ingen eller uendelig mange løsninger?'],
+    samtale: ['Hva forteller skjæringspunktet i situasjonen?', 'Når passer innsetting best?', 'Kan et likningssett ha ingen eller uendelig mange løsninger?'],
     diff: { rolig: 'Sett inn og finn y.', vanlig: 'Løs med en metode.', utfordring: 'Velg metode, tolk og sjekk.' },
     vurdering: 'Se etter om eleven setter prøve og tolker løsningen i situasjonen.'
   });
@@ -89,7 +89,7 @@
     midt: 'Sparing med rente, lån og kredittkjøp. Bruk regneark til tabeller. Bruk Rente-raketten.',
     slutt: 'Utgangsbillett: «Hvor mye har du etter 3 år på 5000 kr med 4 % rente?»',
     samtale: ['Hvorfor er sparing mer verdt over lang tid?', 'Når kan et lån være lurt?', 'Hva må du huske på ved kredittkjøp?'],
-    diff: { rolig: 'Rente ett år og enkle sammenligninger.', vanlig: 'Flere år og tabeller.', utfordring: 'Lån, avdrag og totalkostnad.' },
+    diff: { rolig: 'Rente ett år og enkle sammenlikninger.', vanlig: 'Flere år og tabeller.', utfordring: 'Lån, avdrag og totalkostnad.' },
     vurdering: 'Se etter at eleven sammenligner totalpris og forklarer valg.'
   });
 

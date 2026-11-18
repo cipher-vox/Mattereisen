@@ -94,7 +94,7 @@
     P('En rettvinklet trekant har en vinkel på 90°. De to sidene som møtes der heter <strong>kateter</strong>. Den lengste siden heter <strong>hypotenus</strong>.', true),
     OS([
       V('Hva heter den lengste siden?', ['Hypotenus', 'Katet'], 0, 'Den er rett overfor 90°.', 'Hypotenus.', true),
-      V('Hvor mange kateter er det?', ['2', '1', '3'], 0, 'To sider danner den rette vinkelen.', '2.', true)
+      V('Hvor mange kateter er det?', ['2', '1', '3'], 0, 'To sider danner den rette vinkelen.', 'I en rettvinklet trekant er det to kateter: de to sidene som danner den rette vinkelen. Den tredje siden er hypotenusen.', true)
     ])
   ]));
   T1.push(S('Steg 2: Pytagoras', '2', [
@@ -300,7 +300,7 @@
     E('En 2 m lang stang har 3 m skygge. Samtidig har et tre 12 m skygge. Hvor høyt er treet?', ['Målestokk: 12 ÷ 3 = 4, siden skyggen ble 4 ganger så lang.', 'Treet er også 4 ganger så høyt: 2 · 4 = 8.', 'Svar: 8 m.']),
     C('virkelighet', 'Gamle triks', 'Slik målte grekerne høyden på pyramidene: de ventet til skyggen til en stokk var like lang som stokken.'),
     O(3, [
-      T('En 1 m lang stav har 2 m skygge. Et tårn har 30 m skygge. Hvor høyt er tårnet?', 15, 'k = 30 ÷ 2 = 15.', 'k = 15, så høyde 1 · 15 = 15 m.', 'm'),
+      T('En 1 m lang stav har 2 m skygge. Et tårn har 30 m skygge. Hvor høyt er tårnet?', 15, 'Hvor mange ganger lengre er tårnets skygge enn stavens?', 'Skyggen er 30 ÷ 2 = 15 ganger lengre, så tårnet er 1 · 15 = 15 m høyt.', 'm'),
       T('Ei jente på 1,5 m har 2 m skygge. En flaggstang har 8 m skygge. Hvor høy er flaggstangen?', 6, 'k = 4.', 'k = 8 ÷ 2 = 4, så 1,5 · 4 = 6 m.', 'm'),
       T('En stolpe på 4 m har 6 m skygge. Hvor lang er skyggen til en 10 m høy stolpe?', 15, 'k = 10 ÷ 4 = 2,5.', 'k = 2,5, så 6 · 2,5 = 15 m.', 'm')
     ])
@@ -353,7 +353,7 @@
     E('En 2 m stang har 3 m skygge. Et tre har 6 m skygge. Hvor høyt er treet?', ['Skyggen er 2 ganger så lang (6 ÷ 3).', 'Treet er 2 ganger så høyt: 2 · 2.', 'Treet er 4 m. 🎉']),
     OS([
       T('Skyggen til treet er 2 ganger så lang som skyggen til stangen. Stangen er 3 m. Hvor høyt er treet?', 6, '3 · 2.', '3 · 2 = 6 m.', 'm'),
-      T('En 1 m stav har 2 m skygge. Et hus har 10 m skygge. Hvor høyt er huset?', 5, '10 ÷ 2 = 5.', '1 · 5 = 5 m.', 'm')
+      T('En 1 m stav har 2 m skygge. Et hus har 10 m skygge. Hvor høyt er huset?', 5, 'Hvor mange ganger lengre er husets skygge enn stavens?', 'Skyggen er 10 ÷ 2 = 5 ganger lengre, så huset er 1 · 5 = 5 m høyt.', 'm')
     ])
   ]));
   T3.push(S('Steg 3: Dobbel størrelse', '3', [

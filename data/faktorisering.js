@@ -153,7 +153,7 @@
       V('Hvilket er et primtall?', ['7', '9', '12'], 0, 'Bare 1 og seg selv går opp.', '7 går bare opp i 1 og 7.', true),
       V('Hvilket er IKKE et primtall?', ['15', '13', '11'], 0, '3 · 5 = 15.', '15 = 3 · 5. Det er ikke et primtall.', true),
       V('Er 2 et primtall?', ['Ja', 'Nei'], 0, '2 har faktorene 1 og 2.', 'Ja. 2 er det eneste partallet som er et primtall.', true),
-      T('Hvor mange primtall er det mellom 1 og 10? (2, 3, 5, 7)', 4, 'Tell dem.', 'Det er 4: 2, 3, 5 og 7.')
+      T('Hvor mange primtall er det mellom 1 og 10?', 4, 'Sjekk tallene 2 til 9 ett og ett: går det opp i noe annet enn 1 og seg selv?', 'Det er 4: 2, 3, 5 og 7.')
     ])
   ]));
   T1.push(S('Steg 3: Faktortre', '3', [

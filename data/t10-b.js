@@ -1,5 +1,5 @@
 /* ============================================================
-   10. trinn: Ligningssett + Endring per enhet og stigningstall
+   10. trinn: Likningssett + Endring per enhet og stigningstall
    Læreplan 10.3 og 10.5
    ============================================================ */
 (function () {
@@ -7,23 +7,23 @@
   const { V, T, F, P, G, C, E, O, OS, W, TAB, K, SJ, S, ord } = H;
   const TEAL = '#0e8f9b', ORANGE = '#e8964a';
 
-  /* ================= LIGNINGSSETT ================= */
+  /* ================= LIKNINGSSETT ================= */
   const ORD1 = [
-    ord(['ligningssett', 'ligningssettet'], 'To eller flere ligninger med de samme ukjente. Løsningen må passe i alle.'),
+    ord(['likningssett', 'likningssettet'], 'To eller flere likninger med de samme ukjente. Løsningen må passe i alle.'),
     ord(['ukjent', 'ukjente'], 'Tall vi ikke vet ennå, skrevet som bokstav, for eksempel x og y.'),
-    ord(['løsning', 'løsningen'], 'Verdiene av x og y som gjør begge ligningene sanne.'),
-    ord(['innsettingsmetoden'], 'Løs den ene ligningen for en ukjent, og sett uttrykket inn i den andre.'),
-    ord(['addisjonsmetoden'], 'Legg sammen eller trekk fra ligningene slik at en ukjent forsvinner.'),
-    ord(['skjæringspunkt', 'skjæringspunktet'], 'Punktet der to grafer krysser hverandre. Her er løsningen på ligningssettet.'),
-    ord(['graf'], 'En tegning som viser alle punktene (x, y) som passer til en ligning.'),
+    ord(['løsning', 'løsningen'], 'Verdiene av x og y som gjør begge likningene sanne.'),
+    ord(['innsettingsmetoden'], 'Løs den ene likningen for en ukjent, og sett uttrykket inn i den andre.'),
+    ord(['addisjonsmetoden'], 'Legg sammen eller trekk fra likningene slik at en ukjent forsvinner.'),
+    ord(['skjæringspunkt', 'skjæringspunktet'], 'Punktet der to grafer krysser hverandre. Her er løsningen på likningssettet.'),
+    ord(['graf'], 'En tegning som viser alle punktene (x, y) som passer til en likning.'),
     ord(['koeffisient'], 'Tallet foran en ukjent.'),
-    ord(['sette prøve', 'prøve'], 'Sette løsningen inn i begge ligningene for å se at begge blir sanne.')
+    ord(['sette prøve', 'prøve'], 'Sette løsningen inn i begge likningene for å se at begge blir sanne.')
   ];
   const U1 = [];
-  U1.push(S('To ukjente, to ligninger', '⚔️', [
-    P('Noen ganger har vi <strong>to ukjente</strong>, og trenger <strong>to opplysninger</strong> for å finne dem. Eksempel: «To tall har sum 10 og differanse 2.» Det gir to ligninger: <strong>x + y = 10</strong> og <strong>x − y = 2</strong>. Sammen kalles de et <strong>ligningssett</strong>.'),
+  U1.push(S('To ukjente, to likninger', '⚔️', [
+    P('Noen ganger har vi <strong>to ukjente</strong>, og trenger <strong>to opplysninger</strong> for å finne dem. Eksempel: «To tall har sum 10 og differanse 2.» Det gir to likninger: <strong>x + y = 10</strong> og <strong>x − y = 2</strong>. Sammen kalles de et <strong>likningssett</strong>.'),
     TAB(['x', 'y', 'x + y = 10?', 'x − y = 2?'], [['7', '3', 'Ja', 'Nei (4)'], ['5', '5', 'Ja', 'Nei (0)'], ['6', '4', 'Ja', 'Ja ✓'], ['8', '2', 'Ja', 'Nei (6)']]),
-    C('regel', 'Løsning av ligningssett', 'Løsningen er parene (x, y) som passer i <strong>begge</strong> ligningene samtidig. Her er det (6, 4).'),
+    C('regel', 'Løsning av likningssett', 'Løsningen er parene (x, y) som passer i <strong>begge</strong> likningene samtidig. Her er det (6, 4).'),
     O(1, [
       T('Sjekk x = 6 og y = 4 i x + y = 10. Hva er x + y?', 10, '6 + 4.', '6 + 4 = 10.'),
       T('Sjekk x = 6 og y = 4 i x − y = 2. Hva er x − y?', 2, '6 − 4.', '6 − 4 = 2.'),
@@ -31,20 +31,20 @@
     ])
   ]));
   U1.push(S('Grafisk løsning', '📈', [
-    P('Hver ligning med to ukjente gir en <strong>rett linje</strong> i et koordinatsystem. Løsningen til ligningssettet er der linjene <strong>krysser</strong>: <strong>skjæringspunktet</strong>.'),
+    P('Hver likning med to ukjente gir en <strong>rett linje</strong> i et koordinatsystem. Løsningen til likningssettet er der linjene <strong>krysser</strong>: <strong>skjæringspunktet</strong>.'),
     W('graf', { params: {}, funksjoner: [{ f: '10-x', navn: 'x + y = 10', farge: TEAL }, { f: 'x-2', navn: 'x − y = 2', farge: ORANGE }], xmin: 0, xmax: 12, ymin: 0, ymax: 12, skjaering: true, tabell: true, tabellx: [0, 2, 4, 6, 8, 10], tittel: 'Linjene krysser i (6, 4)', alt: 'To linjer som krysser i punktet seks komma fire' }),
-    C('tips', 'Fra ligning til linje', ['x + y = 10 betyr y = 10 − x.', 'x − y = 2 betyr y = x − 2.', 'Løs hver ligning for y, så kan du tegne dem.']),
+    C('tips', 'Fra likning til linje', ['x + y = 10 betyr y = 10 − x.', 'x − y = 2 betyr y = x − 2.', 'Løs hver likning for y, så kan du tegne dem.']),
     O(2, [
       T('Skriv x + y = 10 som y = 10 − x. Hva er y når x = 3?', 7, '10 − 3.', '10 − 3 = 7.'),
       T('Skriv x − y = 2 som y = x − 2. Hva er y når x = 6?', 4, '6 − 2.', '6 − 2 = 4.'),
       T('Linjene y = 10 − x og y = x − 2 krysser når x = 6. Hva er y?', 4, 'Sett x = 6 i en av dem.', 'y = 10 − 6 = 4.'),
-      V('Hva viser skjæringspunktet mellom to linjer?', ['Løsningen på ligningssettet', 'Lengden av linjene', 'Stigningstallet', 'Ingenting'], 0, 'Der begge ligningene er sanne.', 'Punktet ligger på begge linjene, så begge ligningene er sanne.')
+      V('Hva viser skjæringspunktet mellom to linjer?', ['Løsningen på likningssettet', 'Lengden av linjene', 'Stigningstallet', 'Ingenting'], 0, 'Der begge likningene er sanne.', 'Punktet ligger på begge linjene, så begge likningene er sanne.')
     ])
   ]));
   U1.push(S('Innsettingsmetoden', '🔁', [
-    P('Med <strong>innsettingsmetoden</strong> løser du den ene ligningen for en ukjent, og <strong>setter uttrykket inn</strong> i den andre.'),
-    E('Løs: y = x + 2 og 2x + y = 11.', ['Ligning 1 sier at y er det samme som x + 2. Sett det inn i ligning 2: 2x + (x + 2) = 11.', '3x + 2 = 11, så 3x = 9 og x = 3.', 'Finn y: y = 3 + 2 = 5. Svar: x = 3 og y = 5. Sjekk: 2 · 3 + 5 = 11 ✓.']),
-    C('regel', 'Slik gjør du', ['1. Løs en ligning for en ukjent (gjerne den som er enklest).', '2. Sett inn i den andre ligningen.', '3. Løs ligningen med én ukjent.', '4. Finn den andre ukjente. Sett prøve!']),
+    P('Med <strong>innsettingsmetoden</strong> løser du den ene likningen for en ukjent, og <strong>setter uttrykket inn</strong> i den andre.'),
+    E('Løs: y = x + 2 og 2x + y = 11.', ['Likning 1 sier at y er det samme som x + 2. Sett det inn i likning 2: 2x + (x + 2) = 11.', '3x + 2 = 11, så 3x = 9 og x = 3.', 'Finn y: y = 3 + 2 = 5. Svar: x = 3 og y = 5. Sjekk: 2 · 3 + 5 = 11 ✓.']),
+    C('regel', 'Slik gjør du', ['1. Løs en likning for en ukjent (gjerne den som er enklest).', '2. Sett inn i den andre likningen.', '3. Løs likningen med én ukjent.', '4. Finn den andre ukjente. Sett prøve!']),
     O(3, [
       T('y = x + 2 og 2x + y = 11. Hva er x?', 3, '3x + 2 = 11.', 'x = 3.'),
       T('y = x + 2 og 2x + y = 11. Hva er y?', 5, 'y = 3 + 2.', 'y = 5.'),
@@ -54,10 +54,10 @@
     ])
   ]));
   U1.push(S('Addisjonsmetoden', '➕', [
-    P('Med <strong>addisjonsmetoden</strong> legger du ligningene sammen (eller trekker dem fra hverandre) slik at en ukjent <strong>forsvinner</strong>.'),
+    P('Med <strong>addisjonsmetoden</strong> legger du likningene sammen (eller trekker dem fra hverandre) slik at en ukjent <strong>forsvinner</strong>.'),
     E('Løs: x + y = 10 og x − y = 2.', ['Legg sammen: (x + y) + (x − y) = 10 + 2.', 'y og −y tar hverandre ut: 2x = 12, så x = 6.', 'Sett inn i x + y = 10: 6 + y = 10, så y = 4. Svar: x = 6 og y = 4.']),
-    E('Løs: 2x + y = 11 og x + y = 7.', ['Trekk andre ligning fra første: (2x + y) − (x + y) = 11 − 7.', 'y forsvinner: x = 4.', 'Sett inn: 4 + y = 7, så y = 3. Svar: x = 4 og y = 3.']),
-    C('tips', 'Når bruker jeg hva?', ['Innsetting: når en ligning allerede har en ukjent alene (y = …).', 'Addisjon: når leddene med x eller y er like eller motsatte.']),
+    E('Løs: 2x + y = 11 og x + y = 7.', ['Trekk andre likning fra første: (2x + y) − (x + y) = 11 − 7.', 'y forsvinner: x = 4.', 'Sett inn: 4 + y = 7, så y = 3. Svar: x = 4 og y = 3.']),
+    C('tips', 'Når bruker jeg hva?', ['Innsetting: når en likning allerede har en ukjent alene (y = …).', 'Addisjon: når leddene med x eller y er like eller motsatte.']),
     O(3, [
       T('x + y = 10 og x − y = 2. Legg sammen. Hva blir 2x?', 12, '10 + 2.', '2x = 12.'),
       T('x + y = 10 og x − y = 2. Hva er x?', 6, '2x = 12.', 'x = 6.'),
@@ -66,9 +66,9 @@
       T('x + y = 15 og x − y = 5. Hva er y?', 5, '10 + y = 15.', 'y = 5.')
     ])
   ]));
-  U1.push(S('Fra tekst til ligningssett', '🎟️', [
-    P('Praktiske problemer kan gi ligningssett. Slik gjør du det: <strong>1) Velg bokstaver. 2) Skriv ligninger for hver opplysning. 3) Løs. 4) Svar med ord og enhet.</strong>'),
-    E('Kinobilletter: 2 voksne og 3 barn koster 380 kr. 1 voksen og 2 barn koster 220 kr. Finn prisene.', ['v = voksenbillett, b = barnebillett. 2v + 3b = 380 og v + 2b = 220.', 'Gang andre ligning med 2: 2v + 4b = 440. Trekk fra første: b = 60.', 'Sett inn: v + 2 · 60 = 220, så v = 100. Voksen 100 kr, barn 60 kr. Sjekk: 2 · 100 + 3 · 60 = 380 ✓.']),
+  U1.push(S('Fra tekst til likningssett', '🎟️', [
+    P('Praktiske problemer kan gi likningssett. Slik gjør du det: <strong>1) Velg bokstaver. 2) Skriv likninger for hver opplysning. 3) Løs. 4) Svar med ord og enhet.</strong>'),
+    E('Kinobilletter: 2 voksne og 3 barn koster 380 kr. 1 voksen og 2 barn koster 220 kr. Finn prisene.', ['v = voksenbillett, b = barnebillett. 2v + 3b = 380 og v + 2b = 220.', 'Gang andre likning med 2: 2v + 4b = 440. Trekk fra første: b = 60.', 'Sett inn: v + 2 · 60 = 220, så v = 100. Voksen 100 kr, barn 60 kr. Sjekk: 2 · 100 + 3 · 60 = 380 ✓.']),
     O(4, [
       T('To tall har sum 20 og differanse 6. Hva er det største tallet?', 13, 'x + y = 20 og x − y = 6.', '2x = 26, så x = 13.'),
       T('To tall har sum 20 og differanse 6. Hva er det minste tallet?', 7, '13 + y = 20.', 'y = 7.'),
@@ -78,30 +78,30 @@
     ])
   ]));
   U1.push(S('Spesialtilfeller', '🧩', [
-    P('Ikke alle ligningssett har nøyaktig én løsning. To linjer kan være <strong>parallelle</strong> (aldri krysse: <strong>ingen løsning</strong>) eller være <strong>samme linje</strong> (<strong>uendelig mange løsninger</strong>).'),
-    TAB(['Ligningssett', 'Linjene', 'Antall løsninger'], [['y = x + 1 og y = x + 3', 'Parallelle', 'Ingen'], ['y = 2x og y = 2x', 'Samme linje', 'Uendelig mange'], ['y = x og y = 2x', 'Krysser i (0, 0)', 'Én']]),
+    P('Ikke alle likningssett har nøyaktig én løsning. To linjer kan være <strong>parallelle</strong> (aldri krysse: <strong>ingen løsning</strong>) eller være <strong>samme linje</strong> (<strong>uendelig mange løsninger</strong>).'),
+    TAB(['Likningssett', 'Linjene', 'Antall løsninger'], [['y = x + 1 og y = x + 3', 'Parallelle', 'Ingen'], ['y = 2x og y = 2x', 'Samme linje', 'Uendelig mange'], ['y = x og y = 2x', 'Krysser i (0, 0)', 'Én']]),
     W('graf', { params: { b: { min: -4, max: 4, v: 2, navn: 'b' } }, funksjoner: [{ f: 'x', navn: 'y = x', farge: TEAL }, { f: 'x+b', navn: 'y = x + b', farge: ORANGE }], xmin: -6, xmax: 6, ymin: -8, ymax: 8, skjaering: true, tittel: 'Dra i b: når krysser linjene?', forklaring: v => v.b === 0 ? 'Linjene er <strong>samme linje</strong>: uendelig mange løsninger.' : 'Linjene er <strong>parallelle</strong>: de krysser aldri, så ingen løsning.' }),
     O(5, [
       V('y = x + 1 og y = x + 3. Hvor mange løsninger?', ['Ingen', 'Én', 'To', 'Uendelig mange'], 0, 'Er linjene parallelle?', 'Samme stigning, ulik startverdi: parallelle, ingen løsning.', true),
       V('y = 3x og y = 3x. Hvor mange løsninger?', ['Uendelig mange', 'Ingen', 'Én', 'To'], 0, 'Er det samme linje?', 'Samme linje, alle punkter er løsninger.', true),
-      F('Forklar hvorfor x + y = 5 og x + y = 8 ikke kan ha en felles løsning.', ['x + y kan ikke være 5 og 8 samtidig.', 'Linjene y = 5 − x og y = 8 − x er parallelle.', 'Derfor krysser de aldri, og ligningssettet har ingen løsning.'])
+      F('Forklar hvorfor x + y = 5 og x + y = 8 ikke kan ha en felles løsning.', ['x + y kan ikke være 5 og 8 samtidig.', 'Linjene y = 5 − x og y = 8 − x er parallelle.', 'Derfor krysser de aldri, og likningssettet har ingen løsning.'])
     ])
   ]));
   U1.push(S('Undersøk og argumenter', '🔎', [
     O(5, [
       F('Løs x + y = 12 og 2x + y = 17. Vis hvordan du kontrollerer svaret.', ['Trekk første fra andre: (2x + y) − (x + y) = 17 − 12, så x = 5.', 'Sett inn: 5 + y = 12, så y = 7.', 'Kontroll: 5 + 7 = 12 ✓ og 2 · 5 + 7 = 17 ✓.']),
-      F('Du har to ulike metoder for å løse ligningssett. Beskriv når du ville valgt hver av dem.', ['Innsetting når en ukjent allerede er alene i en ligning, som y = 2x + 1.', 'Addisjon når x- eller y-leddene er like eller motsatte, som x + y og x − y.', 'Begge gir samme svar. Grafisk løsning gir et bilde, men er mindre nøyaktig.']),
-      F('Lag selv en praktisk oppgave som gir et ligningssett med løsning x = 4 og y = 6.', ['Eksempel: «To tall har sum 10 og differanse 2.» (x + y = 10 og x − y = 2 gir x = 6, y = 4.)', 'For x = 4 og y = 6: «x + y = 10 og y − x = 2.»', 'Kontroll: 4 + 6 = 10 ✓ og 6 − 4 = 2 ✓.'])
+      F('Du har to ulike metoder for å løse likningssett. Beskriv når du ville valgt hver av dem.', ['Innsetting når en ukjent allerede er alene i en likning, som y = 2x + 1.', 'Addisjon når x- eller y-leddene er like eller motsatte, som x + y og x − y.', 'Begge gir samme svar. Grafisk løsning gir et bilde, men er mindre nøyaktig.']),
+      F('Lag selv en praktisk oppgave som gir et likningssett med løsning x = 4 og y = 6.', ['Eksempel: «To tall har sum 10 og differanse 2.» (x + y = 10 og x − y = 2 gir x = 6, y = 4.)', 'For x = 4 og y = 6: «x + y = 10 og y − x = 2.»', 'Kontroll: 4 + 6 = 10 ✓ og 6 − 4 = 2 ✓.'])
     ]),
-    SJ('Dette kan du nå', ['Forklare hva et ligningssett er', 'Løse grafisk', 'Bruke innsetting', 'Bruke addisjon', 'Lage ligningssett fra tekst', 'Se når det ikke er én løsning'])
+    SJ('Dette kan du nå', ['Forklare hva et likningssett er', 'Løse grafisk', 'Bruke innsetting', 'Bruke addisjon', 'Lage likningssett fra tekst', 'Se når det ikke er én løsning'])
   ]));
   M.register('utforsk', '10/ligningssett', {
-    tittel: 'Ligningssett',
-    ingress: 'Når du har to ukjente trenger du to ligninger. Du løser dem med grafer, innsetting og addisjon, og bruker dem på praktiske problemer.',
-    mal: ['lage, løse og forklare ligningssett knyttet til praktiske situasjoner'], ordliste: ORD1, seksjoner: U1
+    tittel: 'Likningssett',
+    ingress: 'Når du har to ukjente trenger du to likninger. Du løser dem med grafer, innsetting og addisjon, og bruker dem på praktiske problemer.',
+    mal: ['lage, løse og forklare likningssett knyttet til praktiske situasjoner'], ordliste: ORD1, seksjoner: U1
   });
   const T1 = [];
-  T1.push(S('Steg 1: To ligninger', '1', [
+  T1.push(S('Steg 1: To likninger', '1', [
     G('Hei! 👋 Vi tar ett lite steg om gangen. ' + H.TIPS),
     P('Noen ganger er det <strong>to tall</strong> vi ikke vet. Da trenger vi <strong>to opplysninger</strong>. «Sum 10 og differanse 2» gir <strong>x + y = 10</strong> og <strong>x − y = 2</strong>.', true),
     E('Passer x = 6 og y = 4 i x + y = 10 og x − y = 2?', ['6 + 4 = 10. Ja.', '6 − 4 = 2. Ja.', 'Begge passer! Løsningen er x = 6 og y = 4. 🎉']),
@@ -112,7 +112,7 @@
     ])
   ]));
   T1.push(S('Steg 2: Tegn linjene', '2', [
-    G('Vi kan tegne begge ligningene. Der de krysser, er svaret.'),
+    G('Vi kan tegne begge likningene. Der de krysser, er svaret.'),
     W('graf', { params: {}, funksjoner: [{ f: '10-x', navn: 'x + y = 10', farge: TEAL }, { f: 'x-2', navn: 'x − y = 2', farge: ORANGE }], xmin: 0, xmax: 12, ymin: 0, ymax: 12, skjaering: true, tittel: 'Der linjene krysser' }),
     OS([
       T('Linjene krysser i punktet (6, 4). Hva er x?', 6, 'Første tall.', 'x = 6.'),
@@ -120,7 +120,7 @@
     ])
   ]));
   T1.push(S('Steg 3: Legg sammen', '3', [
-    G('Her er et triks: legg sammen ligningene, så forsvinner y.'),
+    G('Her er et triks: legg sammen likningene, så forsvinner y.'),
     E('x + y = 10 og x − y = 2. Finn x.', ['Legg sammen: x + y + x − y.', 'y og −y forsvinner: 2x = 12.', 'x = 6. 🎉']),
     OS([
       T('x + y = 14 og x − y = 4. Legg sammen. Hva blir 2x?', 18, '14 + 4.', '14 + 4 = 18.'),
@@ -129,18 +129,18 @@
     ])
   ]));
   T1.push(S('Steg 4: En historie', '4', [
-    G('Siste steg: ligninger fra en historie.'),
+    G('Siste steg: likninger fra en historie.'),
     E('En kaffe og en kake koster til sammen 50 kr. Kaka koster 10 kr mer enn kaffen. Hva koster kaffen?', ['k + m = 50 og m = k + 10.', 'k + (k + 10) = 50, så 2k + 10 = 50.', '2k = 40, k = 20. Kaffen koster 20 kr. 🎉']),
     OS([
       T('To tall har sum 12 og differanse 2. Hva er det største tallet?', 7, 'x + y = 12 og x − y = 2.', '2x = 14, x = 7.'),
-      T('To tall har sum 12 og differanse 2. Hva er det minste?', 5, '12 − 7.', '5.')
+      T('To tall har sum 12 og differanse 2. Hva er det minste?', 5, '12 − 7.', 'x + y = 12 og x − y = 2 gir 2x = 14, så det største er 7 og det minste er 12 − 7 = 5. Sjekk: 7 − 5 = 2.')
     ]),
-    SJ('Dette kan du nå', ['Skjønne hva et ligningssett er', 'Lese løsningen av en graf', 'Bruke addisjon', 'Lage ligninger fra en historie'])
+    SJ('Dette kan du nå', ['Skjønne hva et likningssett er', 'Lese løsningen av en graf', 'Bruke addisjon', 'Lage likninger fra en historie'])
   ]));
   M.register('steg', '10/ligningssett', {
-    tittel: 'Ligningssett',
-    ingress: 'Små steg: to ukjente, to ligninger. Du leser løsningen av grafer og regner den ut.',
-    mal: ['løse enkle ligningssett'], ordliste: ORD1, seksjoner: T1
+    tittel: 'Likningssett',
+    ingress: 'Små steg: to ukjente, to likninger. Du leser løsningen av grafer og regner den ut.',
+    mal: ['løse enkle likningssett'], ordliste: ORD1, seksjoner: T1
   });
   M.ekstra['10/ligningssett'] = function (mode) {
     const lett = mode === 'steg'; const sek = [];
@@ -156,7 +156,7 @@
     sek.push(H.ek('bill', '🎟️', 'Billetter', 6, 'Finn prisen på en voksenbillett (v).', function (r) {
       const v = r.int(8, 20) * 10, b = r.int(3, 7) * 10; return H.e('1 voksen og 1 barn koster ' + (v + b) + ' kr. 1 voksen koster ' + (v - b) + ' kr mer enn 1 barn.', v, 'v + b = ' + (v + b) + ' og v − b = ' + (v - b) + '. 2v = ' + 2 * v + ', så v = ' + v + ' kr');
     }));
-    return H.ekDef('Ligningssett', sek);
+    return H.ekDef('Likningssett', sek);
   };
 
   /* ================= STIGNINGSTALL ================= */
@@ -199,9 +199,9 @@
     C('tips', 'Hold orden', 'Trekk fra i <strong>samme rekkefølge</strong> for y og x: «slutt minus start» for begge. Bytter du rekkefølge i bare én, får du feil fortegn.'),
     O(3, [
       T('Punktene (1, 3) og (4, 12). Hva er stigningstallet?', 3, '(12 − 3) ÷ (4 − 1).', '9 ÷ 3 = 3.'),
-      T('Punktene (0, 2) og (5, 12). Hva er stigningstallet?', 2, '10 ÷ 5.', '2.'),
+      T('Punktene (0, 2) og (5, 12). Hva er stigningstallet?', 2, '10 ÷ 5.', 'Endring i y er 12 − 2 = 10, endring i x er 5 − 0 = 5. Stigningstall = 10 ÷ 5 = 2.'),
       T('Punktene (2, 10) og (6, 2). Hva er stigningstallet?', -2, '(2 − 10) ÷ (6 − 2).', '−8 ÷ 4 = −2.'),
-      T('Punktene (1, 5) og (4, 5). Hva er stigningstallet?', 0, 'Endring i y er 0.', '0 ÷ 3 = 0. Linja er vannrett.'),
+      T('Punktene (1, 5) og (4, 5). Hva er stigningstallet?', 0, 'Hva er endringen i y fra 5 til 5? Og i x?', 'Endring i y er 0 og i x er 3. 0 ÷ 3 = 0. Linja er vannrett.'),
       T('Punktene (−1, −3) og (3, 5). Hva er stigningstallet?', 2, '8 ÷ 4.', '(5 − (−3)) ÷ (3 − (−1)) = 8 ÷ 4 = 2.')
     ])
   ]));
@@ -276,8 +276,8 @@
     C('regel', 'Formel', ['a = (endring i y) ÷ (endring i x)']),
     E('Punktene (1, 3) og (3, 9). Finn stigningstallet.', ['Endring i y: 9 − 3 = 6.', 'Endring i x: 3 − 1 = 2.', 'a = 6 ÷ 2 = 3. 🎉']),
     OS([
-      T('Punktene (0, 1) og (2, 7). Endring i y?', 6, '7 − 1.', '6.'),
-      T('Punktene (0, 1) og (2, 7). Endring i x?', 2, '2 − 0.', '2.'),
+      T('Punktene (0, 1) og (2, 7). Endring i y?', 6, '7 − 1.', 'Fra y = 1 til y = 7: 7 − 1 = 6.'),
+      T('Punktene (0, 1) og (2, 7). Endring i x?', 2, '2 − 0.', 'Fra x = 0 til x = 2: 2 − 0 = 2.'),
       T('Punktene (0, 1) og (2, 7). Stigningstall?', 3, '6 ÷ 2.', 'a = 3.')
     ]),
     SJ('Dette kan du nå', ['Forklare endring per enhet', 'Finne a og b i y = ax + b', 'Regne stigningstall fra to punkter'])

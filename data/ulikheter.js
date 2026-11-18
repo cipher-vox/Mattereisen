@@ -21,7 +21,7 @@
   /* ====================== UTFORSK ====================== */
   const U = [];
   U.push(S('Mer enn, mindre enn', '↔️', [
-    P('En ligning har ofte <strong>én</strong> løsning. En <strong>ulikhet</strong> har ofte <strong>mange</strong>. Se på ulikheten <strong>x &gt; 4</strong>. Alle tall større enn 4 passer: 5, 6, 10, 4,5, 100 … Det er uendelig mange.'),
+    P('En likning har ofte <strong>én</strong> løsning. En <strong>ulikhet</strong> har ofte <strong>mange</strong>. Se på ulikheten <strong>x &gt; 4</strong>. Alle tall større enn 4 passer: 5, 6, 10, 4,5, 100 … Det er uendelig mange.'),
     TAB(['Tegn', 'Betyr', 'Eksempel', 'Er 5 med?'], [['<', 'mindre enn', 'x < 5', 'Nei'], ['≤', 'mindre enn eller lik', 'x ≤ 5', 'Ja'], ['>', 'større enn', 'x > 5', 'Nei'], ['≥', 'større enn eller lik', 'x ≥ 5', 'Ja']]),
     C('tips', 'Husketrikset', 'Tegnet åpner seg mot det største tallet, som en munn som vil sluke det: 7 &gt; 3. Streken under (≤, ≥) betyr «eller lik».'),
     W('ulikhet', { a: 4, op: '>', t: 6, tittel: 'Utforsk ulikhet på tallinja' }),
@@ -48,18 +48,18 @@
   ]));
 
   U.push(S('Løse ulikheter', '🧮', [
-    P('Du kan løse ulikheter <strong>nesten som ligninger</strong>. Det du gjør på ene siden, gjør du på den andre. Tegnet beholdes.'),
+    P('Du kan løse ulikheter <strong>nesten som likninger</strong>. Det du gjør på ene siden, gjør du på den andre. Tegnet beholdes.'),
     E('Løs x + 3 < 10.', ['Trekk fra 3 på begge sider.', 'x < 7.', 'Løsningene er alle tall mindre enn 7. Sjekk: x = 6 gir 6 + 3 = 9 < 10 ✓.']),
     E('Løs 2x − 1 ≥ 9.', ['Legg til 1 på begge sider: 2x ≥ 10.', 'Del på 2: x ≥ 5.', 'Sjekk: x = 5 gir 2 · 5 − 1 = 9 ≥ 9 ✓. x = 4 gir 7, som er for lite.']),
-    C('regel', 'Slik gjør du', ['1. Behandle ulikheten som en ligning: fjern pluss/minus, så del/gang.', '2. Behold ulikhetstegnet.', '3. Sjekk med et tall inni løsningen og et tall utenfor.']),
+    C('regel', 'Slik gjør du', ['1. Behandle ulikheten som en likning: fjern pluss/minus, så del/gang.', '2. Behold ulikhetstegnet.', '3. Sjekk med et tall inni løsningen og et tall utenfor.']),
     C('advarsel', 'Spesialregel (kommer senere på 9.–10. trinn)', 'Hvis du ganger eller deler med et <strong>negativt tall</strong>, må du snu ulikhetstegnet. Hvorfor? 2 &lt; 5, men −2 &gt; −5. Kontroller alltid ved å teste.'),
     O(3, [
-      T('Løs x + 4 < 11. Hva er det største hele tallet som passer?', 6, 'x < 7.', 'x < 7, så det største hele tallet er 6.'),
-      T('Løs 2x ≥ 12. Hva er det minste hele tallet som passer?', 6, 'x ≥ 6.', 'x ≥ 6, så minste er 6.'),
-      T('Løs 3x − 2 < 13. Hva er det største hele tallet som passer?', 4, '3x < 15, så x < 5.', 'x < 5, så største hele tall er 4.'),
-      T('Løs 5x + 1 ≥ 21. Hva er det minste hele tallet som passer?', 4, '5x ≥ 20.', 'x ≥ 4, så minste er 4.'),
-      T('Løs x − 6 > 2. Hva er det minste hele tallet som passer?', 9, 'x > 8.', 'x > 8 (8 er ikke med), så minste hele tall er 9.'),
-      T('Løs 4x < 18. Hva er det største hele tallet som passer?', 4, 'x < 4,5.', 'x < 4,5, så største hele tall er 4.'),
+      T('Løs x + 4 < 11. Hva er det største hele tallet som passer?', 6, 'Trekk fra 4 på begge sider. x er mindre enn hva?', 'x < 7, så det største hele tallet er 6.'),
+      T('Løs 2x ≥ 14. Hva er det minste hele tallet som passer?', 7, 'Del begge sider på 2.', 'x ≥ 7, så minste er 7.'),
+      T('Løs 3x − 2 < 13. Hva er det største hele tallet som passer?', 4, 'Legg til 2 på begge sider, og del så på 3.', '3x < 15, så x < 5. Største hele tall er 4.'),
+      T('Løs 5x + 1 ≥ 26. Hva er det minste hele tallet som passer?', 5, 'Trekk fra 1, og del så på 5.', '5x ≥ 25, så x ≥ 5. Minste er 5.'),
+      T('Løs x − 6 > 2. Hva er det minste hele tallet som passer?', 9, 'Legg til 6. Husk at > ikke tar med tallet selv.', 'x > 8 (8 er ikke med), så minste hele tall er 9.'),
+      T('Løs 4x < 34. Hva er det største hele tallet som passer?', 8, 'Del på 4. Du får et tall med komma. Hvilket hele tall under det er størst?', 'x < 8,5, så største hele tall er 8.'),
       V('Hvilken løsning er riktig for x + 5 ≤ 12?', ['x ≤ 7', 'x ≥ 7', 'x < 7', 'x > 17'], 0, 'Trekk fra 5.', 'x ≤ 7. Tegnet beholdes.')
     ])
   ]));
@@ -83,7 +83,7 @@
       V('Mia løste x + 3 > 8 og fikk x > 11. Stemmer det?', ['Nei, det skal være x > 5', 'Ja', 'Nei, x < 5', 'Nei, x > 24'], 0, 'Du skal trekke fra 3.', 'Trekk fra 3: x > 5. Sjekk: x = 6 gir 6 + 3 = 9 > 8 ✓, men x = 6 er ikke med i x > 11. Derfor er x > 11 feil.'),
       V('Påstand: «Hvis x > 3, så er x² > 9.» Stemmer det for positive tall?', ['Ja', 'Nei', 'Bare for 4', 'Bare for hele tall'], 0, 'Prøv x = 4, x = 3,1.', '4² = 16 > 9 og 3,1² = 9,61 > 9. For x > 3 stemmer det alltid.'),
       V('Påstand: «Hvis x < 3, så er x² < 9.» Hvilket moteksempel viser at den er feil?', ['x = −5', 'x = 2', 'x = 0', 'x = 1'], 0, 'Prøv et negativt tall.', 'x = −5 er mindre enn 3, men (−5)² = 25 er ikke mindre enn 9.'),
-      F('Forklar forskjellen på løsningen av ligningen x + 2 = 7 og ulikheten x + 2 > 7.', ['Ligningen har én løsning: x = 5.', 'Ulikheten har mange løsninger: alle tall større enn 5, som 6, 7, 5,5 og 100.', 'Du kan vise ulikheten på tallinja med en åpen sirkel på 5 og pil mot høyre.'])
+      F('Forklar forskjellen på løsningen av likningen x + 2 = 7 og ulikheten x + 2 > 7.', ['Likningen har én løsning: x = 5.', 'Ulikheten har mange løsninger: alle tall større enn 5, som 6, 7, 5,5 og 100.', 'Du kan vise ulikheten på tallinja med en åpen sirkel på 5 og pil mot høyre.'])
     ]),
     SJ('Dette kan du nå', ['Lese og bruke tegnene <, >, ≤ og ≥', 'Vise en ulikhet på tallinja', 'Løse enkle ulikheter', 'Bruke ulikheter i hverdagen', 'Vurdere om en løsning er gyldig'])
   ]));
@@ -117,20 +117,20 @@
     OS([
       V('Åpen sirkel på 3 og pil mot høyre. Hvilken ulikhet?', ['x > 3', 'x ≥ 3', 'x < 3'], 0, 'Åpen: ikke med. Høyre: større.', 'x > 3.', true),
       V('Fylt sirkel på 5 og pil mot venstre. Hvilken ulikhet?', ['x ≤ 5', 'x < 5', 'x ≥ 5'], 0, 'Fylt: med. Venstre: mindre.', 'x ≤ 5.', true),
-      T('Hvor mange hele tall fra 1 til 10 er løsning på x ≥ 8? (8, 9, 10)', 3, 'Tell dem.', 'Det er 3: 8, 9 og 10.'),
+      T('Hvor mange hele tall fra 1 til 10 er løsning på x ≥ 8?', 3, 'Hvilke av tallene 1 til 10 er 8 eller større?', 'Det er 3: 8, 9 og 10.'),
       T('Hvor mange hele tall fra 1 til 10 er løsning på x < 4?', 3, '1, 2 og 3.', 'Det er 3.')
     ])
   ]));
   T1.push(S('Steg 3: Løse en ulikhet', '3', [
-    G('Vi løser ulikheter nesten som ligninger.'),
+    G('Vi løser ulikheter nesten som likninger.'),
     P('Du regner på begge sider, og beholder tegnet.', true),
     E('Løs x + 2 &lt; 8.', ['Trekk fra 2 på begge sider.', 'x &lt; 6.', 'Alle tall mindre enn 6 er løsninger. 🎉']),
     E('Løs 2x ≥ 10.', ['Del begge sider på 2.', 'x ≥ 5.', 'Tallet 5 og alle større tall er løsninger. 🎉']),
     OS([
-      T('Løs x + 3 < 10. Hva er det største hele tallet som passer?', 6, 'x < 7.', 'x < 7, så største hele tall er 6.'),
-      T('Løs x − 2 > 5. Hva er det minste hele tallet som passer?', 8, 'x > 7.', 'x > 7, så minste hele tall er 8.'),
-      T('Løs 3x ≥ 12. Hva er det minste hele tallet som passer?', 4, 'x ≥ 4.', 'x ≥ 4, så minste er 4.'),
-      T('Løs 2x < 10. Hva er det største hele tallet som passer?', 4, 'x < 5.', 'x < 5, så største er 4.')
+      T('Løs x + 3 < 10. Hva er det største hele tallet som passer?', 6, 'Trekk fra 3. Tallet selv er ikke med.', 'x < 7, så største hele tall er 6.'),
+      T('Løs x − 2 > 5. Hva er det minste hele tallet som passer?', 8, 'Legg til 2. Tallet selv er ikke med.', 'x > 7, så minste hele tall er 8.'),
+      T('Løs 3x ≥ 12. Hva er det minste hele tallet som passer?', 4, 'Del begge sider på 3.', 'x ≥ 4, så minste er 4.'),
+      T('Løs 5x < 40. Hva er det største hele tallet som passer?', 7, 'Del begge sider på 5. Tallet selv er ikke med.', 'x < 8, så største hele tall er 7.')
     ])
   ]));
   T1.push(S('Steg 4: Ulikheter i hverdagen', '4', [

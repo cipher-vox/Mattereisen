@@ -88,7 +88,7 @@
     start: 'En pizza koster 120 kr og hver ekstra topping 15 kr. «Skriv en regel for prisen.» Samle formuleringer og gjør dem om til et uttrykk.',
     midt: 'Fra tekst til uttrykk og tilbake. Regn ut verdien av uttrykk når bokstaven får en verdi. Bruk Feiljegeren.',
     slutt: 'Utgangsbillett: «Lag en situasjon som passer med uttrykket 50 + 10x.»',
-    samtale: ['Hva står x for i uttrykket ditt?', 'Hvordan vet vi at to uttrykk er like?', 'Hva er forskjellen på et uttrykk og en ligning?'],
+    samtale: ['Hva står x for i uttrykket ditt?', 'Hvordan vet vi at to uttrykk er like?', 'Hva er forskjellen på et uttrykk og en likning?'],
     diff: { rolig: 'Sett inn tall i enkle uttrykk.', vanlig: 'Lag uttrykk fra tekst og trekk sammen.', utfordring: 'Uttrykk med parenteser og flere variabler.' },
     vurdering: 'Se etter om eleven kan forklare hva bokstaven betyr, og skille ledd som kan trekkes sammen.'
   });
@@ -96,23 +96,23 @@
   L('8/ligninger', {
     tid: '5–6 timer',
     forkunn: ['Uttrykk og variabler', 'Negative tall'],
-    husk: ['Ligningen er en vekt i balanse: gjør det samme på begge sider.', 'Sett prøve: sett svaret inn og sjekk.', 'Skriv hvert steg på en ny linje.'],
+    husk: ['Likningen er en vekt i balanse: gjør det samme på begge sider.', 'Sett prøve: sett svaret inn og sjekk.', 'Skriv hvert steg på en ny linje.'],
     feil: ['Å flytte et tall uten å bytte fortegn.', 'Å gjøre noe bare på den ene siden.', 'Å ikke sjekke svaret mot teksten.'],
     start: 'Vis en balansevekt: x + 3 på den ene siden og 8 på den andre. «Hva må x være?» La elevene forklare uten regler.',
-    midt: 'Vektmodellen, så algebraisk løsning. Bruk Ligningsmaskinen. Tekstoppgaver der de lager ligningen selv.',
+    midt: 'Vektmodellen, så algebraisk løsning. Bruk Likningsmaskinen. Tekstoppgaver der de lager likningen selv.',
     slutt: 'Utgangsbillett: «Løs 3x + 2 = 14 og sett prøve.»',
-    samtale: ['Hvorfor må vi gjøre det samme på begge sider?', 'Hvordan vet du at svaret er riktig?', 'Kan en ligning ha flere løsninger? Ingen?'],
-    diff: { rolig: 'Ett-stegs ligninger og vektmodellen.', vanlig: 'To-stegs og tekstoppgaver.', utfordring: 'Ligninger med x på begge sider og parenteser.' },
+    samtale: ['Hvorfor må vi gjøre det samme på begge sider?', 'Hvordan vet du at svaret er riktig?', 'Kan en likning ha flere løsninger? Ingen?'],
+    diff: { rolig: 'Ett-stegs likninger og vektmodellen.', vanlig: 'To-stegs og tekstoppgaver.', utfordring: 'Likninger med x på begge sider og parenteser.' },
     vurdering: 'Se etter at eleven viser stegene, setter prøve og vurderer om svaret gir mening i situasjonen.'
   });
 
   L('8/ulikheter', {
     tid: '3 timer',
-    forkunn: ['Ligninger', 'Tallinja'],
-    husk: ['Ulikhetstegn: &lt; mindre enn, &gt; større enn, ≤ mindre enn eller lik.', 'Løses som ligninger, men løsningen er mange tall.', 'Ved å gange eller dele med et negativt tall snus ulikhetstegnet.'],
+    forkunn: ['Likninger', 'Tallinja'],
+    husk: ['Ulikhetstegn: &lt; mindre enn, &gt; større enn, ≤ mindre enn eller lik.', 'Løses som likninger, men løsningen er mange tall.', 'Ved å gange eller dele med et negativt tall snus ulikhetstegnet.'],
     feil: ['Å glemme å snu tegnet ved negativt tall.', 'Å tro at løsningen bare er ett tall.', 'Å tegne åpen og lukket sirkel feil på tallinja.'],
     start: 'En berg-og-dal-bane krever høyde over 120 cm. Hvem får være med? La elevene vise alle mulige høyder på tallinja.',
-    midt: 'Fra situasjon til ulikhet til tallinje. Bruk Ulikhetsvakten. Sammenlign med tilsvarende ligning.',
+    midt: 'Fra situasjon til ulikhet til tallinje. Bruk Ulikhetsvakten. Sammenlign med tilsvarende likning.',
     slutt: 'Utgangsbillett: «Løs 2x + 1 &lt; 9 og tegn løsningen på tallinja.»',
     samtale: ['Hva er forskjellen på &lt; og ≤ på tallinja?', 'Hvorfor snur tegnet når vi deler med −2?', 'Gi et eksempel fra hverdagen.'],
     diff: { rolig: 'Enkle ulikheter og tallinje.', vanlig: 'To-stegs ulikheter.', utfordring: 'Negative koeffisienter og sammensatte ulikheter.' },
@@ -147,7 +147,7 @@
 
   L('8/programmering', {
     tid: '4–5 timer',
-    forkunn: ['Ligninger og uttrykk (for variabler)'],
+    forkunn: ['Likninger og uttrykk (for variabler)'],
     husk: ['En algoritme er en oppskrift med klare steg.', 'Test koden med enkle tall du vet svaret på.', 'Les feilmeldingen: den sier hvilken linje og hva som er galt.'],
     feil: ['Å glemme kolon og innrykk.', 'Å bruke = når de mener ==.', 'Å ikke teste med flere verdier.'],
     start: 'Skriv en «oppskrift» for å finne det største av tre tall. La en elev følge den bokstavelig. Finn feilene sammen.',

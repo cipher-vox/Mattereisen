@@ -256,7 +256,7 @@
     P('En graf kan lure deg. Se alltid på <strong>hvor aksen starter</strong>.', true),
     W('mediegraf', { navn: ['A', 'B'], verdier: [95, 100], start: 90, tittel: 'Trykk mellom de to grafene' }),
     OS([
-      V('Hvor bør aksen starte for å være mest ærlig?', ['0', '90', '95'], 0, 'Søylene skal vise hele tallet.', '0.', true),
+      V('Hvor bør aksen starte for å være mest ærlig?', ['0', '90', '95'], 0, 'Søylene skal vise hele tallet.', 'Starter aksen på 0, er søylehøydene i riktig forhold til tallene. Starter den høyere, ser forskjellene større ut enn de er.', true),
       V('Når aksen starter på 90, ser forskjellen ut…', ['større enn den er', 'mindre enn den er', 'akkurat riktig'], 0, 'Søylene blir kortere.', 'Større enn den er.', true)
     ])
   ]));

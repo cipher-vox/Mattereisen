@@ -74,7 +74,7 @@
   U.push(S('Betingelser: la programmet velge', '🔀', [
     P('Noen ganger skal datamaskinen velge. Da bruker vi <strong>if</strong>, som betyr «hvis». Vi kan også bruke <strong>else</strong>, som betyr «ellers».'),
     W('kode', { tittel: 'Partall eller oddetall?', kode: 'tall = 17\nif tall % 2 == 0:\n    print("partall")\nelse:\n    print("oddetall")', forvent: 'oddetall', intro: '% gir resten ved deling. tall % 2 == 0 betyr «resten er 0 når tallet deles på 2». Endre tallet til 18.' }),
-    C('regel', 'Sammenligninger i Python', ['<code>==</code> er lik (to likhetstegn!).', '<code>!=</code> er ikke lik.', '<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.', '<code>%</code> gir resten: 17 % 5 er 2.']),
+    C('regel', 'Sammenlikninger i Python', ['<code>==</code> er lik (to likhetstegn!).', '<code>!=</code> er ikke lik.', '<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.', '<code>%</code> gir resten: 17 % 5 er 2.']),
     W('kode', { tittel: 'Oppdrag: delelig med 3', intro: 'Sett <code>tall = 21</code>. Skriv «ja» hvis tallet er delelig med 3 og «nei» ellers.', kode: 'tall = 21\n# skriv koden din her\n', losningKode: 'tall = 21\nif tall % 3 == 0:\n    print("ja")\nelse:\n    print("nei")', forvent: 'ja', hint: 'Bruk if tall % 3 == 0:' }),
     O(3, [
       V('Hva skriver dette ut? <code>x = 10<br>if x &gt; 5:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("stor")<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("liten")</code>', ['stor', 'liten', 'Ingenting', 'Feil'], 0, 'Er 10 større enn 5?', '10 > 5 er sant, så «stor» skrives ut.'),

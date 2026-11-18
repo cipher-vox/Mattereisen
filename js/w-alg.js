@@ -307,15 +307,15 @@
   };
 
   /* ============================================================
-     Balansevekt (ligninger)
+     Balansevekt (likninger)
      ============================================================ */
   W.balanse = function (root, o) {
     const gen = () => { const a = [1, 2, 3, 4][Math.floor(Math.random() * 4)], x = 1 + Math.floor(Math.random() * 9), b = Math.floor(Math.random() * 9); return { a: a, b: b, c: a * x + b, x: x }; };
     let eq = o.a ? { a: o.a, b: o.b || 0, c: o.c, x: (o.c - (o.b || 0)) / o.a } : { a: 2, b: 3, c: 11, x: 4 };
     let log = [];
-    frame(root, o.tittel || 'Vekta: løs ligningen',
-      '<div class="bal-tekst lesbar">Ligningen er som en vekt i balanse. Det du gjør på <strong>ene</strong> siden, må du gjøre på <strong>den andre</strong> også.</div><div class="svg-wrap bal-bilde"></div><div class="wg-uttrykk bal-lign" aria-live="polite"></div>' +
-      '<div class="forslag"><button type="button" class="knapp primær bal-minus">➖ Trekk fra</button><button type="button" class="knapp primær bal-del">➗ Del</button><button type="button" class="knapp liten bal-ny">🎲 Ny ligning</button><button type="button" class="knapp liten bal-reset">↺ Start på nytt</button></div><div class="bal-logg lesbar" aria-live="polite"></div>');
+    frame(root, o.tittel || 'Vekta: løs likningen',
+      '<div class="bal-tekst lesbar">Likningen er som en vekt i balanse. Det du gjør på <strong>ene</strong> siden, må du gjøre på <strong>den andre</strong> også.</div><div class="svg-wrap bal-bilde"></div><div class="wg-uttrykk bal-lign" aria-live="polite"></div>' +
+      '<div class="forslag"><button type="button" class="knapp primær bal-minus">➖ Trekk fra</button><button type="button" class="knapp primær bal-del">➗ Del</button><button type="button" class="knapp liten bal-ny">🎲 Ny likning</button><button type="button" class="knapp liten bal-reset">↺ Start på nytt</button></div><div class="bal-logg lesbar" aria-live="polite"></div>');
     const bilde = q(root, '.bal-bilde'), lign = q(root, '.bal-lign'), logg = q(root, '.bal-logg'), start = { a: eq.a, b: eq.b, c: eq.c, x: eq.x };
     let cur = null;
     function reset() { cur = { a: start.a, b: start.b, c: start.c }; log = []; draw(); }

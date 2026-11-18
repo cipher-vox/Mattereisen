@@ -135,7 +135,7 @@
       v('En graf har y-aksen startende på 90, ikke 0. Hva skjer?', ['Små forskjeller ser store ut', 'Ingenting', 'Alt blir feil', 'Tallene blir mindre'], 0, ['Tenk på hvor høye søylene blir.'], 'Små forskjeller blir overdrevet.'),
       t('10 av 40 elever liker fisk. Hvor mange prosent er det?', 25, ['10 ÷ 40 = ?'], '10 ÷ 40 = 0,25 = 25 %.', '%'),
       v('Hvilket utvalg er best for å si noe om alle elevene på skolen?', ['Tilfeldig valgte elever fra alle trinn', 'Bare elevene i fotballaget', 'Bare venner', 'Bare 8. trinn'], 0, ['Utvalget bør ligne på alle.'], 'Tilfeldig utvalg fra alle trinn gir best bilde.'),
-      t('En pris økte fra 100 til 120. Hvor mange prosent økning er det?', 20, ['Økningen er 20 kr. Hvor mye er det av 100?'], '20 ÷ 100 = 20 %.', '%'),
+      t('En pris økte fra 100 til 120. Hvor mange prosent økning er det?', 20, ['Finn økningen i kroner først.', 'Hvor mye er økningen av den opprinnelige prisen?'], '20 ÷ 100 = 20 %.', '%'),
       v('Det selges mye is og skjer mange drukningsulykker om sommeren. Betyr det at is forårsaker drukning?', ['Nei, sommervarmen påvirker begge', 'Ja', 'Bare på stranda', 'Kan ikke vites'], 0, ['Er det noe som kan påvirke begge deler?'], 'Sommeren gir både mer is og mer bading.'),
       t('Snittlønnen i en bedrift er 600000 kr, og medianen er 450000 kr. Hva er forskjellen i kr?', 150000, ['Trekk fra det minste fra det største.'], '600000 − 450000 = 150000 kr.', 'kr')
     ],

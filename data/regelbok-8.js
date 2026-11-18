@@ -30,6 +30,7 @@
       ['📋', 'Rekkefølgen', 'Parentes først, så potens, så gange og dele (fra venstre), til slutt pluss og minus (fra venstre). 3 + 4 · 2 = 3 + 8 = 11.'],
       ['🔄', 'Bytte om', 'Pluss og gange kan byttes om: 4 · 7 = 7 · 4. Minus og dele kan ikke byttes om: 7 − 4 er ikke det samme som 4 − 7.'],
       ['🧩', 'Gruppere', 'Du kan gruppere gange som du vil: 4 · 7 · 25 = 4 · 25 · 7 = 100 · 7 = 700.'],
+      ['➗', 'Deletegn', 'Både : og ÷ betyr «dele»: 12 : 4 = 12 ÷ 4 = 3. Du ser begge i bøker, på kalkulator og i oppgaver. Brøkstrek betyr også dele: 12/4 = 3.'],
       ['🍰', 'Fordelingsregelen', 'a(b + c) = ab + ac. Bruk den til å dele opp: 7 · 98 = 7 · (100 − 2) = 700 − 14 = 686.']
     ],
     eks: [
@@ -134,12 +135,12 @@
   });
 
   R('8/ligninger', {
-    kort: 'En ligning er som en vekt i balanse. Det du gjør på den ene siden, må du gjøre på den andre.',
+    kort: 'En likning er som en vekt i balanse. Det du gjør på den ene siden, må du gjøre på den andre.',
     regler: [
-      ['⚖️', 'Balanse', 'Gjør det samme på begge sider av likhetstegnet. Da holder ligningen seg sann.'],
+      ['⚖️', 'Balanse', 'Gjør det samme på begge sider av likhetstegnet. Da holder likningen seg sann.'],
       ['↩️', 'Motsatt regneart', 'Pluss fjernes med minus, og gange fjernes med dele. x + 5 = 12 gir x = 12 − 5 = 7.'],
       ['🪜', 'Flere steg', 'Fjern pluss og minus først, så gange og dele. 3x + 4 = 19 gir 3x = 15 og x = 5.'],
-      ['✅', 'Sjekk', 'Sett svaret inn i den første ligningen. 3 · 5 + 4 = 19 ✓.']
+      ['✅', 'Sjekk', 'Sett svaret inn i den første likningen. 3 · 5 + 4 = 19 ✓.']
     ],
     eks: [
       ['Løs 2x − 3 = 9', ['Legg til 3 på begge sider: 2x = 12.', 'Del på 2 på begge sider: x = 6.', 'Sjekk: 2 · 6 − 3 = 9 ✓.'], 'x = 6'],
@@ -147,7 +148,7 @@
     ],
     pass: ['Gjør du noe på den ene siden, må du gjøre det samme på den andre.', 'Når du deler, må alle leddene deles.', 'Sjekk alltid svaret ved å sette det inn.'],
     trick: 'Tegn en vekt. Hver side må veie det samme hele tiden.',
-    ord: [['Ligning', 'To uttrykk med likhetstegn mellom.'], ['Løsning', 'Tallet som gjør ligningen sann.'], ['Ukjent', 'Tallet vi leter etter, ofte x.']],
+    ord: [['Likning', 'To uttrykk med likhetstegn mellom.'], ['Løsning', 'Tallet som gjør likningen sann.'], ['Ukjent', 'Tallet vi leter etter, ofte x.']],
     test: [['Løs: x + 9 = 15', 'x = 6'], ['Løs: 4x − 2 = 18', 'x = 5']]
   });
 
@@ -155,7 +156,7 @@
     kort: 'En ulikhet sier at noe er større eller mindre enn noe annet. Svaret er ofte mange tall.',
     regler: [
       ['🔣', 'Tegnene', '< betyr mindre enn, > betyr større enn, ≤ betyr mindre enn eller lik, ≥ betyr større enn eller lik.'],
-      ['📏', 'Løs som en ligning', 'Gjør det samme på begge sider. x + 3 > 7 gir x > 4.'],
+      ['📏', 'Løs som en likning', 'Gjør det samme på begge sider. x + 3 > 7 gir x > 4.'],
       ['⭕', 'Tallinja', 'Åpen ring: tallet er ikke med (< og >). Fylt ring: tallet er med (≤ og ≥).'],
       ['🔁', 'Snu tegnet', 'Når du ganger eller deler med et negativt tall, snur ulikhetstegnet. −2x > 6 gir x < −3.']
     ],

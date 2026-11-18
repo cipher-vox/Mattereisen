@@ -39,20 +39,20 @@
     ]);
 
   H.NIV('10/ligningssett',
-    'Et ligningssett har to ligninger og to ukjente. Vi leter etter ett (x, y) som passer i begge. Tips: bruk innsetting eller samme grafer.',
-    ['x + y = 5 og x = 2. Hva er y?', ['Sett x = 2 inn i første ligning.', '2 + y = 5.', 'y = 3.']],
+    'Et likningssett har to likninger og to ukjente. Vi leter etter ett (x, y) som passer i begge. Tips: bruk innsetting eller samme grafer.',
+    ['x + y = 5 og x = 2. Hva er y?', ['Sett x = 2 inn i første likning.', '2 + y = 5.', 'y = 3.']],
     [
       t('x + y = 7 og x = 3. Hva er y?', 4, ['Sett inn 3 for x.'], '3 + y = 7, så y = 4.'),
       t('y = 2x og x = 4. Hva er y?', 8, ['Sett inn 4 for x.'], 'y = 2 · 4 = 8.'),
-      t('x + y = 10 og x − y = 2. Hva er x? (Legg ligningene sammen.)', 6, ['Legg sammen venstre sider og høyre sider.'], '2x = 12, så x = 6.'),
+      t('x + y = 10 og x − y = 2. Hva er x? (Legg likningene sammen.)', 6, ['Legg sammen venstre sider og høyre sider.'], '2x = 12, så x = 6.'),
       t('To tall har sum 9 og differanse 1. Hva er det største?', 5, ['Prøv deg fram: 5 og 4?'], '5 + 4 = 9 og 5 − 4 = 1. Det største er 5.'),
       t('y = x + 1 og y = 5. Hva er x?', 4, ['Sett inn 5 for y.'], '5 = x + 1, så x = 4.'),
-      v('Hva betyr løsningen til et ligningssett i en graf?', ['Der de to linjene krysser hverandre', 'Der linjene starter', 'Der linjene er parallelle', 'Toppunktet'], 0, ['Det punktet som passer begge.'], 'Løsningen er skjæringspunktet.')
+      v('Hva betyr løsningen til et likningssett i en graf?', ['Der de to linjene krysser hverandre', 'Der linjene starter', 'Der linjene er parallelle', 'Toppunktet'], 0, ['Det punktet som passer begge.'], 'Løsningen er skjæringspunktet.')
     ],
-    'Her setter du opp og løser ligningssett fra tekst.',
+    'Her setter du opp og løser likningssett fra tekst.',
     [
-      t('En pose med 3 epler og 2 pærer koster 26 kr. 1 eple og 2 pærer koster 14 kr. Hva koster ett eple?', 6, ['Trekk den ene ligningen fra den andre.'], '2 epler koster 12 kr, så ett eple koster 6 kr.', 'kr'),
-      t('Løs: 2x + y = 11 og x − y = 1. Hva er x?', 4, ['Legg ligningene sammen.'], '3x = 12, så x = 4.'),
+      t('En pose med 3 epler og 2 pærer koster 26 kr. 1 eple og 2 pærer koster 14 kr. Hva koster ett eple?', 6, ['Trekk den ene likningen fra den andre.'], '2 epler koster 12 kr, så ett eple koster 6 kr.', 'kr'),
+      t('Løs: 2x + y = 11 og x − y = 1. Hva er x?', 4, ['Legg likningene sammen.'], '3x = 12, så x = 4.'),
       t('Løs: y = 3x − 2 og y = x + 4. Hva er x?', 3, ['Sett uttrykkene lik hverandre.'], '3x − 2 = x + 4, så 2x = 6 og x = 3.')
     ]);
 

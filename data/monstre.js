@@ -184,7 +184,7 @@
       const v = a * n + (pm ? b : -b);
       return H.e('Et mønster har formelen ' + a + 'n ' + (pm ? '+' : '−') + ' ' + b + '. Hva er figur ' + n + '?', v, a + ' · ' + n + (pm ? ' + ' : ' − ') + b + ' = ' + v);
     }));
-    sek.push(H.ek('finn', '🔎', 'Hvilken figur?', 8, lett ? 'Finn n. Tips: trekk fra først, og del så.' : 'Hvilken figur har dette antallet? Løs ligningen.', function (r) {
+    sek.push(H.ek('finn', '🔎', 'Hvilken figur?', 8, lett ? 'Finn n. Tips: trekk fra først, og del så.' : 'Hvilken figur har dette antallet? Løs likningen.', function (r) {
       const a = r.int(2, lett ? 5 : 9), b = r.int(1, 9), n = r.int(3, lett ? 10 : 30); const v = a * n + b;
       return H.e('Formelen er ' + a + 'n + ' + b + '. Hvilken figur har ' + v + '?', n, a + 'n + ' + b + ' = ' + v + ' gir ' + a + 'n = ' + (v - b) + ', så n = ' + n);
     }));

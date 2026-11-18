@@ -42,8 +42,8 @@
     C('regel', 'Kjennetegn', ['Konstant endring: legger du til like mye hver gang.', 'Graf: rett linje.', 'a: endring per steg. b: verdien når x = 0.']),
     O(2, [
       T('f(x) = 3x + 2. Hva er f(4)?', 14, '3 · 4 + 2.', '14.'),
-      T('f(x) = −x + 7. Hva er f(2)?', 5, '−2 + 7.', '5.'),
-      T('Tabell: x = 0, 1, 2, 3 gir y = 4, 7, 10, 13. Hvor mye øker y per steg?', 3, '7 − 4.', '3.')
+      T('f(x) = −x + 7. Hva er f(2)?', 5, '−2 + 7.', 'Sett inn x = 2: f(2) = −2 + 7 = 5.'),
+      T('Tabell: x = 0, 1, 2, 3 gir y = 4, 7, 10, 13. Hvor mye øker y per steg?', 3, '7 − 4.', 'y går 4, 7, 10, 13. Hvert steg er +3 (7 − 4 = 3), så y øker med 3 per steg.')
     ])
   ]));
   U1.push(S('Andregradsfunksjoner og parabler', '🏀', [
@@ -54,7 +54,7 @@
     O(3, [
       T('f(x) = x². Hva er f(5)?', 25, '5 · 5.', '25.'),
       T('f(x) = x². Hva er f(−5)?', 25, '(−5) · (−5).', '25. Symmetri: f(−5) = f(5).'),
-      T('f(x) = x² − 4. Hva er f(3)?', 5, '9 − 4.', '5.'),
+      T('f(x) = x² − 4. Hva er f(3)?', 5, '9 − 4.', 'Sett inn x = 3: 3² − 4 = 9 − 4 = 5.'),
       T('f(x) = x² − 4. Hva er f(0)?', -4, '0 − 4.', '−4. Det er bunnpunktet.'),
       T('f(x) = 2x² + 1. Hva er f(3)?', 19, '2 · 9 + 1.', '19.'),
       V('Parabelen y = −x² + 3 åpner seg…', ['nedover', 'oppover', 'mot høyre', 'ikke i det hele tatt'], 0, 'a = −1.', 'a er negativ, så den åpner nedover.')
@@ -79,9 +79,9 @@
     E('Du skal kjøre 120 km. Hvor lang tid tar det med fart x km/t?', ['Tid = strekning ÷ fart: t = 120/x.', 'Fart 60 gir t = 2 timer. Fart 120 gir t = 1 time.', 'Dobler du farten, halveres tiden. Det er omvendt proporsjonalitet.']),
     C('advarsel', 'x kan ikke være 0', 'Å dele på 0 er ikke definert. Grafen har derfor ingen punkt for x = 0.'),
     O(4, [
-      T('f(x) = 12/x. Hva er f(3)?', 4, '12 ÷ 3.', '4.'),
-      T('f(x) = 12/x. Hva er f(4)?', 3, '12 ÷ 4.', '3.'),
-      T('f(x) = 12/x. Hva er f(6)?', 2, '12 ÷ 6.', '2.'),
+      T('f(x) = 12/x. Hva er f(3)?', 4, '12 ÷ 3.', 'Sett inn x = 3: f(3) = 12 ÷ 3 = 4.'),
+      T('f(x) = 12/x. Hva er f(4)?', 3, '12 ÷ 4.', 'Sett inn x = 4: f(4) = 12 ÷ 4 = 3.'),
+      T('f(x) = 12/x. Hva er f(6)?', 2, '12 ÷ 6.', 'Sett inn x = 6: f(6) = 12 ÷ 6 = 2.'),
       T('Det går 60 km. Du kjører 20 km/t. Hvor mange timer? (t = 60/x)', 3, '60 ÷ 20.', '3 timer.', 't'),
       V('Når x blir dobbelt så stor i y = k/x, hva skjer med y?', ['Y halveres', 'Y dobles', 'Y er uendret', 'Y blir 0'], 0, 'Prøv k = 12: x = 2 gir 6, x = 4 gir 3.', 'y halveres: omvendt proporsjonal.')
     ])
@@ -136,7 +136,7 @@
     E('f(x) = x². Hva er f(3)?', ['x = 3. Regn 3 · 3.', '9.', 'Svar: 9. 🎉']),
     OS([
       T('f(x) = x². Hva er f(4)?', 16, '4 · 4.', '16.'),
-      T('f(x) = x². Hva er f(−2)?', 4, '(−2) · (−2).', '4.'),
+      T('f(x) = x². Hva er f(−2)?', 4, '(−2) · (−2).', 'Sett inn x = −2: (−2)² = (−2) · (−2) = 4. Minus ganger minus gir pluss.'),
       T('f(x) = x² + 1. Hva er f(3)?', 10, '9 + 1.', '10.')
     ])
   ]));
@@ -155,7 +155,7 @@
     OS([
       V('2, 5, 8, 11: legges det til eller ganges det med?', ['Legges til 3', 'Ganges med 3'], 0, '5 − 2 = 3.', 'Legges til 3: lineær.', true),
       V('2, 6, 18, 54: legges det til eller ganges det med?', ['Ganges med 3', 'Legges til 4'], 0, '6 ÷ 2 = 3.', 'Ganges med 3: eksponentiell.', true),
-      T('4, 8, 12, 16. Hvor mye legges til hver gang?', 4, '8 − 4.', '4.')
+      T('4, 8, 12, 16. Hvor mye legges til hver gang?', 4, '8 − 4.', '8 − 4 = 4, 12 − 8 = 4, 16 − 12 = 4. Det legges til 4 hver gang.')
     ]),
     SJ('Dette kan du nå', ['Navn på funksjonstyper', 'Regne verdier i x²', 'Forstå dobling', 'Se forskjell på lineær og eksponentiell'])
   ]));
@@ -206,7 +206,7 @@
       T('Hva er vekstfaktoren ved 25 % økning?', 1.25, '1 + 0,25.', '1,25.'),
       T('Hva er vekstfaktoren ved 10 % nedgang?', 0.9, '1 − 0,10.', '0,9.'),
       T('Hva er vekstfaktoren ved 30 % nedgang?', 0.7, '1 − 0,30.', '0,7.'),
-      T('Hva er vekstfaktoren ved 100 % økning (dobling)?', 2, '1 + 1.', '2.')
+      T('Hva er vekstfaktoren ved 100 % økning (dobling)?', 2, '1 + 1.', 'Økning på 100 % betyr 1 + 1,00 = 2. Vekstfaktoren er 2.')
     ])
   ]));
   U2.push(S('Regne med vekstfaktor', '🧮', [
@@ -317,7 +317,7 @@
     E('Fra 200 kr til 250 kr. Hvor mange prosent økning?', ['250 ÷ 200 = 1,25.', '1,25 er 25 % økning.', 'Svar: 25 %. 🎉']),
     OS([
       T('Fra 100 til 120. Hva er vekstfaktoren?', 1.2, '120 ÷ 100.', '1,2.'),
-      T('Fra 100 til 120. Hvor mange prosent økning?', 20, '1,2 = 20 %.', '20 %.', '%'),
+      T('Fra 100 til 120. Hvor mange prosent økning?', 20, 'Vekstfaktoren er 120 ÷ 100. Hva er det over 1?', 'Vekstfaktor 120 ÷ 100 = 1,2. Det er 0,2 over 1, altså 20 % økning.', '%'),
       T('Fra 50 til 25. Hva er vekstfaktoren?', 0.5, '25 ÷ 50.', '0,5.')
     ]),
     SJ('Dette kan du nå', ['Gjøre prosent om til vekstfaktor', 'Regne ny verdi', 'Finne prosenten når du kjenner begge verdier'])

@@ -1,4 +1,4 @@
-/* Forklaringsseksjoner 8. trinn, del 2: kvadratrot, mønstre, uttrykk, ligninger */
+/* Forklaringsseksjoner 8. trinn, del 2: kvadratrot, mønstre, uttrykk, likninger */
 (function () {
   const M = window.MATTE; const H = M.H; const sv = H.sv;
   const { P, C, E, EK, W, TAB, K, FORK, FK } = H;
@@ -78,25 +78,25 @@
     ])]
   ]);
 
-  /* ---------- Ligninger ---------- */
+  /* ---------- Likninger ---------- */
   FK('8/ligninger', [
-    [0, FORK('Hva er en ligning, og hvordan løser vi den?', '📖', [
-      P('En <strong>ligning</strong> er en påstand om at to uttrykk er like, med et ukjent tall (ofte x). Å <strong>løse</strong> ligningen betyr å finne tallet som gjør påstanden sann. I ligningen x + 3 = 8 er svaret x = 5, fordi 5 + 3 = 8.'),
+    [0, FORK('Hva er en likning, og hvordan løser vi den?', '📖', [
+      P('En <strong>likning</strong> er en påstand om at to uttrykk er like, med et ukjent tall (ofte x). Å <strong>løse</strong> likningen betyr å finne tallet som gjør påstanden sann. I likningen x + 3 = 8 er svaret x = 5, fordi 5 + 3 = 8.'),
       P('Tenk på en <strong>vekt i balanse</strong>. Venstre side må alltid veie like mye som høyre side. Hvis du tar noe bort fra den ene siden, må du ta like mye bort fra den andre. Det er hele hemmeligheten:'),
       C('regel', 'Gjør det samme på begge sider', ['Du kan legge til det samme tallet på begge sider.', 'Du kan trekke fra det samme tallet på begge sider.', 'Du kan gange eller dele begge sider med det samme tallet (ikke 0).', 'Likheten blir da fortsatt sann.']),
       W('balanse', { a: 1, b: 3, c: 8, tittel: 'Vekta: løs x + 3 = 8' }),
-      EK('Løs x + 3 = 8', 'Løs ligningen x + 3 = 8', ['Vi vil ha x alene. Fjern 3 fra venstre side ved å trekke fra 3.', 'Gjør det samme på høyre side: x + 3 − 3 = 8 − 3.', 'x = 5.', 'Prøve: 5 + 3 = 8 ✓.'], { widget: 'balanse', opts: { a: 1, b: 3, c: 8, tittel: 'x + 3 = 8' } }),
-      EK('Løs 4x = 20', 'Løs ligningen 4x = 20', ['4x betyr 4 · x. Det motsatte av å gange med 4 er å dele med 4.', 'Del begge sider på 4: 4x ÷ 4 = 20 ÷ 4.', 'x = 5.', 'Prøve: 4 · 5 = 20 ✓.']),
-      C('husk', 'Sjekk alltid svaret', 'Sett svaret tilbake i ligningen. Hvis begge sider blir like, har du løst den riktig. Det tar bare noen sekunder.')
+      EK('Løs x + 3 = 8', 'Løs likningen x + 3 = 8', ['Vi vil ha x alene. Fjern 3 fra venstre side ved å trekke fra 3.', 'Gjør det samme på høyre side: x + 3 − 3 = 8 − 3.', 'x = 5.', 'Prøve: 5 + 3 = 8 ✓.'], { widget: 'balanse', opts: { a: 1, b: 3, c: 8, tittel: 'x + 3 = 8' } }),
+      EK('Løs 4x = 20', 'Løs likningen 4x = 20', ['4x betyr 4 · x. Det motsatte av å gange med 4 er å dele med 4.', 'Del begge sider på 4: 4x ÷ 4 = 20 ÷ 4.', 'x = 5.', 'Prøve: 4 · 5 = 20 ✓.']),
+      C('husk', 'Sjekk alltid svaret', 'Sett svaret tilbake i likningen. Hvis begge sider blir like, har du løst den riktig. Det tar bare noen sekunder.')
     ])],
-    [2, FORK('Ligninger med flere steg', '🪜', [
-      P('Noen ligninger trenger flere steg, for eksempel 2x + 5 = 17. Her er det både noe som legges til (+ 5) og noe som ganges (2 · x). Da gjør du som når du pakker ut en gave: <strong>pakk ut i motsatt rekkefølge</strong> av hvordan den ble pakket.'),
+    [2, FORK('Likninger med flere steg', '🪜', [
+      P('Noen likninger trenger flere steg, for eksempel 2x + 5 = 17. Her er det både noe som legges til (+ 5) og noe som ganges (2 · x). Da gjør du som når du pakker ut en gave: <strong>pakk ut i motsatt rekkefølge</strong> av hvordan den ble pakket.'),
       W('balanse', { a: 2, b: 5, c: 17, tittel: 'Vekta: løs 2x + 5 = 17' }),
-      C('regel', 'Slik løser du ligninger med to steg', ['1. Fjern det som legges til eller trekkes fra (pluss/minus).', '2. Fjern det som ganges med x (del).', '3. Sjekk svaret ved å sette inn.']),
-      EK('Løs 2x + 5 = 17', 'Løs ligningen 2x + 5 = 17', ['Trekk fra 5 på begge sider: 2x + 5 − 5 = 17 − 5, så 2x = 12.', 'Del begge sider på 2: x = 12 ÷ 2 = 6.', 'Prøve: 2 · 6 + 5 = 12 + 5 = 17 ✓.']),
+      C('regel', 'Slik løser du likninger med to steg', ['1. Fjern det som legges til eller trekkes fra (pluss/minus).', '2. Fjern det som ganges med x (del).', '3. Sjekk svaret ved å sette inn.']),
+      EK('Løs 2x + 5 = 17', 'Løs likningen 2x + 5 = 17', ['Trekk fra 5 på begge sider: 2x + 5 − 5 = 17 − 5, så 2x = 12.', 'Del begge sider på 2: x = 12 ÷ 2 = 6.', 'Prøve: 2 · 6 + 5 = 12 + 5 = 17 ✓.']),
       P('Er x på <strong>begge sider</strong>, samler vi alle x-ene på den ene siden først.'),
-      EK('Løs 5x − 3 = 2x + 9', 'Løs ligningen 5x − 3 = 2x + 9', ['Trekk fra 2x på begge sider, så x-ene samles på venstre side: 5x − 2x − 3 = 9, altså 3x − 3 = 9.', 'Legg til 3 på begge sider: 3x = 12.', 'Del på 3: x = 4.', 'Prøve: venstre 5 · 4 − 3 = 17, høyre 2 · 4 + 9 = 17 ✓.']),
-      C('virkelighet', 'Hvor bruker vi ligninger?', 'Når du skal finne hvor mange timer du må jobbe for å tjene til en PlayStation, hvor lang tid en reise tar, eller hvor mye et abonnement koster per måned.')
+      EK('Løs 5x − 3 = 2x + 9', 'Løs likningen 5x − 3 = 2x + 9', ['Trekk fra 2x på begge sider, så x-ene samles på venstre side: 5x − 2x − 3 = 9, altså 3x − 3 = 9.', 'Legg til 3 på begge sider: 3x = 12.', 'Del på 3: x = 4.', 'Prøve: venstre 5 · 4 − 3 = 17, høyre 2 · 4 + 9 = 17 ✓.']),
+      C('virkelighet', 'Hvor bruker vi likninger?', 'Når du skal finne hvor mange timer du må jobbe for å tjene til en PlayStation, hvor lang tid en reise tar, eller hvor mye et abonnement koster per måned.')
     ])]
   ]);
 })();

@@ -1,4 +1,4 @@
-/* Forklaringsseksjoner 10. trinn, del 1: algebra, kvadratsetninger, ligningssett, stigningstall, funksjonstyper */
+/* Forklaringsseksjoner 10. trinn, del 1: algebra, kvadratsetninger, likningssett, stigningstall, funksjonstyper */
 (function () {
   const M = window.MATTE; const H = M.H; const sv = H.sv;
   const { P, C, E, EK, W, TAB, K, FORK, FK } = H;
@@ -65,25 +65,25 @@
     ])]
   ]);
 
-  /* ---------- Ligningssett ---------- */
+  /* ---------- Likningssett ---------- */
   FK('10/ligningssett', [
-    [0, FORK('To ukjente og to ligninger', '📖', [
-      P('Noen problemer har <strong>to ukjente</strong>, for eksempel prisen på en kake og prisen på en kaffe. Én ligning er ikke nok. Men har du <strong>to ligninger</strong> som begge må stemme, kan du finne begge. Det kalles et <strong>ligningssett</strong>.'),
-      TAB(['Fortelling', 'Ligninger'], [['Tre kaker og en kaffe koster 50 kr.', '3k + c = 50'], ['En kake og to kaffe koster 35 kr.', 'k + 2c = 35']]),
-      P('Å løse ligningssettet betyr å finne det <strong>ene</strong> paret (k, c) som passer i begge. Her er k = 13 og c = 11. Sjekk: 3 · 13 + 11 = 50 ✓, og 13 + 22 = 35 ✓.'),
-      P('<strong>Grafisk løsning:</strong> Hver ligning er en rett linje. Det punktet der linjene <strong>krysser hverandre</strong>, passer i begge. Det er løsningen.'),
+    [0, FORK('To ukjente og to likninger', '📖', [
+      P('Noen problemer har <strong>to ukjente</strong>, for eksempel prisen på en kake og prisen på en kaffe. Én likning er ikke nok. Men har du <strong>to likninger</strong> som begge må stemme, kan du finne begge. Det kalles et <strong>likningssett</strong>.'),
+      TAB(['Fortelling', 'Likninger'], [['Tre kaker og en kaffe koster 50 kr.', '3k + c = 50'], ['En kake og to kaffe koster 35 kr.', 'k + 2c = 35']]),
+      P('Å løse likningssettet betyr å finne det <strong>ene</strong> paret (k, c) som passer i begge. Her er k = 13 og c = 11. Sjekk: 3 · 13 + 11 = 50 ✓, og 13 + 22 = 35 ✓.'),
+      P('<strong>Grafisk løsning:</strong> Hver likning er en rett linje. Det punktet der linjene <strong>krysser hverandre</strong>, passer i begge. Det er løsningen.'),
       W('graf', { params: { b: { min: 0, max: 8, v: 5, steg: 1, navn: 'b (startverdi, linje 2)' } }, funksjoner: [{ f: 'x+1', navn: 'y = x + 1', farge: TEAL }, { f: '-x+b', navn: 'y = −x + b', farge: ORANGE }], xmin: -1, xmax: 8, ymin: -1, ymax: 9, skjaering: true, tittel: 'Der linjene krysser, er løsningen' }),
       EK('Les av løsningen', 'Linjene y = x + 1 og y = −x + 5 krysser hverandre. Hvor?', ['Sett y-ene like: x + 1 = −x + 5.', '2x = 4, så x = 2.', 'y = 2 + 1 = 3.', 'Svar: løsningen er (2, 3). Sjekk i begge: 2 + 1 = 3 ✓ og −2 + 5 = 3 ✓.']),
       C('virkelighet', 'Hvor bruker vi det?', 'Sammenlikne to abonnementer og finne når de koster likt, løse blandingsproblemer (kaffe og kake), og i fysikk og økonomi der to ting påvirker hverandre.'),
-      C('tips', 'Prøv spillet', 'Prisdetektiven i «Spill for å lære» er laget for å øve på ligningssett.')
+      C('tips', 'Prøv spillet', 'Prisdetektiven i «Spill for å lære» er laget for å øve på likningssett.')
     ])],
     [2, FORK('Innsettingsmetoden og addisjonsmetoden', '🧪', [
-      P('Det finnes to vanlige regnemetoder. Begge gjør om to ligninger med to ukjente til <strong>én ligning med én ukjent</strong>, som du allerede kan løse.'),
-      C('regel', 'Innsettingsmetoden', ['1. Løs den ene ligningen for én av bokstavene (for eksempel y = …).', '2. Sett uttrykket inn i den andre ligningen.', '3. Løs ligningen du får, og finn så den andre bokstaven.']),
-      EK('Innsetting', 'Løs: y = 2x og x + y = 9.', ['Den første ligningen gir y = 2x. Sett inn i den andre: x + 2x = 9.', '3x = 9, så x = 3.', 'y = 2 · 3 = 6.', 'Svar: x = 3 og y = 6. Sjekk: 3 + 6 = 9 ✓.']),
-      C('regel', 'Addisjonsmetoden', ['1. Skriv ligningene under hverandre.', '2. Legg dem sammen (eller trekk dem fra hverandre) slik at én bokstav forsvinner.', '3. Løs for den som er igjen, og finn den andre.']),
-      EK('Addisjon', 'Løs: x + y = 10 og x − y = 2.', ['Legg ligningene sammen: (x + y) + (x − y) = 10 + 2.', 'y-ene forsvinner: 2x = 12, så x = 6.', 'Sett inn i x + y = 10: 6 + y = 10, så y = 4.', 'Svar: x = 6 og y = 4.']),
-      C('tips', 'Hvilken skal jeg velge?', 'Er en bokstav allerede alene, bruk innsetting. Har ligningene like (eller motsatte) ledd, bruk addisjon. Begge gir samme svar.')
+      P('Det finnes to vanlige regnemetoder. Begge gjør om to likninger med to ukjente til <strong>én likning med én ukjent</strong>, som du allerede kan løse.'),
+      C('regel', 'Innsettingsmetoden', ['1. Løs den ene likningen for én av bokstavene (for eksempel y = …).', '2. Sett uttrykket inn i den andre likningen.', '3. Løs likningen du får, og finn så den andre bokstaven.']),
+      EK('Innsetting', 'Løs: y = 2x og x + y = 9.', ['Den første likningen gir y = 2x. Sett inn i den andre: x + 2x = 9.', '3x = 9, så x = 3.', 'y = 2 · 3 = 6.', 'Svar: x = 3 og y = 6. Sjekk: 3 + 6 = 9 ✓.']),
+      C('regel', 'Addisjonsmetoden', ['1. Skriv likningene under hverandre.', '2. Legg dem sammen (eller trekk dem fra hverandre) slik at én bokstav forsvinner.', '3. Løs for den som er igjen, og finn den andre.']),
+      EK('Addisjon', 'Løs: x + y = 10 og x − y = 2.', ['Legg likningene sammen: (x + y) + (x − y) = 10 + 2.', 'y-ene forsvinner: 2x = 12, så x = 6.', 'Sett inn i x + y = 10: 6 + y = 10, så y = 4.', 'Svar: x = 6 og y = 4.']),
+      C('tips', 'Hvilken skal jeg velge?', 'Er en bokstav allerede alene, bruk innsetting. Har likningene like (eller motsatte) ledd, bruk addisjon. Begge gir samme svar.')
     ])]
   ]);
 

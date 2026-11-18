@@ -63,7 +63,7 @@
     E('Bakterier: 100 ved start, 200 etter 1 time, 400 etter 2 timer. Lag modell, og finn antall etter 5 timer.', ['Hver time dobles det: b = 200 ÷ 100 = 2. Startverdi a = 100.', 'Modell: y = 100 · 2ˣ.', 'Etter 5 timer: 100 · 2⁵ = 100 · 32 = 3200 bakterier.']),
     W('graf', { params: { a: { min: 1, max: 200, v: 100, steg: 10, navn: 'a (start)' }, b: { min: 0.5, max: 2, v: 2, steg: 0.1, navn: 'b (vekstfaktor)' } }, funksjoner: [{ f: 'a*b^x', pen: 'eks', navn: 'y', farge: PLUM }], xmin: 0, xmax: 10, ymin: 0, ymax: 1000, tabell: true, tittel: 'Eksponentiell modell' }),
     O(4, [
-      T('100, 200, 400. Hva er vekstfaktoren?', 2, '200 ÷ 100.', '2.'),
+      T('100, 200, 400. Hva er vekstfaktoren?', 2, '200 ÷ 100.', '200 ÷ 100 = 2 og 400 ÷ 200 = 2. Vekstfaktoren er 2.'),
       T('Modell y = 100 · 2ˣ. Hva er y etter 5 timer?', 3200, '100 · 32.', '3200.'),
       T('En befolkning er 20 000 og øker 3 % per år. Hva er vekstfaktoren?', 1.03, '1 + 0,03.', '1,03.'),
       T('En befolkning på 1000 øker 10 % per år. Hvor mange etter 2 år?', 1210, '1000 · 1,21.', '1210.'),
@@ -85,7 +85,7 @@
     C('tips', 'Se også', 'Under «Verktøy» øverst finner du kurs i regneark og GeoGebra, fra bunnen.'),
     E('Tabell: x = 1, 2, 3, 4 og y = 3, 5, 7, 9. Hva er modellen, og hva gir x = 10?', ['Differanse: 5 − 3 = 2, 7 − 5 = 2. Konstant, så lineær med a = 2.', 'b: 3 = 2 · 1 + b, så b = 1. Modell: y = 2x + 1.', 'x = 10: y = 2 · 10 + 1 = 21.']),
     O(4, [
-      T('Tabell: y = 3, 5, 7, 9 for x = 1, 2, 3, 4. Hva er stigningstallet?', 2, '5 − 3.', '2.'),
+      T('Tabell: y = 3, 5, 7, 9 for x = 1, 2, 3, 4. Hva er stigningstallet?', 2, '5 − 3.', 'y øker med 2 for hver ene x (5 − 3 = 2). Stigningstallet er 2.'),
       T('Modellen y = 2x + 1. Hva er y for x = 10?', 21, '20 + 1.', '21.'),
       V('Du legger inn punktene (1, 3), (2, 6), (3, 12), (4, 24). Hvilken trendlinje passer best?', ['Eksponentiell', 'Lineær', 'Brøk', 'Ingen'], 0, '×2 hver gang.', 'Eksponentiell: y = 1,5 · 2ˣ.', true)
     ])
@@ -251,7 +251,7 @@
     O(4, [
       TK('def f(x):\n    return 3 * x - 2\nprint(f(4))', 10, 'Sett inn 4.', '3 · 4 − 2 = 10.'),
       TK('def kvadrat(x):\n    return x * x\nprint(kvadrat(7))', 49, '7 · 7.', '49.'),
-      TK('def f(x):\n    return x ** 2 - 4\nprint(f(3))', 5, '9 − 4.', '5.'),
+      TK('def f(x):\n    return x ** 2 - 4\nprint(f(3))', 5, '9 − 4.', 'f(3) = 3² − 4 = 9 − 4 = 5. (** betyr «opphøyd i».)'),
       TK('def areal(l, b):\n    return l * b\nprint(areal(6, 7))', 42, '6 · 7.', '42.'),
       TK('def f(x):\n    return 2 * x + 1\nprint(f(f(1)))', 7, 'f(1) = 3 først. Så f(3).', 'f(1) = 3 og f(3) = 7.')
     ])
@@ -303,7 +303,7 @@
     P('Kode leses <strong>linje for linje</strong>, ovenfra og ned. <code>x = 5</code> legger tallet 5 i boksen x. <code>print(x)</code> skriver ut det som ligger i x.', true),
     W('kode', { tittel: 'Prøv selv', kode: 'x = 5\nprint(x)\nprint(x + 2)', forvent: '5\n7', intro: 'Trykk Kjør. Endre 5 til et annet tall.' }),
     OS([
-      TK('x = 3\nprint(x)', 3, 'Hva ligger i x?', '3.'),
+      TK('x = 3\nprint(x)', 3, 'Hva ligger i x?', 'Linje 1 legger 3 i x. Linje 2 skriver ut det som ligger i x: 3.'),
       TK('x = 3\nprint(x + 4)', 7, '3 + 4.', '7.'),
       TK('x = 2\ny = x * 5\nprint(y)', 10, '2 · 5.', '10.')
     ])
@@ -314,8 +314,8 @@
     W('kode', { tittel: 'Løkke', kode: 'for i in range(3):\n    print("Hei")', forvent: 'Hei\nHei\nHei', intro: 'Endre 3 til 5.' }),
     E('Hvor mange ganger skrives «Hei» ut hvis du bytter 3 med 5?', ['range(5) gjentar 5 ganger.', 'Hver gang skrives «Hei».', 'Svar: 5 ganger. 🎉']),
     OS([
-      TK('s = 0\nfor i in range(3):\n    s = s + 2\nprint(s)', 6, '2 + 2 + 2.', '6.'),
-      TK('s = 0\nfor i in range(1, 4):\n    s = s + i\nprint(s)', 6, '1 + 2 + 3.', '6.')
+      TK('s = 0\nfor i in range(3):\n    s = s + 2\nprint(s)', 6, '2 + 2 + 2.', 'Løkka går 3 ganger og legger til 2 hver gang: 0 → 2 → 4 → 6.'),
+      TK('s = 0\nfor i in range(1, 4):\n    s = s + i\nprint(s)', 6, '1 + 2 + 3.', 'i er 1, 2 og 3. s blir 0 + 1 + 2 + 3 = 6.')
     ])
   ]));
   T2.push(S('Steg 3: Funksjon', '3', [

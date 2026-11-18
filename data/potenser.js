@@ -59,7 +59,7 @@
     C('regel', 'Fortegnsregel for potenser', ['Negativt grunntall og <strong>partall</strong> som eksponent gir <strong>positivt</strong> svar.', 'Negativt grunntall og <strong>oddetall</strong> som eksponent gir <strong>negativt</strong> svar.']),
     O(3, [
       T('Regn ut: 9¹', 9, 'Eksponent 1.', '9¹ = 9.'),
-      T('Regn ut: 25⁰', 1, 'Alt opphøyd i 0 er 1.', '25⁰ = 1.'),
+      T('Regn ut: 25⁰', 1, 'Husk regelen for eksponent 0.', 'Alt (unntatt 0) opphøyd i 0 er 1, så 25⁰ = 1.'),
       T('Regn ut: (−4)²', 16, '(−4) · (−4).', 'Minus ganger minus er pluss: 16.'),
       T('Regn ut: −4²', -16, 'Regn 4² først, og sett minus foran.', '4² = 16, så −4² = −16.'),
       T('Regn ut: (−2)³', -8, 'Tre faktorer gir negativt.', '(−2) · (−2) = 4, og 4 · (−2) = −8.'),

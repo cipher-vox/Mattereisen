@@ -185,7 +185,7 @@
     ],
     pass: ['== sjekker om noe er likt. = legger inn en verdi.', 'Hver kjøring gir litt ulikt svar. Det er normalt.', 'Flere forsøk gir sikrere svar.'],
     trick: 'Kjør simuleringen flere ganger og se om svaret holder seg nær den samme verdien.',
-    ord: [['Simulering', 'En etterligning av noe virkelig med datamaskin.'], ['Relativ frekvens', 'Andelen ganger noe har skjedd.'], ['Teller', 'En variabel som øker hver gang noe skjer.']],
+    ord: [['Simulering', 'En etterlikning av noe virkelig med datamaskin.'], ['Relativ frekvens', 'Andelen ganger noe har skjedd.'], ['Teller', 'En variabel som øker hver gang noe skjer.']],
     test: [['Hva gjør random.randint(1, 6)?', 'Gir et tilfeldig heltall fra 1 til 6'], ['Hva er relativ frekvens?', 'Antall ganger det skjedde ÷ antall forsøk']]
   });
 })();

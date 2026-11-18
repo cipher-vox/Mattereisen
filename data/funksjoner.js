@@ -178,7 +178,7 @@
       const v = a * x + (pm ? b : -b);
       return H.e('f(x) = ' + a + 'x ' + (pm ? '+' : '−') + ' ' + b + '. Hva er f(' + x + ')?', v, a + ' · ' + x + (pm ? ' + ' : ' − ') + b + ' = ' + v);
     }));
-    sek.push(H.ek('invers', '↩️', 'Hvilken x gir dette?', 8, 'Hvilken x gir denne y-verdien? Løs ligningen.', function (r) {
+    sek.push(H.ek('invers', '↩️', 'Hvilken x gir dette?', 8, 'Hvilken x gir denne y-verdien? Løs likningen.', function (r) {
       const a = r.int(2, lett ? 5 : 9), b = r.int(1, 12), x = r.int(2, lett ? 8 : 15);
       return H.e('f(x) = ' + a + 'x + ' + b + '. For hvilken x er f(x) = ' + (a * x + b) + '?', x, a + 'x + ' + b + ' = ' + (a * x + b) + ', så ' + a + 'x = ' + a * x + ' og x = ' + x);
     }));

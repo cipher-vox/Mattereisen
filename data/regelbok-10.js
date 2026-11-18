@@ -42,21 +42,21 @@
   });
 
   R('10/ligningssett', {
-    kort: 'Et ligningssett har to ukjente, x og y, og to ligninger. Løsningen må passe i begge.',
+    kort: 'Et likningssett har to ukjente, x og y, og to likninger. Løsningen må passe i begge.',
     regler: [
       ['📈', 'Grafisk', 'Tegn begge linjene. Skjæringspunktet er løsningen (x, y).'],
-      ['🔁', 'Innsettingsmetoden', 'Løs den ene ligningen for x eller y, og sett uttrykket inn i den andre.'],
-      ['➕', 'Addisjonsmetoden', 'Legg ligningene sammen eller trekk dem fra hverandre, slik at en ukjent forsvinner.'],
-      ['✅', 'Sjekk', 'Sett x og y inn i begge ligningene.'],
+      ['🔁', 'Innsettingsmetoden', 'Løs den ene likningen for x eller y, og sett uttrykket inn i den andre.'],
+      ['➕', 'Addisjonsmetoden', 'Legg likningene sammen eller trekk dem fra hverandre, slik at en ukjent forsvinner.'],
+      ['✅', 'Sjekk', 'Sett x og y inn i begge likningene.'],
       ['⚠️', 'Spesialtilfeller', 'Parallelle linjer: ingen løsning. Samme linje: uendelig mange løsninger.']
     ],
     eks: [
       ['Løs x + y = 10 og x − y = 4', ['Legg sammen: 2x = 14, så x = 7.', '7 + y = 10, så y = 3.', 'Sjekk: 7 − 3 = 4 ✓.'], 'x = 7 og y = 3'],
       ['Løs y = 2x og x + y = 12', ['Sett y = 2x inn i den andre: x + 2x = 12.', '3x = 12, så x = 4.', 'y = 2 · 4 = 8.'], 'x = 4 og y = 8']
     ],
-    pass: ['Du må finne både x og y.', 'Sett svaret inn i begge ligningene.', 'Når du trekker en ligning fra en annen, endre fortegn på alle leddene.'],
+    pass: ['Du må finne både x og y.', 'Sett svaret inn i begge likningene.', 'Når du trekker en likning fra en annen, endre fortegn på alle leddene.'],
     trick: 'Velg metoden som gjør en ukjent borte raskest. Ligger y alene? Bruk innsetting.',
-    ord: [['Ligningssett', 'To ligninger med to ukjente.'], ['Skjæringspunkt', 'Punktet der linjene krysser hverandre.']],
+    ord: [['Likningssett', 'To likninger med to ukjente.'], ['Skjæringspunkt', 'Punktet der linjene krysser hverandre.']],
     test: [['x + y = 8 og x − y = 2. Finn x og y.', 'x = 5 og y = 3'], ['Hva er løsningen grafisk?', 'Skjæringspunktet mellom linjene']]
   });
 

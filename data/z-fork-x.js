@@ -21,7 +21,7 @@
   leggTil('10/kvadratsetninger', 'Bruk kvadratsetningene', 2, { t: 'widget', navn: 'arealmodell', opts: { type: 'konj', a: 7, b: 3, tittel: 'a² − b² som areal: (7 + 3)(7 − 3) = 49 − 9' } });
   leggTil('10/ligningssett', 'Innsettingsmetoden', 1, H.FIG(
     sv.t(100, 40, 'x + y = 10', { s: 24, a: 'start' }) + sv.t(70, 82, '+', { s: 24 }) + sv.t(100, 82, 'x − y = 2', { s: 24, a: 'start' }) + sv.l(60, 98, 270, 98, INK, 3) + sv.t(100, 130, '2x = 12', { s: 24, a: 'start', f: NUL }) + sv.t(300, 82, '← y-ene forsvinner!', { s: 14, f: POS, a: 'start' }),
-    470, 150, 'Addisjonsmetoden: legg ligningene sammen, og én av bokstavene forsvinner.'));
+    470, 150, 'Addisjonsmetoden: legg likningene sammen, og én av bokstavene forsvinner.'));
   leggTil('10/funksjonstyper', 'gjenkjenner', 1, H.FIG(
     sv.t(70, 20, 'Lineær', { s: 15, f: TEAL }) + [3, 6, 9, 12].map((v, i) => sv.r(20 + i * 0, 30 + i * 36, 50, 28, '#dff4f6', TEAL, 4) + sv.t(45, 50 + i * 36, String(v), { s: 15 }) + (i < 3 ? sv.t(95, 60 + i * 36, '+3', { s: 14, f: POS }) : '')).join('') +
     sv.t(300, 20, 'Eksponentiell', { s: 15, f: PLUM }) + [3, 6, 12, 24].map((v, i) => sv.r(255, 30 + i * 36, 50, 28, '#eee6fb', PLUM, 4) + sv.t(280, 50 + i * 36, String(v), { s: 15 }) + (i < 3 ? sv.t(335, 60 + i * 36, '· 2', { s: 14, f: POS }) : '')).join(''),

@@ -36,6 +36,7 @@
     P('Når du <strong>legger sammen</strong> eller <strong>ganger</strong>, kan du bytte om rekkefølgen uten at svaret endres. Det kalles den <strong>kommutative</strong> regelen.'),
     TAB(['Regneart', 'Regelen', 'Eksempel'], [['Pluss', 'a + b = b + a', '3 + 8 = 8 + 3 = 11'], ['Gange', 'a · b = b · a', '4 · 7 = 7 · 4 = 28']]),
     C('tips', 'Se det som et rektangel', 'Tegn et rektangel med 3 rader og 4 ruter i hver rad. Det er 3 · 4 = 12 ruter. Snu rektanglet på siden: nå er det 4 rader med 3 ruter, altså 4 · 3 = 12. Det er de samme rutene, så svaret er likt.'),
+    C('tips', 'To tegn for dele', 'Du møter både «:» og «÷» som deletegn: 12 : 4 og 12 ÷ 4 betyr det samme, nemlig 3. Brøkstrek betyr også dele: 12/4 = 3. Kalkulatoren bruker ÷ eller /.'),
     C('advarsel', 'Minus og dele kan ikke byttes om', 'Hvis du bytter om i et minusstykke, endres svaret: 8 − 3 = 5, men 3 − 8 = −5. Det samme gjelder dele: 8 : 2 = 4, men 2 : 8 = 0,25.'),
     E('Regn ut 4 + 17 + 6 på en smart måte.', ['Vi ser at 4 og 6 til sammen blir 10.', 'Vi bytter om: 4 + 6 + 17.', '4 + 6 = 10, og 10 + 17 = 27.', 'Svar: 27.']),
     O(2, [

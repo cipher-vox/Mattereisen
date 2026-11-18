@@ -93,20 +93,25 @@
     ]);
 
   H.NIV('8/ligninger',
-    'Ei ligning er som ei vekt i balanse. Gjør det samme på begge sider, så holder den seg i balanse. Du vil ha x helt alene.',
+    'Ei likning er som ei vekt i balanse. Gjør det samme på begge sider, så holder den seg i balanse. Du vil ha x helt alene.',
     ['Løs x + 5 = 12', ['Vi vil ha x alene.', 'Trekk fra 5 på begge sider.', 'x + 5 − 5 = 12 − 5.', 'x = 7.']],
     [
       t('Løs: x + 3 = 10', 7, ['Trekk fra 3 på begge sider.'], 'x = 10 − 3 = 7.'),
       t('Løs: x − 4 = 6', 10, ['Legg til 4 på begge sider.'], 'x = 6 + 4 = 10.'),
-      t('Løs: 3x = 21', 7, ['Del begge sider på 3.'], 'x = 21 ÷ 3 = 7.'),
+      t('Løs: 3x = 18', 6, ['Del begge sider på 3.'], 'x = 18 ÷ 3 = 6.'),
       t('Løs: 2x + 1 = 11', 5, ['Først fjerner du +1: trekk fra 1 på begge sider.', 'Så deler du på 2.'], '2x = 10, så x = 5.'),
-      t('Jeg tenker på et tall. Ganger jeg det med 4, får jeg 28. Hvilket tall tenker jeg på?', 7, ['Lag ligningen 4x = 28.'], '4x = 28, så x = 28 ÷ 4 = 7.'),
+      t('Jeg tenker på et tall. Ganger jeg det med 4, får jeg 36. Hvilket tall tenker jeg på?', 9, ['Lag likningen 4x = 36.'], '4x = 36, så x = 36 ÷ 4 = 9.'),
+      t('En pakke med tre like kjeks koster 24 kr. Hva koster ett kjeks?', 8, ['Lag likningen 3x = 24.'], '3x = 24, så x = 24 ÷ 3 = 8 kr.', 'kr'),
+      t('Løs: x + 12 = 23', 11, ['Trekk fra 12 på begge sider.'], 'x = 23 − 12 = 11.'),
       v('Er x = 6 løsningen på 2x + 3 = 15?', ['Ja', 'Nei'], 0, ['Sett inn 6 for x og se om venstre og høyre side blir like.'], '2 · 6 + 3 = 15, så ja.')
     ],
-    'Her får du ligninger med x på begge sider og tekstoppgaver.',
+    'Her får du likninger med x på begge sider og tekstoppgaver.',
     [
       t('Løs: 5x − 7 = 3x + 9', 8, ['Samle x-ene på én side: trekk fra 3x på begge sider.'], '2x − 7 = 9, så 2x = 16 og x = 8. Sjekk: 5 · 8 − 7 = 33 og 3 · 8 + 9 = 33.'),
-      t('Tre like bøker og en penn til 12 kr koster 99 kr til sammen. Hva koster én bok?', 29, ['Lag ligningen 3x + 12 = 99.'], '3x = 87, så x = 29 kr.', 'kr'),
+      t('Tre like notatbøker og en penn til 15 kr koster 99 kr til sammen. Hva koster én notatbok?', 28, ['Lag likningen 3x + 15 = 99.'], '3x = 84, så x = 28 kr.', 'kr'),
+      t('Løs: x + 8 = 3', -5, ['Trekk fra 8 på begge sider. Svaret kan bli negativt.'], 'x = 3 − 8 = −5. Sjekk: −5 + 8 = 3.'),
+      t('Løs: 2(x + 5) = x + 13', 3, ['Gang ut parentesen først: 2x + 10.'], '2x + 10 = x + 13, så x = 3. Sjekk: 2 · 8 = 16 og 3 + 13 = 16.'),
+      v('Du løser en likning for antall elever i en gruppe og får x = −4. Hva bør du gjøre?', ['Sjekke likningen, for svaret gir ikke mening', 'Svare −4 elever', 'Svare 4 elever uten å sjekke', 'Runde svaret opp'], 0, ['Kan en gruppe ha −4 elever?'], 'Antall elever kan ikke være negativt. Da må du sjekke om likningen er satt opp riktig.'),
       t('Løs: 2(x + 3) = 5x − 12', 6, ['Gang ut parentesen først.'], '2x + 6 = 5x − 12, så 18 = 3x og x = 6.')
     ]);
 
@@ -161,7 +166,7 @@
     [
       t('Figur n har 3n + 2 prikker. Hvor mange prikker har figur 20?', 62, ['Sett inn n = 20.'], '3 · 20 + 2 = 62.'),
       t('Rekka dobler hver gang: 3, 6, 12, 24, … Hva er tall nummer 8?', 384, ['Skriv opp rekka helt ut.'], '3, 6, 12, 24, 48, 96, 192, 384. Svar: 384.'),
-      t('Figur n har 4n − 1 prikker. Hvilken figur har 107 prikker?', 27, ['Lag ligningen 4n − 1 = 107.'], '4n = 108, så n = 27.')
+      t('Figur n har 4n − 1 prikker. Hvilken figur har 107 prikker?', 27, ['Lag likningen 4n − 1 = 107.'], '4n = 108, så n = 27.')
     ]);
 
   H.NIV('8/faktorisering',
@@ -170,7 +175,7 @@
     [
       v('Hvilket av disse er et primtall?', ['9', '11', '15', '21'], 1, ['Et primtall kan bare deles på 1 og seg selv.', '9 = 3 · 3 og 15 = 3 · 5.'], '11 er et primtall. De andre kan deles på 3.'),
       t('Hvor mange faktorer har 6? (Tell 1, 2, 3 og 6.)', 4, ['Hvilke tall går opp i 6?'], 'Faktorene er 1, 2, 3 og 6. Det er 4.'),
-      t('Primtallsfaktoriser 18. Hvor mange ganger står primtallet 3 i faktoriseringen?', 2, ['18 = 2 · 9.', 'Del 9 videre.'], '18 = 2 · 3 · 3. Tallet 3 står to ganger.'),
+      t('Primtallsfaktoriser 18. Hvor mange ganger står primtallet 3 i faktoriseringen?', 2, ['Start med det minste primtallet som går opp i 18.', 'Fortsett å dele til alle faktorene er primtall.'], '18 = 2 · 3 · 3. Tallet 3 står to ganger.'),
       t('Hva er den største felles faktoren (SFF) til 8 og 12?', 4, ['Faktorer til 8: 1, 2, 4, 8.', 'Faktorer til 12: 1, 2, 3, 4, 6, 12.'], 'Felles faktorer er 1, 2 og 4. Den største er 4.'),
       t('Hva er det minste felles multiplum (MFM) til 4 og 6?', 12, ['Multipler av 4: 4, 8, 12, …', 'Multipler av 6: 6, 12, …'], 'Det første tallet i begge lister er 12.'),
       v('Kan 27 deles på 3?', ['Ja', 'Nei'], 0, ['Legg sammen sifrene: 2 + 7.', 'Kan summen deles på 3?'], '2 + 7 = 9, og 9 kan deles på 3. Så 27 = 3 · 9.')

@@ -26,7 +26,7 @@
       C('virkelighet', 'Ulikheter i hverdagen', '«Du må være minst 140 cm for å kjøre denne karusellen» betyr høyde ≥ 140. «Maks 5 personer i heisen» betyr personer ≤ 5. Ulikheter beskriver grenser og krav.')
     ])],
     [2, FORK('Å løse ulikheter', '🧮', [
-      P('Ulikheter løser vi nesten som ligninger. Vi vil ha x alene, og vi bruker de samme reglene: du kan <strong>legge til, trekke fra og gange eller dele</strong> med det samme tallet på begge sider (positivt tall), og ulikheten gjelder fortsatt.'),
+      P('Ulikheter løser vi nesten som likninger. Vi vil ha x alene, og vi bruker de samme reglene: du kan <strong>legge til, trekke fra og gange eller dele</strong> med det samme tallet på begge sider (positivt tall), og ulikheten gjelder fortsatt.'),
       EK('Løs x + 4 > 9', 'Løs ulikheten x + 4 > 9', ['Trekk fra 4 på begge sider: x + 4 − 4 > 9 − 4.', 'x > 5.', 'Svar: alle tall større enn 5. Sjekk: 6 + 4 = 10 > 9 ✓.']),
       EK('Løs 3x ≤ 12', 'Løs ulikheten 3x ≤ 12', ['Del begge sider på 3: x ≤ 4.', 'Svar: alle tall som er 4 eller mindre. På tallinja: fylt sirkel i 4, pil mot venstre.'], { widget: 'ulikhet', opts: { a: 4, op: '≤', t: 2, tittel: 'x ≤ 4' } }),
       EK('Løs 2x + 1 < 9', 'Løs ulikheten 2x + 1 < 9', ['Trekk fra 1: 2x < 8.', 'Del på 2: x < 4.', 'Svar: alle tall mindre enn 4 (4 er ikke med).']),

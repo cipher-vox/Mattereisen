@@ -115,7 +115,7 @@
       V('Hva er √4?', ['2', '4', '8'], 0, '2 · 2 = ?', '2 · 2 = 4, så √4 = 2.', true),
       T('Regn ut: √9', 3, '3 · 3 = 9.', '3 · 3 = 9.'),
       T('Regn ut: √25', 5, '5 · 5 = 25.', '5 · 5 = 25.'),
-      T('Regn ut: √1', 1, '1 · 1 = 1.', '1 · 1 = 1.')
+      T('Regn ut: √1', 1, 'Hvilket tall ganget med seg selv gir 1?', '1 · 1 = 1, så √1 = 1.')
     ])
   ]));
   T1.push(S('Steg 2: Kvadrattall', '2', [

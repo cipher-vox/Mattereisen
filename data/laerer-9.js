@@ -102,7 +102,7 @@
     midt: 'Sentralmål og spredning på egne data. Sammenlign to klasser eller to datasett. Bruk Data-smeden.',
     slutt: 'Utgangsbillett: «Gi et datasett med gjennomsnitt 5 og median 4.»',
     samtale: ['Når er median bedre enn gjennomsnitt?', 'Hva forteller spredningen som sentralmål ikke gjør?', 'Hva skjer med målene hvis du fjerner et ekstremtall?'],
-    diff: { rolig: 'Små datasett med hele tall.', vanlig: 'Egne data og sammenligning.', utfordring: 'Kvartiler, boksplott og utliggere.' },
+    diff: { rolig: 'Små datasett med hele tall.', vanlig: 'Egne data og sammenlikning.', utfordring: 'Kvartiler, boksplott og utliggere.' },
     vurdering: 'Se etter om eleven kan velge og begrunne et sentralmål.'
   });
 

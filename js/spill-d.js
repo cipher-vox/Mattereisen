@@ -267,7 +267,7 @@
   }
   feil('feiljegeren-8', 'Feiljegeren', 8, ['8/regneregler', '8/potenser', '8/negative-tall', '8/uttrykk', '8/ligninger', '8/kvadratrot'],
     'Finn feilen i utregningen. Hvilket steg gikk galt? Og er det i det hele tatt en feil?',
-    'Å oppdage vanlige feil: regnerekkefølge, potenser, minus og minus, å slå sammen ledd som ikke er like, å løse ligninger og kvadratrøtter. Den som kan finne feil i andres utregninger, gjør færre feil selv.',
+    'Å oppdage vanlige feil: regnerekkefølge, potenser, minus og minus, å slå sammen ledd som ikke er like, å løse likninger og kvadratrøtter. Den som kan finne feil i andres utregninger, gjør færre feil selv.',
     [
       { oppg: 'Regn ut 4 + 3 · 5', steg: ['= 7 · 5', '= 35'], feil: 0, hva: 'Gange regnes før pluss.', rett: '4 + 3 · 5 = 4 + 15 = 19', galne: ['4 + 3 · 5 = 7 · 5 = 35', '4 + 3 · 5 = 12 + 5 = 17'] },
       { oppg: 'Regn ut 2³', steg: ['= 2 · 3', '= 6'], feil: 0, hva: '2³ betyr at du ganger 2 med seg selv 3 ganger, ikke at du ganger 2 med 3.', rett: '2³ = 2 · 2 · 2 = 8', galne: ['2³ = 2 · 3 = 6', '2³ = 2 + 2 + 2 = 6'] },

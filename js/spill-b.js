@@ -1,4 +1,4 @@
-/* Spill B: Ligningsmaskinen, Ulikhets-vakten, Like-ledd-fisking, Mønsterjakten, Myntjakt (rette linjer og kurver) */
+/* Spill B: Likningsmaskinen, Ulikhets-vakten, Like-ledd-fisking, Mønsterjakten, Myntjakt (rette linjer og kurver) */
 (function () {
   'use strict';
   const M = window.MATTE, G = M.G, F = M.fmt;
@@ -23,17 +23,17 @@
   };
   const tmpl = (hud, spm, bokser) => '<div class="sp-hud">' + hud + '</div>' + (spm ? '<div class="sp-spm lesbar">' + spm + '</div>' : '') + bokser;
 
-  /* ===================== Ligningsmaskinen ===================== */
+  /* ===================== Likningsmaskinen ===================== */
   function venstre(a, b) {
     let s = (a === 1 ? '' : a === -1 ? '−' : F(a)) + 'x';
     if (b > 0) s += ' + ' + F(b); else if (b < 0) s += ' − ' + F(-b);
     return s;
   }
   G.add({
-    id: 'ligningsmaskinen', tittel: 'Ligningsmaskinen', ikon: '⚖️', trinn: 8, temaer: ['8/ligninger'],
+    id: 'ligningsmaskinen', tittel: 'Likningsmaskinen', ikon: '⚖️', trinn: 8, temaer: ['8/ligninger'],
     kort: 'Hold vekta i balanse og få x helt for seg selv. Sjekk svaret til slutt.',
-    hvordan: 'Ligningen er en vekt. Det du gjør på den ene siden, må du gjøre på den andre. Velg regneart og tall, og trykk «Gjør på begge sider». Målet er at det står «x = …» med færrest mulig trekk. Du kan bare dele hvis det går opp. Står du fast, kan du trykke 💡 for et hint, eller ↩️ for å angre. På Vanlig og Utfordring tester du svaret ditt til slutt ved å sette det inn i den første ligningen. På Utfordring kan både x og tallet foran x være negative, og du kan gange og dele med negative tall.',
-    lærer: 'Å løse ligninger ved å gjøre det samme på begge sider: først fjerne tallet som står alene (pluss eller minus), så dele på tallet foran x. Du sjekker svaret ved å sette det inn i den første ligningen. Med negative tall foran x må du dele på et negativt tall.',
+    hvordan: 'Likningen er en vekt. Det du gjør på den ene siden, må du gjøre på den andre. Velg regneart og tall, og trykk «Gjør på begge sider». Målet er at det står «x = …» med færrest mulig trekk. Du kan bare dele hvis det går opp. Står du fast, kan du trykke 💡 for et hint, eller ↩️ for å angre. På Vanlig og Utfordring tester du svaret ditt til slutt ved å sette det inn i den første likningen. På Utfordring kan både x og tallet foran x være negative, og du kan gange og dele med negative tall.',
+    lærer: 'Å løse likninger ved å gjøre det samme på begge sider: først fjerne tallet som står alene (pluss eller minus), så dele på tallet foran x. Du sjekker svaret ved å sette det inn i den første likningen. Med negative tall foran x må du dele på et negativt tall.',
     start: function (el) {
       let runde = 0, poeng = 0, a, b, c, a0, b0, c0, x, trekk, par, op = '+', n = 1, logg, ferdig, brukteHint, hist, RUNDER;
       const nMin = () => G.niv() === 2 ? -20 : 1;
@@ -52,7 +52,7 @@
       const nesteSteg = () => b !== 0 ? { op: b > 0 ? '−' : '+', n: Math.abs(b), t: 'Tallet som står alene er ' + F(b) + '. Gjør det motsatte: «' + (b > 0 ? '−' : '+') + ' ' + Math.abs(b) + '» på begge sider.' } : { op: '÷', n: a, t: 'Nå står det ' + F(a) + 'x. Del begge sider på tallet foran x: «÷ ' + F(a) + '».' };
       function vis() {
         el.innerHTML = tmpl('<span>Oppgave ' + (runde + 1) + ' av ' + RUNDER + '</span><span>Trekk: ' + trekk + ' (best: ' + par + ')</span><span>Poeng: ' + poeng + '</span>', '',
-          '<div class="lm-vekt" aria-label="Ligning: ' + venstre(a, b) + ' er lik ' + F(c) + '"><div class="lm-side"><span>' + venstre(a, b) + '</span></div><div class="lm-lik">⚖️ =</div><div class="lm-side"><span>' + F(c) + '</span></div></div>' +
+          '<div class="lm-vekt" aria-label="Likning: ' + venstre(a, b) + ' er lik ' + F(c) + '"><div class="lm-side"><span>' + venstre(a, b) + '</span></div><div class="lm-lik">⚖️ =</div><div class="lm-side"><span>' + F(c) + '</span></div></div>' +
           '<div class="lm-logg">' + (logg.length ? logg.join('<br>') : 'Ingen trekk ennå.') + '</div>' +
           '<div class="sp-rad lm-ops" role="group" aria-label="Regneart">' + ['+', '−', '×', '÷'].map(o => '<button type="button" class="sp-valg lm-op' + (o === op ? ' valgt' : '') + '" data-o="' + o + '">' + o + '</button>').join('') +
           '<span class="lm-n"><button type="button" class="sp-valg lm-minus" aria-label="Mindre">−</button><strong class="lm-tall" aria-live="polite">' + n + '</strong><button type="button" class="sp-valg lm-pluss" aria-label="Mer">+</button></span></div>' +
@@ -86,7 +86,7 @@
         neste();
       }
       function test() {
-        G.q(el, '.lm-sjekk').innerHTML = '<p class="sp-spm lesbar"><strong>Test svaret:</strong> sett x = ' + F(x) + ' inn i den første ligningen, ' + venstre(a0, b0) + ' = ' + F(c0) + '. Hva blir <strong>venstre side</strong>? (Det skal bli det samme som høyre side.)</p><div class="lm-skriv"></div>';
+        G.q(el, '.lm-sjekk').innerHTML = '<p class="sp-spm lesbar"><strong>Test svaret:</strong> sett x = ' + F(x) + ' inn i den første likningen, ' + venstre(a0, b0) + ' = ' + F(c0) + '. Hva blir <strong>venstre side</strong>? (Det skal bli det samme som høyre side.)</p><div class="lm-skriv"></div>';
         const xs = x < 0 ? '(' + F(x) + ')' : F(x);
         G.skriv(el, G.q(el, '.lm-skriv'), { fasit: c0, ledetekst: 'Venstre side', hint: ['Bytt ut x med ' + F(x) + ': ' + F(a0) + ' · ' + xs + (b0 > 0 ? ' + ' + F(b0) : b0 < 0 ? ' − ' + F(-b0) : ''), 'Regn ut ' + F(a0) + ' · ' + xs + ' = ' + F(a0 * x) + ' først.'], fn: function (ok) {
           if (ok) poeng++;
@@ -95,8 +95,8 @@
         } });
       }
       function neste() {
-        const rad = G.q(el, '.lm-nav'); rad.innerHTML = '<button type="button" class="knapp primær lm-neste">' + (runde + 1 >= RUNDER ? 'Se resultatet' : 'Neste ligning ▶') + '</button>';
-        G.q(el, '.lm-neste').addEventListener('click', () => { runde++; if (runde >= RUNDER) { const mx = RUNDER * (G.niv() === 0 ? 3 : 4); return G.slutt(el, { ikon: '⚖️', tittel: 'Balansekunstner!', stjerner: G.stjerner(el, poeng, mx), tekst: 'Du fikk ' + poeng + ' av ' + mx + ' poeng.', lær: 'For å løse en ligning gjør du det samme på begge sider. Fjern først tallet som står alene, del så på tallet foran x. Til slutt kan du alltid sjekke svaret ved å sette det inn i den første ligningen.', igjen: () => { runde = 0; poeng = 0; ny(); } }); } ny(); });
+        const rad = G.q(el, '.lm-nav'); rad.innerHTML = '<button type="button" class="knapp primær lm-neste">' + (runde + 1 >= RUNDER ? 'Se resultatet' : 'Neste likning ▶') + '</button>';
+        G.q(el, '.lm-neste').addEventListener('click', () => { runde++; if (runde >= RUNDER) { const mx = RUNDER * (G.niv() === 0 ? 3 : 4); return G.slutt(el, { ikon: '⚖️', tittel: 'Balansekunstner!', stjerner: G.stjerner(el, poeng, mx), tekst: 'Du fikk ' + poeng + ' av ' + mx + ' poeng.', lær: 'For å løse en likning gjør du det samme på begge sider. Fjern først tallet som står alene, del så på tallet foran x. Til slutt kan du alltid sjekke svaret ved å sette det inn i den første likningen.', igjen: () => { runde = 0; poeng = 0; ny(); } }); } ny(); });
       }
       ny();
     }
@@ -154,7 +154,7 @@
         nr++; const rad = G.q(el, '.uv-nav'); const slutt = liv <= 0 || nr >= TOT;
         rad.innerHTML = '<button type="button" class="knapp primær uv-neste">' + (slutt ? 'Se resultatet' : 'Neste gjest ▶') + '</button>';
         G.q(el, '.uv-neste').addEventListener('click', () => {
-          if (slutt) { const mx = TOT + ekstra; return G.slutt(el, { ikon: liv > 0 ? '🛡️' : '😵', tittel: liv > 0 ? 'Vakt av høyeste klasse!' : 'Vakten ble sendt hjem', stjerner: G.stjerner(el, poeng, mx), tekst: 'Du fikk ' + poeng + ' poeng av ' + mx + '.', lær: 'En ulikhet har mange løsninger. Løs den som en ligning, men snu ulikhetstegnet når du ganger eller deler med et negativt tall. På tallinja viser en åpen sirkel at tallet ikke er med (< og >), og en fylt sirkel at det er med (≤ og ≥).', igjen: start2 }); }
+          if (slutt) { const mx = TOT + ekstra; return G.slutt(el, { ikon: liv > 0 ? '🛡️' : '😵', tittel: liv > 0 ? 'Vakt av høyeste klasse!' : 'Vakten ble sendt hjem', stjerner: G.stjerner(el, poeng, mx), tekst: 'Du fikk ' + poeng + ' poeng av ' + mx + '.', lær: 'En ulikhet har mange løsninger. Løs den som en likning, men snu ulikhetstegnet når du ganger eller deler med et negativt tall. På tallinja viser en åpen sirkel at tallet ikke er med (< og >), og en fylt sirkel at det er med (≤ og ≥).', igjen: start2 }); }
           if (nr % PER === 0) { fase++; regel = null; if (G.niv() > 0) forutsi(); else nyGjest(); } else nyGjest();
         });
       }

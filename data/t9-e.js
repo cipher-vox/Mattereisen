@@ -116,8 +116,8 @@
     P('Sannsynlighet sier hvor sannsynlig noe er. Vi regner: <strong>gunstige ÷ mulige</strong>.', true),
     E('En terning har 6 sider. Hva er sannsynligheten for en sekser?', ['Mulige: 6.', 'Gunstige: 1.', 'Sannsynligheten er 1 av 6. 🎉']),
     OS([
-      T('Hvor mange sider har en terning?', 6, 'Tell.', '6.'),
-      T('Hvor mange sider har en mynt?', 2, 'Mynt og kron.', '2.'),
+      T('Hvor mange sider har en terning?', 6, 'Tell.', 'En vanlig terning har seks sider, med 1 til 6 øyne.'),
+      T('Hvor mange sider har en mynt?', 2, 'Mynt og kron.', 'En mynt har 2 sider: mynt og kron.'),
       V('Hva er sannsynligheten for kron på en mynt?', ['1 av 2', '1 av 6', '2 av 2'], 0, 'En gunstig av to mulige.', '1 av 2.', true)
     ])
   ]));
@@ -143,7 +143,7 @@
     G('Hva skjer hvis vi kaster to ganger?'),
     E('To myntkast: MM, MK, KM, KK. Hvor mange kombinasjoner er det? Hvor mange er to kron?', ['Fire kombinasjoner: MM, MK, KM, KK.', 'To kron er KK: én kombinasjon.', '1 av 4 = 25 %. 🎉']),
     OS([
-      T('Hvor mange kombinasjoner er det med to myntkast?', 4, 'MM, MK, KM, KK.', '4.'),
+      T('Hvor mange kombinasjoner er det med to myntkast?', 4, 'MM, MK, KM, KK.', 'Første kast kan bli M eller K, og det samme for andre kast: MM, MK, KM, KK. Det er 2 · 2 = 4 kombinasjoner.'),
       T('Hvor mange kombinasjoner med to terningkast? (6 · 6)', 36, '6 · 6.', '6 · 6 = 36.'),
       T('To myntkast: sannsynlighet for to kron i prosent?', 25, '1 av 4.', '1 ÷ 4 = 25 %.', '%')
     ]),
