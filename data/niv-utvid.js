@@ -1,12 +1,26 @@
 /* Utfordring: to ekstra oppgaver per tema (8.–10. trinn), lagt til etter at niv-8/9/10 er registrert. */
 (function () {
   const M = window.MATTE, H = M.H, t = H.t, v = H.v;
-  function U(key, liste) {
-    const tema = M.topics.utfordring[key];
+  function U(key, liste, rolig) {
+    const tema = M.topics[rolig ? 'rolig' : 'utfordring'][key];
     if (!tema) { return; }
     const blokk = tema.seksjoner[0].blokker.filter(b => b.t === 'oppgaver')[0];
     liste.forEach(o => blokk.oppgaver.push(o));
   }
+  /* Delte hjelpere for utvid-8/9/10.js */
+  H.UTV = {
+    rolig: function (key, liste) { U(key, liste, true); },
+    steg: function (key, liste) {
+      const tema = M.topics.steg[key]; if (!tema) { return; }
+      let blokk = null;
+      tema.seksjoner.forEach(sek => sek.blokker.forEach(b => { if (b.t === 'oppgaver') { blokk = b; } }));
+      if (blokk) { liste.forEach(o => blokk.oppgaver.push(o)); }
+    },
+    vurder: function (key, liste) {
+      const tema = M.topics.utforsk[key]; if (!tema) { return; }
+      tema.seksjoner.push(H.S('Finn feilen og vurder', '🕵️', [H.P('Her skal du ikke bare regne, men også tenke: Finn feilen, vurder om et svar er rimelig, og forklar med egne ord.'), H.O(3, liste)]));
+    }
+  };
 
   /* ---------- 8. trinn ---------- */
   U('8/negative-tall', [

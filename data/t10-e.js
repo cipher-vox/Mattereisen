@@ -304,7 +304,7 @@
     W('kode', { tittel: 'Prøv selv', kode: 'x = 5\nprint(x)\nprint(x + 2)', forvent: '5\n7', intro: 'Trykk Kjør. Endre 5 til et annet tall.' }),
     OS([
       TK('x = 3\nprint(x)', 3, 'Hva ligger i x?', 'Linje 1 legger 3 i x. Linje 2 skriver ut det som ligger i x: 3.'),
-      TK('x = 3\nprint(x + 4)', 7, '3 + 4.', '7.'),
+      TK('x = 3\nprint(x + 4)', 7, 'Hva ligger i x? Legg til 4.', 'x er 3. print(x + 4) regner ut 3 + 4 og skriver ut 7.'),
       TK('x = 2\ny = x * 5\nprint(y)', 10, '2 · 5.', '10.')
     ])
   ]));

@@ -37,8 +37,8 @@ const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m); } else conso
 
   console.log('Tema: Utforsk');
   await go('#/8/negative-tall');
-  ok((await page.$$('.seksjon')).length === 10, '10 seksjoner');
-  ok((await page.$$('.oppg')).length === 97, '97 oppgaver');
+  ok((await page.$$('.seksjon')).length === 11, '11 seksjoner (inkl. Finn feilen og vurder)');
+  ok((await page.$$('.oppg')).length === 100, '100 oppgaver');
   ok((await page.$$('.wg')).length >= 12, 'modeller er montert (' + (await page.$$('.wg')).length + ')');
   ok((await page.$$('.ord')).length > 3, 'ordforklaringer er markert (' + (await page.$$('.ord')).length + ')');
   await shot('03-tema-topp');
