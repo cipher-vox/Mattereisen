@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   const M = window.MATTE = window.MATTE || {};
-  M.topics = M.topics || { utforsk: {}, steg: {} };
+  M.topics = M.topics || { utforsk: {}, steg: {}, rolig: {}, utfordring: {} };
   M.widgets = M.widgets || {};
   M.ekstra = M.ekstra || {};
   M.register = (mode, key, obj) => { M.topics[mode][key] = obj; };

@@ -8,7 +8,7 @@
 
   M.href = function (mode) {
     const parts = Array.prototype.slice.call(arguments, 1).filter(x => x !== undefined && x !== '');
-    return (mode === 'steg' ? '#/steg' : '#') + (parts.length ? '/' + parts.join('/') : '/');
+    return (mode === 'steg' ? '#/steg' : mode === 'tempo' ? '#/tempo' : '#') + (parts.length ? '/' + parts.join('/') : '/');
   };
   const H = M.href;
   const verktoyTrinn = {
@@ -92,7 +92,7 @@
   }
 
   function pageHome(mode) {
-    const steg = mode === 'steg';
+    const steg = mode === 'steg', tempo = mode === 'tempo';
     const ant = t => t.temaer.filter(x => x.klar).length + ' temaer';
     return '<section class="hero hero-kompakt"><div class="hero-tekst"><h1>' + M.siteName + '</h1>' +
       '<p class="ingress lesbar">Matte for 8., 9. og 10. trinn. Forklart med bilder, farger og modeller du kan prøve selv, med oppgaver fra helt enkle til utfordrende, og spill som gjør det gøy å lære.</p></div>' +
@@ -109,8 +109,9 @@
       '</div></section>' +
 
       '<section class="modus-velger" aria-labelledby="modus-tittel"><h2 id="modus-tittel" class="seksjon-tittel">Hvordan vil du jobbe?</h2><div class="modus-rad">' +
-      '<a class="modus-kort utforsk' + (!steg ? ' valgt' : '') + '" href="' + H('utforsk') + '" ' + (!steg ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🔭</span><strong>Utforsk</strong><span class="lesbar">Grundige forklaringer, modeller og oppgaver fra enkle til utfordrende.</span></a>' +
+      '<a class="modus-kort utforsk' + (!steg && !tempo ? ' valgt' : '') + '" href="' + H('utforsk') + '" ' + (!steg && !tempo ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🔭</span><strong>Utforsk</strong><span class="lesbar">Grundige forklaringer, modeller og oppgaver fra enkle til utfordrende.</span></a>' +
       '<a class="modus-kort steg' + (steg ? ' valgt' : '') + '" href="' + H('steg') + '" ' + (steg ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🪜</span><strong>Steg for steg</strong><span class="lesbar">Små steg, mange eksempler og mye hjelp underveis. Du bestemmer tempoet.</span></a>' +
+      '<a class="modus-kort tempo' + (tempo ? ' valgt' : '') + '" href="' + H('tempo') + '" ' + (tempo ? 'aria-current="true"' : '') + '><span class="modus-ikon" aria-hidden="true">🎚️</span><strong>Tre nivåer</strong><span class="lesbar">Velg selv: 🌱 Rolig, 🌿 Vanlig eller 🚀 Utfordring. Samme tema, ulik vanskelighetsgrad, med regler, eksempler og oppgaver.</span></a>' +
       '</div></section>';
   }
 
@@ -148,7 +149,7 @@
       return crumbs + '<header class="side-hode ' + tr.farge + '"><h1>' + meta.ikon + ' ' + meta.tittel + '</h1></header>' +
         '<div class="callout tips"><div class="callout-ikon">🚧</div><div class="callout-tekst"><strong>Dette temaet er under arbeid.</strong><div>Her kommer forklaringer, modeller og oppgaver snart.</div></div></div>';
     }
-    const spillHer = M.gamesFor ? M.gamesFor(trinn + '/' + id) : [];
+    const spillHer = M.gamesFor ? M.gamesFor(trinn + '/' + id) : []; M._hjelpKey = trinn + '/' + id;
     const ctx = { ordliste: topic.ordliste || [], seen: {}, widgets: [], wid: 0, topicKey: trinn + '-' + id, blokkN: 0 };
     M.setOrdliste(ctx.ordliste);
     const andre = mode === 'steg' ? 'utforsk' : 'steg';
@@ -161,7 +162,7 @@
       '<div class="topic-topp">' + (topic.mal ? '<section class="mal-boks"><h2>🎯 ' + (mode === 'steg' ? 'Dette skal du lære' : 'Mål for temaet') + '</h2><ul>' + topic.mal.map(m => '<li class="lesbar">' + M.markup(m, ctx) + '</li>').join('') + '</ul>' + (mode !== 'steg' ? dekkerHTML(tr, meta) : '') + '</section>' : '') + '</div>';
     h += '<div class="topic-layout"><nav class="toc ' + (mode === 'steg' ? 'toc-sti' : '') + '" aria-label="Innhold"><h2>' + (mode === 'steg' ? 'Stien din' : 'Innhold') + '</h2><ol>' +
       topic.seksjoner.map((s, i) => '<li><button type="button" class="toc-lenke" data-scroll="s' + (i + 1) + '" data-toc="s' + (i + 1) + '"><span class="toc-nr">' + (i + 1) + '</span><span class="toc-tittel">' + (s.forklaring ? '📖 ' : '') + (mode === 'steg' ? (s.kort || s.tittel) : s.tittel) + '</span></button></li>').join('') +
-      '</ol>' + ((M.ekstra[trinn + '/' + id] || spillHer.length) ? '<div class="toc-lenker">' + (M.ekstra[trinn + '/' + id] ? '<a href="' + H(mode, 'ekstra', trinn, id) + '">📚 Ekstra oppgaver</a>' : '') + spillHer.map(g => '<a href="' + H(mode, 'spill', g.id) + '">' + g.ikon + ' Spill: ' + g.tittel + '</a>').join('') + '</div>' : '') + '</nav><div class="topic-innhold">';
+      '</ol>' + ((M.ekstra[trinn + '/' + id] || spillHer.length) ? '<div class="toc-lenker">' + (M.ekstra[trinn + '/' + id] ? '<a href="' + H(mode, 'ekstra', trinn, id) + '">📚 Øv mer (Rolig · Vanlig · Utfordring)</a>' : '') + spillHer.map(g => '<a href="' + H(mode, 'spill', g.id) + '">' + g.ikon + ' Spill: ' + g.tittel + '</a>').join('') + '</div>' : '') + '</nav><div class="topic-innhold">';
     topic.seksjoner.forEach(function (s, i) {
       ctx.seen = {}; ctx.sek = 's' + (i + 1); ctx.blokkN = 0;
       h += '<section class="seksjon farge-' + ((i % 6) + 1) + (s.forklaring ? ' forklaring-sek' : '') + '" id="s' + (i + 1) + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + (s.ikon || (i + 1)) + '</span><h2>' + s.tittel + '</h2>' + (s.forklaring ? '<span class="fork-merke">📖 Les først</span>' : '') + '</header>' +
@@ -194,19 +195,31 @@
       '<input id="e-' + sek.id + '-' + k + '" class="ekstra-felt" type="text" autocomplete="off" spellcheck="false" placeholder="svar"><span class="ekstra-status" aria-live="polite"></span></span></li>').join('') + '</ol>' +
       '<div class="fasit-liste" data-sek="' + sek.id + '"><button type="button" class="knapp liten fasit-lås" aria-expanded="false">🔒 Fasit for «' + sek.tittel + '»</button> <span class="fasit-status lesbar" aria-live="polite">Prøv alle oppgavene først (0 av ' + items.length + ' prøvd).</span><ol hidden>' + items.map(it => '<li>' + it.a + '</li>').join('') + '</ol></div>';
   }
+  function ekstraSeksjoner(def) {
+    return def.seksjoner.map(function (sek, i) {
+      ekstraState[sek.id] = { def: sek, items: ekstraItems(sek, Math.floor(Math.random() * 1e9)) };
+      return '<section class="seksjon ekstra-seksjon farge-' + ((i % 6) + 1) + '" id="x-' + sek.id + '" data-sek="' + sek.id + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + sek.ikon + '</span><h2>' + sek.tittel + '</h2><button type="button" class="knapp liten nytt-sett" data-sek="' + sek.id + '">🎲 Nytt sett</button></header>' +
+        (sek.intro ? '<p class="lesbar">' + M.markup(sek.intro) + '</p>' : '') + '<div class="ekstra-innhold">' + ekstraSekHTML(sek, i) + '</div></section>';
+    }).join('');
+  }
   function pageEkstra(mode, trinn, id) {
     const key = trinn + '/' + id; const meta = findTema(trinn, id), tr = findTrinn(trinn);
     if (!meta || !M.ekstra[key]) return pageEkstraIndex(mode);
-    const def = M.ekstra[key](mode);
+    const nivå = M.nivå, genMode = (nivå === 'rolig' || (mode === 'steg' && nivå !== 'utfordring')) ? 'steg' : 'utforsk';
+    const def = M.ekstra[key](genMode); M._hjelpKey = key;
     M.setOrdliste((M.topics[mode][key] || M.topics.utforsk[key] || {}).ordliste || []);
+    const nt = M.topics[nivå] && M.topics[nivå][key];
+    const nctx = { ordliste: [], seen: {}, widgets: [], wid: 0, topicKey: 'n' + nivå + '-' + trinn + '-' + id, blokkN: 0 };
     let h = '<nav class="brødsmule"><a href="' + H(mode) + '">Forsiden</a> › <a href="' + H(mode, 'ekstra') + '">Ekstra oppgaver</a> › <span>' + meta.tittel + '</span></nav>' +
-      '<header class="side-hode ' + tr.farge + '"><h1>📚 ' + def.tittel + '</h1><p class="lesbar">' + def.intro + '</p><p><button type="button" class="knapp liten skriv-ut" data-med="0">🖨️ Skriv ut uten fasit</button> <button type="button" class="knapp liten skriv-ut" data-med="1">🖨️ Skriv ut med fasit (lærer)</button> <a class="knapp liten" href="' + H(mode, trinn, id) + '">← Tilbake til forklaringen</a></p></header>';
-    def.seksjoner.forEach(function (sek, i) {
-      ekstraState[sek.id] = { def: sek, items: ekstraItems(sek, Math.floor(Math.random() * 1e9)) };
-      h += '<section class="seksjon ekstra-seksjon farge-' + ((i % 6) + 1) + '" id="x-' + sek.id + '" data-sek="' + sek.id + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + sek.ikon + '</span><h2>' + sek.tittel + '</h2><button type="button" class="knapp liten nytt-sett" data-sek="' + sek.id + '">🎲 Nytt sett</button></header>' +
-        (sek.intro ? '<p class="lesbar">' + M.markup(sek.intro) + '</p>' : '') + '<div class="ekstra-innhold">' + ekstraSekHTML(sek, i) + '</div></section>';
-    });
-    M._after = function () { /* ingenting */ };
+      '<header class="side-hode ' + tr.farge + '"><h1>📚 ' + def.tittel + '</h1><p class="lesbar">' + def.intro + '</p><p><button type="button" class="knapp liten skriv-ut" data-med="0">🖨️ Skriv ut uten fasit</button> <button type="button" class="knapp liten skriv-ut" data-med="1">🖨️ Skriv ut med fasit (lærer)</button> <a class="knapp liten" href="' + H(mode, trinn, id) + '">← Tilbake til forklaringen</a> <a class="knapp liten" href="' + H(mode, 'ark') + '">🗂️ Flere ark å skrive ut</a></p>' + M.nivaaVelger('Velg nivå for øvingen:') + '</header>';
+    if (nt) {
+      nt.seksjoner.forEach(function (s, i) {
+        nctx.seen = {}; nctx.sek = 'n' + (i + 1); nctx.blokkN = 0;
+        h += '<section class="seksjon nivaa-sek farge-' + ((i % 6) + 1) + '" id="nivaa-' + (i + 1) + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">' + (s.ikon || '✏️') + '</span><h2>' + s.tittel + '</h2></header>' + s.blokker.map(b => blockHTML(b, nctx)).join('') + '</section>';
+      });
+    }
+    h += ekstraSeksjoner(def);
+    M._after = function () { mountWidgets(nctx); M.initTaskCounters(document.getElementById('main')); };
     return h;
   }
   function fasitStatus(sekEl, st) {
@@ -240,6 +253,7 @@
     return '<header class="side-hode t8"><h1>Å nei, her var det ingenting</h1><p>Siden finnes ikke. <a href="' + H(mode) + '">Gå til forsiden</a>.</p></header>';
   }
 
+  M.pagesInt = { blockHTML: blockHTML, mountWidgets: mountWidgets, ekstraSeksjoner: ekstraSeksjoner, dekkerHTML: dekkerHTML };
   M.pages = { home: pageHome, trinn: pageTrinn, topic: pageTopic, ekstraIndex: pageEkstraIndex, ekstra: pageEkstra, verktoy: pageVerktoy, ikkeFunnet: pageIkkeFunnet };
 
   /* ---------- hendelser på sider ---------- */

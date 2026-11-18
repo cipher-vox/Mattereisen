@@ -20,6 +20,7 @@ const { chromium } = require('playwright');
       if (!knapper.length) break;
       const k = knapper[Math.floor(Math.random() * knapper.length)];
       try { await k.click({ timeout: 800, force: true }); klikk++; } catch (e) { }
+      if (!(await p.evaluate(() => location.hash.indexOf('#/spill/') === 0))) { await p.goto('file://' + __dirname + '/../index.html#/spill/' + id); await p.waitForTimeout(150); }
       // flytt glidebrytere
       const sl = await p.$$('#spill-rom input[type=range]');
       for (const s of sl) { try { await s.evaluate(e => { e.value = String(+e.min + Math.random() * (+e.max - +e.min)); e.dispatchEvent(new Event('input', { bubbles: true })); }); } catch (e) { } }

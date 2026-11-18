@@ -7,8 +7,10 @@ const { chromium } = require('playwright'); const path = require('path'); const 
   const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] }); const page = await b.newPage({ viewport: { width: 390, height: 800 } });
   const errs = []; page.on('pageerror', e => errs.push(e.message)); page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
   const urls = [];
-  CUR.forEach(t => t.temaer.filter(x => x.klar).forEach(x => { ['', 'steg/', 'ekstra/', 'steg/ekstra/'].forEach(m => urls.push('#/' + m + t.trinn + '/' + x.id)); }));
-  ['python', 'geogebra', 'regneark'].forEach(v => urls.push('#/verktoy/' + v));
+  CUR.forEach(t => t.temaer.filter(x => x.klar).forEach(x => { ['', 'steg/', 'ekstra/', 'steg/ekstra/', 'tempo/'].forEach(m => urls.push('#/' + m + t.trinn + '/' + x.id)); }));
+  ['python', 'geogebra', 'regneark'].forEach(v => { urls.push('#/verktoy/' + v); urls.push('#/steg/verktoy/' + v); });
+  ['#/ark', '#/ark/regelbok', '#/ark/kapittel/8/ligninger', '#/laerer', '#/spill', '#/tempo', '#/tempo/8', '#/tempo/verktoy/python'].forEach(u => urls.push(u));
+  CUR.forEach(t => t.temaer.filter(x => x.klar).slice(0, 2).forEach(x => urls.push('#/ark/' + t.trinn + '/' + x.id)));
   let bad = 0, n = 0;
   for (const u of urls) {
     if (filt && !u.includes(filt)) continue; n++;

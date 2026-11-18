@@ -8,10 +8,17 @@ Ingenting lagres, ingen navn eller personopplysninger samles inn, og det finnes 
 - **8. trinn** – 12 temaer (negative tall, regneregler, potenser, kvadratrot, uttrykk, ligninger, ulikheter, funksjoner, mønstre, faktorisering, representasjoner, programmering)
 - **9. trinn** – 10 temaer (målenheter, figurer, Pytagoras, trekanter og formlikhet, overflate og volum, sentralmål og spredning, statistikk og medier, sannsynlighet, simulering)
 - **10. trinn** – 10 temaer (algebra, kvadratsetningene, ligningssett, stigningstall, funksjonstyper, vekstfaktor, kjøp/sparing/lån, økonomiprosjekt, modellering, Python)
-- **To versjoner av hvert tema:** *Utforsk* (full) og *Steg for steg* (små steg, færre oppgaver, hint på alle).
+- **Tre nivåer i hvert tema:** 🌱 *Rolig* (små tall, ett steg om gangen, hint på alle oppgaver, eget enkelt oppgavesett), 🌿 *Vanlig* og 🚀 *Utfordring*. Nivåene er tempobeskrivelser: alle kan velge fritt, ingen blir pekt ut, og valget ligger bare i minnet mens siden er åpen. Det flytende «🧰 Hjelp»-panelet viser huskeregler og vanlige feil for temaet. Hvert tema har også visningene *Utforsk* og *Steg for steg*.
+- **🎚️ Tre nivåer (egen visning, `#/tempo/<trinn>/<tema>`):** tredje valg ved siden av Utforsk og Steg for steg, for alle 32 temaer. Eleven velger 🌱 Rolig, 🌿 Vanlig eller 🚀 Utfordring på selve siden, og siden bygges opp på nytt: *Rolig* = én regel om gangen i store fargekort med korte setninger, modell å prøve selv, eksempel steg for steg, rolige oppgaver med hint i flere steg, ordkort; *Vanlig* = alle regler, modeller, tre eksempler, oppgaver fra Utforsk og «test deg selv»; *Utfordring* = reglene i kortform, utfordringsoppgaver og nivå 4–5-oppgaver. Alle tre har generert «flere oppgaver» (nytt sett hver gang). Siden sier ingenting om hvem nivået er for. Innholdet hentes fra regelboka og eksisterende oppgaver (`js/tempo.js`).
+- **📒 Regelbok** (`#/ark/regelbok`, `data/regelbok-8/9/10.js`): 1–2 sider med regler, eksempler, «pass opp», huskeregel, ord og et par testspørsmål for hvert av de 32 temaene. Bytt tema med nedtrekksmenyen, skriv ut eller last ned som Word. Kan også lages for alle temaene på et trinn.
+- **🧪 Kapittelprøve** (`#/ark/kapittel`, `js/ark-nye.js`): for hvert tema og trinn, med bryter mellom *ordinær prøve* (del 1 uten hjelpemidler, del 2 med, med vurderingsforslag og fasit) og *tilrettelagt prøve* (færre og kortere oppgaver, hjelpebokser, mer plass, uten karakter). Skrives ut eller lastes ned som ekte Word-fil (`.docx`, bygd i nettleseren av `js/dok.js`). Du velger deler (1, 2, 3), antall oppgaver (6–20) og plass til regning. **Redigering på siden:** hver oppgave har «Rediger» (tekst, tall og fasit), «Bytt ut» (ny oppgave fra banken) og «Fjern», og hver del har «➕ Oppgave fra banken» og «➕ Egen oppgave». Endringene følger med til utskrift og Word. **Fasit og løsningsforslag lages automatisk** som eget dokument ved siden av prøven (forhåndsvis, skriv ut eller last ned som Word), og følger redigeringene: endrede og egne oppgaver løses av en liten regnemotor når det er en vanlig «Regn ut …»-oppgave eller en lineær likning i x (med trinnvis løsning og prøving); ellers brukes fasiten du skrev, og står den tom vises «⚠ Fasit mangler». Prøvene er automatisk satt sammen fra oppgavebanken og bør leses gjennom før bruk.
+- **🔒 Kodelås:** *Kort test* og *Kapittelprøve* er låst med koden `43210` (endres i `js/ark.js`: sjekksummen `KODE_SJEKK`, laget av strengen `mattereisen|<kode>`). Åpningen finnes bare i minnet og forsvinner når siden lastes på nytt. Vær klar over at dette er en barriere mot nysgjerrighet, ikke sikker beskyttelse: siden kjører i nettleseren, så en elev som leser koden til nettsiden kan komme rundt den. Trenger du ekte beskyttelse, kan du ikke legge prøvene på en åpen nettside.
+- **Verktøykursene (Python, GeoGebra, regneark)** finnes både som Utforsk og som Steg for steg, med hint på alle oppgaver.
 - **Ekstra oppgaver** per tema: generert på nytt for hvert sett, med fasit.
 - **Forklaringsseksjoner (📖 Les først):** alle 32 temaer har, i både Utforsk og Steg for steg, egne seksjoner før oppgavene med grundig forklaring, trinnvise eksempler og figurer. Temaer med flere nye delemner har flere slike seksjoner, plassert foran riktig oppgavegruppe.
-- **Spill for å lære** (`#/spill`): 25 spill der poeng og liv bare finnes mens spillet er åpent (ingenting lagres). Hvert tema som har et passende spill, lenker til det.
+- **Spill for å lære** (`#/spill`): 25 spill der poeng og liv bare finnes mens spillet er åpent (ingenting lagres). Hvert tema som har et passende spill, lenker til det. Spillene følger valgt nivå (antall liv, tallstørrelse, hint) og har lyd (valgfritt), konfetti og rekker. Flere er bygd ut med forutsigelse først (Rente-raketten, Brusboks), skrevne svar med hint (Redningsstigen, Skyggemåleren), «fiks feilen»-runder (Kode-knekkeren, Løgnjegeren) og laboratorier med glidebryter (Pinnebyggeren, Sjansejegeren). Også de øvrige er nå nivåtilpasset: Rolig har flervalg med fremgangsmåte, Vanlig og Utfordring har skrevne svar med to forsøk og trinnvise hint (felles hjelper `G.skriv`), forutsigelse først (Ulikhets-vakten, Like-ledd, Rotjegeren), «angre» og test av svaret (Ligningsmaskinen), hint (Tallknuseren), flere oppgaver og «ingen feil»-valg med «fiks feilen» (Feiljegeren), og minnespill med 6, 8 eller 10 par.
+- **Lærerveiledning** (`#/laerer`, med innholdsfortegnelse som blir stående på siden når du scroller): kom i gang, de tre nivåene, arbeidsmåter, årsplanforslag per trinn og en egen veiledning for hvert av de 32 temaene (tid, forkunnskaper, vanlige feil, start/midt/slutt, samtalespørsmål, differensiering, vurdering).
+- **Utskriftsark** (`#/ark`, også `#/ark/<trinn>/<tema>`): 14 arktyper (kapittelprøve, regelbok, oppgaveark, test, startsjekk, husk-ark, hva kan jeg, utgangsbillett, samtalekort, bingo, par-ark, stasjonsrotasjon, finn feilen, malark som koordinatsystem, rutenett og tallinjer). Velg tema og nivå, forhåndsvis, skriv ut (A4), last ned som HTML-fil, og Word (.docx) for kapittelprøve og regelbok. Fasit kan skrives ut på eget ark. Arkene lagres ikke noe sted.
 - **Fasit etter forsøk:** løsninger og fasit åpnes først etter at eleven har prøvd (svar, tekst i fritekstfeltet, kjørt kode eller redigert regneark). Ekstraoppgavene låser fasit til alle oppgavene i en del er forsøkt.
 - **Verktøy:** kurs fra bunnen i Python (egen tolk i nettleseren), GeoGebra og regneark.
 - **Lesehjelp:** opplesning, ordforklaringer og luftigere tekst. Kan slås av og på.
@@ -28,16 +35,18 @@ Siden har `noindex`, så den dukker ikke opp i Google. Den virker også ved å �
 
 ## Struktur
 - `index.html` – skallet som laster alt (skriptene lastes i rekkefølge, `js/app.js` sist)
-- `css/style.css` – utseende
+- `css/style.css` – utseende (inkludert topptekst med fast menyrad og egne rullegardiner på arksiden)
 - `js/` – motor: oppgaver (`tasks.js`), interaktive modeller (`widgets.js`, `w-alg.js`, `w-geo.js`, `w-stat.js`, `w-verktoy.js`), Python-tolk (`pyinterp.js`), Lesehjelp, sider og ruting
 - `data/curriculum.js` – oversikt over trinn og temaer (`klar: true` når et tema er ferdig)
 - `data/00-hjelp.js` – hjelpefunksjoner for å skrive innhold (se under)
 - `data/*.js` – innhold. 8. trinn: ett tema per fil. 9. og 10. trinn: `t9-a…e.js` og `t10-a…e.js`, to temaer per fil
 - `data/verktoy-*.js` – kursene i Python, GeoGebra og regneark
 - `data/z-fork-*.js` – forklaringsseksjonene (settes inn i begge versjoner av hvert tema med `H.FK`). Filnavnene begynner med `z-` slik at de lastes etter temaene.
+- `js/nivaa.js` – nivåvalg (🌱🌿🚀) og Hjelp-panelet. `data/niv-8/9/10.js` – Rolig- og Utfordring-oppgaver per tema (`H.NIV`). `data/laerer-8/9/10.js` + `js/laerer.js` – lærerveiledningen. `data/verktoy-steg.js` – Steg for steg-versjonene av verktøykursene.
+- `js/ark.js`, `js/ark-maler.js` – utskriftsarkene (typer, maler, forhåndsvisning, utskrift og nedlasting). `js/ark-nye.js` – kapittelprøve og regelbok. `js/dok.js` – dokumentmodell som lager både HTML-forhåndsvisning og Word-fil. `js/tempo.js` – visningen «Tre nivåer».
 - `js/spill.js` – spillkjerne (register, sider, hjelpere), `js/spill-a.js … spill-d.js` – selve spillene. Nye spill legges til med `M.G.add({ id, tittel, ikon, trinn, temaer, kort, hvordan, lærer, start(el) })`.
 
-Adresser: `#/` forside, `#/9` trinn, `#/9/<tema>` Utforsk, `#/steg/9/<tema>` Steg for steg, `#/ekstra/9/<tema>` ekstraoppgaver, `#/verktoy`, `#/spill` og `#/spill/<id>`.
+Adresser: `#/` forside, `#/9` trinn, `#/9/<tema>` Utforsk, `#/steg/9/<tema>` Steg for steg, `#/tempo/9/<tema>` Tre nivåer, `#/ekstra/9/<tema>` ekstraoppgaver, `#/verktoy`, `#/steg/verktoy/<kurs>`, `#/spill`, `#/spill/<id>`, `#/laerer` `#/ark`, `#/ark/regelbok` og `#/ark/kapittel/<trinn>/<tema>`.
 
 ## Legge til eller endre et tema
 Et tema registreres slik (se `data/t10-a.js` for ferdige eksempler):
@@ -58,10 +67,11 @@ Hjelpefunksjonene i `M.H`: `V` (flervalg), `T` (tallsvar), `F` (åpent svar med 
 Krever Node (og Playwright + Chrome for nettlesertestene).
 - `node tests/check-data.js` – sjekker alle oppgaver: fasit og løsningsforslag stemmer overens, hint finnes på Steg-oppgaver, Python-oppgaver gir faktisk det oppgitte svaret, og ekstraoppgavene testes med 400 tilfeldige sett i begge versjoner.
 - `node tests/browser-test.js` – åpner siden og tester navigasjon, oppgaver, Lesehjelp og mobilvisning.
+- `node tests/spill-nivaa.js [filter]` – spiller hvert spill på alle tre nivåer og sjekker at de ikke krasjer og (der det går an med tilfeldige klikk) når sluttskjermen.
 - `node tests/spill-test.js [filter]` – åpner hvert spill på mobilbredde, klikker tilfeldig rundt og leter etter JavaScript-feil og sidelengs scrolling.
-- `node tests/alle-sider.js [filter]` – besøker alle ferdige temaer i fire visninger (+ verktøy) på mobilbredde og leter etter feil og sidelengs scrolling.
+- `node tests/alle-sider.js [filter]` – besøker alle ferdige temaer i fem visninger (+ verktøy, lærerside og arkside) på mobilbredde og leter etter feil og sidelengs scrolling.
+- `node tests/ark-test.js` – genererer alle kombinasjoner av arktype, tema og nivå og leter etter feil og tomme ark.
 
 ## Merknader
 - Opplesning bruker nettleserens innebygde talesyntese. Kvaliteten på norsk stemme varierer mellom enheter.
-- Verktøykursene har foreløpig ingen egen Steg for steg-versjon; de viser Utforsk-versjonen i begge moduser.
 - Innholdet er automatisk testet for regnefeil, men bør leses gjennom av en lærer før bruk i klasserommet.

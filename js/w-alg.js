@@ -450,7 +450,7 @@
       '<div class="wg-uttrykk gr-uttrykk" aria-live="polite"></div><div class="graf-rad"><div class="svg-wrap gr-bilde"></div>' + (o.tabell ? '<div class="gr-tabell"></div>' : '') + '</div><div class="wg-forklaring lesbar gr-tekst" aria-live="polite"></div>');
     const bilde = q(root, '.gr-bilde'), ut = q(root, '.gr-uttrykk'), tab = q(root, '.gr-tabell'), tx = q(root, '.gr-tekst');
     function pen(f) {
-      if (f.pen === 'lin') return (f.navn || 'y') + ' = ' + lin(vars.a, vars.b);
+      if (f.pen === 'lin') return (f.navn || 'y') + ' = ' + lin(vars.a, vars.b || 0);
       if (f.pen === 'kv') return (f.navn || 'y') + ' = ' + (vars.a === 1 ? '' : vars.a === -1 ? '−' : F(vars.a)) + 'x²' + sgnTerm(vars.b || 0, 'x') + sgnTerm(vars.c || 0, '');
       if (f.pen === 'eks') return (f.navn || 'y') + ' = ' + F(vars.a) + ' · ' + F(vars.b) + 'ˣ';
       return (f.navn ? f.navn + ' = ' : 'y = ') + f.src.replace(/\*/g, '·').replace(/\b([a-z])\b/g, (m, v) => (v in vars ? '(' + F(vars[v]) + ')' : v)).replace(/\(([0-9.]+)\)/g, '$1');

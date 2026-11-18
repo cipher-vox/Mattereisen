@@ -58,3 +58,21 @@
   };
   H.FIG = (inner, w, h, tekst) => ({ t: 'html', html: '<figure class="figur"><svg viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="' + esc(tekst) + '">' + inner + '</svg><figcaption class="lesbar">' + tekst + '</figcaption></figure>' });
 })();
+/* ---------- nivåsett: egne oppgaver for Rolig og Utfordring ---------- */
+(function () {
+  const M = window.MATTE, H = M.H;
+  H.t = (q, a, hint, los, enhet) => H.T(q, a, hint, los, enhet);
+  H.v = (q, valg, riktig, hint, los) => H.V(q, valg, riktig, hint, los);
+  /* NIV(nøkkel, ingress for Rolig, [eksempeloppgave, steg], rolige oppgaver, ingress for Utfordring, utfordringsoppgaver) */
+  H.NIV = function (key, introR, eks, rolig, introU, utf) {
+    M.register('rolig', key, { seksjoner: [H.S('Rolig start: små tall, ett steg om gangen', '🌱', [H.P(introR), H.E(eks[0], eks[1]), H.OS(rolig)])] });
+    M.register('utfordring', key, { seksjoner: [H.S('Utfordring: strekk deg litt lenger', '🚀', [H.P(introU), H.OS(utf)])] });
+  };
+})();
+
+/* Lærerdata: M.laerer[key] = {tid, forkunn, husk, feil, start, midt, slutt, samtale, diff, vurdering} */
+(function () {
+  const M = window.MATTE, H = M.H;
+  M.laerer = M.laerer || {};
+  H.LAERER = function (key, o) { M.laerer[key] = o; };
+})();

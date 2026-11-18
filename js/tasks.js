@@ -96,7 +96,7 @@
       '<div class="tilbakemelding" aria-live="polite"></div>' +
       '<div class="hint-boks" hidden></div>' +
       '<div class="oppg-knapper">' +
-      (t.hint ? '<button type="button" class="knapp liten hint-knapp">💡 Hint</button>' : '') +
+      (t.hint ? '<button type="button" class="knapp liten hint-knapp">' + (Array.isArray(t.hint) ? '💡 Hjelp meg i gang' : '💡 Hint') + '</button>' : '') +
       '<button type="button" class="knapp liten losning-knapp">' + (t.type === 'fritekst' ? '👀 Jeg har prøvd – vis løsningsforslag' : '👀 Vis fasit og løsning') + '</button></div>' +
       '<div class="losning-boks" hidden></div></li>';
   };
@@ -166,7 +166,17 @@
   }
   function showHint(li, force) {
     const t = M.taskReg[li.dataset.id]; if (!t || !t.hint) return;
-    const h = li.querySelector('.hint-boks');
+    const h = li.querySelector('.hint-boks'), kn = li.querySelector('.hint-knapp');
+    if (Array.isArray(t.hint)) {
+      /* trinnvis hjelp: hvert trykk gir ett steg til */
+      const s = st(li.dataset.id); const n = t.hint.length;
+      if (force === true) s.hintN = Math.max(s.hintN || 0, 1); else s.hintN = Math.min(n, (s.hintN || 0) + 1);
+      h.hidden = false;
+      h.innerHTML = '<strong>💡 Hjelp (' + s.hintN + ' av ' + n + '):</strong><ol class="hint-liste">' + t.hint.slice(0, s.hintN).map(x => '<li>' + M.markup(x) + '</li>').join('') + '</ol>';
+      if (kn) kn.textContent = s.hintN >= n ? '💡 Alle hjelpesteg er vist' : '💡 Gi meg et steg til';
+      if (kn && s.hintN >= n) kn.disabled = true;
+      return;
+    }
     if (force === undefined) h.hidden = !h.hidden; else h.hidden = !force;
     if (!h.hidden) h.innerHTML = '<strong>💡 Hint:</strong> ' + M.markup(t.hint);
   }

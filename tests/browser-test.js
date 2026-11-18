@@ -26,7 +26,7 @@ const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m); } else conso
   ok((await page.textContent('h1')).includes('Mattereisen'), 'h1 Mattereisen');
   ok((await page.$$('.trinn-kort')).length === 3, '3 trinn-kort');
   ok((await page.$$('.hero-kompakt')).length === 1 && (await page.$$('.hero-linje')).length === 0, 'ny forside uten tallinje');
-  ok((await page.$$('.modus-kort')).length === 2, '2 arbeidsmåter');
+  ok((await page.$$('.modus-kort')).length === 3, '3 arbeidsmåter');
   await shot('01-forside');
 
   console.log('Trinn 8');

@@ -22,7 +22,7 @@ function plain(s) {
 }
 const fmt = n => M.fmt(n);
 
-for (const mode of ['utforsk', 'steg']) {
+for (const mode of ['utforsk', 'steg', 'rolig', 'utfordring']) {
   for (const key of Object.keys(M.topics[mode])) {
     const t = M.topics[mode][key];
     console.log('\n== ' + mode + ' / ' + key + ' (' + t.seksjoner.length + ' seksjoner)');
@@ -71,7 +71,7 @@ for (const mode of ['utforsk', 'steg']) {
           } else if (q.type === 'fritekst') {
             if (!q.losning) bad(id + ' fritekst mangler løsningsforslag');
           }
-          if (!q.hint && mode === 'steg') bad(id + ' mangler hint (steg)');
+          if (!q.hint && mode !== 'utforsk') bad(id + ' mangler hint (steg)');
           rap.push([mode, id, q.type, plain(String(q.tekst).replace('{u}', q.regn !== undefined ? q.regn : '')), q.type === 'valg' ? plain(q.valg[q.riktig]) : (q.svar === undefined ? '' : (Array.isArray(q.svar) ? q.svar.map(fmt).join(', ') : fmt(q.svar)))]);
         });
       }
