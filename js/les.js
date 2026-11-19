@@ -14,7 +14,7 @@
   const MODULER = [
     { id: 'tekst', ikon: '🖍️', tittel: 'Finn viktig info i tekst', kort: 'Se hvordan du leser en tekst steg for steg. Så trykker du på tall, enheter og det oppgaven spør om, finner det som ikke trengs og avgjør om noe mangler.' },
     { id: 'graf', ikon: '📊', tittel: 'Les og tolk grafer', kort: 'Trykk på tittel, akser og søyler. Hva spør oppgaven om, og hvor finner du det i grafen?' },
-    { id: 'foring', ikon: '✍️', tittel: 'Før pent og rett', kort: 'En mal for hvordan du fører oppgaver i boka og på prøver, med gode og dårlige eksempler.' },
+    { id: 'foring', ikon: '✍️', tittel: 'Før pent og rett', kort: 'Se hvordan en fin side ser ut på ruteark, med marg, oppgavenummer, utregning og svar. Finn feilene i en slurvete side, og øv på mal, rekkefølge og vurdering.' },
     { id: 'kommando', ikon: '🔑', tittel: 'Kommandoord', kort: 'Regn ut, vis, forklar, begrunn, vurder … Hva må svaret ditt egentlig inneholde?' },
     { id: 'begrunn', ikon: '🧠', tittel: 'Begrunn – ikke bare «fordi»', kort: 'Lær ordene (lett, middels, vanskelig), se et eksempel, bygg setningen av brikker, og skriv så selv: fra «fordi» til en begrunnelse med tall, regel og sammenheng.' },
     { id: 'diskusjon', ikon: '🗣️', tittel: 'Diskuter og argumenter', kort: 'Er du enig? Hvem har rett? Øv på å si hva du mener, og hvorfor, sammen med en annen.' }
@@ -298,11 +298,11 @@
   }
   function modForing(d) {
     const f = d.foring, niv = NIV[M.nivåNr()];
-    return foringMal(d) +
-      '<section class="seksjon farge-2"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">2</span><h2>Slik ikke – slik ja</h2></div>' + (f.sammenlign[niv] || []).map(foringSammenlign).join('') + '</section>' +
-      '<section class="seksjon farge-3"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">3</span><h2>Sett føringen i riktig rekkefølge</h2></div>' + (f.rekke[niv] || []).map(foringRekke).join('') + '</section>' +
-      '<section class="seksjon farge-4"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">4</span><h2>Vurder elevsvar</h2></div>' + (f.vurder[niv] || []).map(foringVurder).join('') + '</section>' +
-      '<section class="seksjon farge-5"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">5</span><h2>Sjekkliste før du leverer</h2></div><fieldset class="les-sjekk"><legend>Kryss av for det du har gjort</legend>' + f.sjekkliste.map(x => '<label><input type="checkbox"> ' + esc(x) + '</label>').join('') + '</fieldset>' +
+    return foringMal(d) + (M.les.hand && M.les.hand.html ? M.les.hand.html(M.les.sistTrinn) : '') +
+      '<section class="seksjon farge-2"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">4</span><h2>Slik ikke – slik ja</h2></div>' + (f.sammenlign[niv] || []).map(foringSammenlign).join('') + '</section>' +
+      '<section class="seksjon farge-3"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">5</span><h2>Sett føringen i riktig rekkefølge</h2></div>' + (f.rekke[niv] || []).map(foringRekke).join('') + '</section>' +
+      '<section class="seksjon farge-4"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">6</span><h2>Vurder elevsvar</h2></div>' + (f.vurder[niv] || []).map(foringVurder).join('') + '</section>' +
+      '<section class="seksjon farge-5"><div class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">7</span><h2>Sjekkliste før du leverer</h2></div><fieldset class="les-sjekk"><legend>Kryss av for det du har gjort</legend>' + f.sjekkliste.map(x => '<label><input type="checkbox"> ' + esc(x) + '</label>').join('') + '</fieldset>' +
       '<p class="les-lagres-ikke">Avkryssingene lagres ikke. Skriv ut siden hvis du vil ha sjekklisten på papir.</p></section>';
   }
 
@@ -415,6 +415,7 @@
     if (modul === 'tekst') nivItems(d.tekst).forEach((it, k) => tekstInit($(main, '.les-kort[data-k="' + k + '"]'), it));
     if (modul === 'graf') nivItems(d.graf).forEach((it, k) => grafInit($(main, '.les-kort[data-k="' + k + '"]'), it));
     if (modul === 'foring') {
+      if (M.les.hand && M.les.hand.init) M.les.hand.init(main, trinn);
       (d.foring.rekke[niv] || []).forEach((it, k) => foringRekkeInit($(main, '.les-rekke[data-k="' + k + '"]'), it));
       (d.foring.vurder[niv] || []).forEach((it, k) => { const kort = $(main, '.les-vurder[data-k="' + k + '"]'); initMc($(kort, '.les-mc'), { forkl: it.forkl }); });
     }

@@ -102,6 +102,7 @@
       '<h3>Slik kan det brukes</h3><ul class="liste">' + li([
         '**Begrunn svaret** er bygd opp i faste steg: ordbank i tre vanskelighetsgrader, et vist eksempel, setningsbygging av brikker (trykk og plasser, eller dra) og først til slutt fritekst. Flere brikker kan være riktige i hver rute, så elevene får øve på ulike formuleringer. Siden sjekker at setningen er bygd riktig, men kan ikke vurdere en fritt skrevet begrunnelse.',
         '**Les teksten** starter med et steg-for-steg-eksempel på hvordan man markerer spørsmål, tall og unødvendig info, før elevene markerer selv.',
+        '**Før pent og rett** har tre håndskrevne eksempelsider per trinn på ruteark (vanlig oppgave, begrunnelse og prøve med deloppgaver). Forklaringene lyser opp den delen av siden de gjelder. Elevene kan også finne fem føringsfeil på en slurvete side. Sidene er ment som mal for hvordan du vil at oppgaver føres i boka og på prøver. Tilpass gjerne kravene dine, for eksempel om svarsetning eller sjekk.',
         '**Før pent og rett** er malen for føring. Skriv ut ark med mal og bruk samme mal i boka og på prøver, slik at elevene kjenner igjen strukturen.',
         '**Les og tolk** (arkene): elevene ringer rundt tall og enheter, understreker spørsmålet og krysser ut det som ikke trengs, før de svarer.',
         '**Jeopardy**: laget får en tekst eller graf og skal finne riktig spørsmål. Velg «Læreren dømmer» hvis dere vil høre begrunnelsene i klassen.',
