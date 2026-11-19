@@ -16,6 +16,7 @@
     ['🔒 Fasit', 'Fasit er låst til eleven har prøvd alle oppgavene i en del. Lærer kan skrive ut med fasit fra arksiden.'],
     ['🎮 Spill', 'Spillene er laget som oppvarming, repetisjon eller utforsking. Poeng og liv lever bare mens spillet er åpent. Spillene følger nivået (Rolig: flervalg og hint, Vanlig og Utfordring: skrevne svar og forutsigelser).'],
     ['🗂️ Utskriftsark', 'Arksiden lager oppgaveark i tre nivåer, husk-ark, tester, «Hva kan jeg?», utgangsbilletter, spillark og maler. Alt kan skrives ut eller lastes ned som egen fil.'],
+    ['🔎 Les, tolk og begrunn', 'Egen del (toppmenyen) med seks moduler: Les teksten, Les grafen, Før pent og rett, Hva spørs det om?, Begrunn svaret og Diskuter og argumenter, i tre nivåer for 8., 9. og 10. trinn. I tillegg Jeopardy der laget finner riktig spørsmål til en tekst eller graf, og utskriftsark med fasit under Ark. Se «Les, tolk og begrunn» lenger ned for vurderingskriterier og samtalestartere.'],
     ['📖 Lesehjelp', 'Lesehjelpen leser opp tekst, og ordlista forklarer fagord. Den er tilgjengelig for alle fra toppmenyen.'],
     ['🔒 Personvern', 'Siden samler ikke inn navn, resultater eller noe annet. Alt som skjer i nettleseren forsvinner når siden lukkes. Ark har felt for navn og dato som elevene fyller ut for hånd.']
   ];
@@ -77,7 +78,7 @@
       '<header class="side-hode t10"><h1>👩‍🏫 For lærere</h1><p class="lesbar">Her finner du en kort veiledning til hele siden, forslag til årsplan og et opplegg for hvert av de 32 temaene: mål, forkunnskaper, start, hoveddel, avslutning, samtalespørsmål, vanlige misoppfatninger, differensiering og vurdering. Alt er forslag du kan bruke slik du vil.</p>' +
       '<p><a class="knapp primær" href="' + H(mode, 'ark') + '">🗂️ Gå til utskriftsarkene</a></p></header>';
     let toc = '<aside class="lv-side"><nav class="lv-toc2" aria-label="Innhold"><strong class="lv-toc-tittel">Innhold</strong><ol class="lv-toc-liste">' +
-      '<li><a href="#lv-komigang">🚀 Kom i gang</a></li><li><a href="#lv-nivaa">🌱 Tre nivåer</a></li><li><a href="#lv-rutiner">🧩 Arbeidsmåter</a></li>';
+      '<li><a href="#lv-komigang">🚀 Kom i gang</a></li><li><a href="#lv-nivaa">🌱 Tre nivåer</a></li><li><a href="#lv-rutiner">🧩 Arbeidsmåter</a></li><li><a href="#lv-les">🔎 Les, tolk og begrunn</a></li>';
     CUR.forEach(function (tr) {
       toc += '<li class="lv-toc-gruppe"><a href="#lv-' + tr.trinn + '">🧭 ' + tr.tittel + '</a><ol class="lv-toc-tema">' + tr.temaer.map(t => '<li><a href="#lv-' + tr.trinn + '-' + t.id + '" data-apne="1">' + t.ikon + ' ' + t.tittel + '</a></li>').join('') + '</ol></li>';
     });
@@ -94,6 +95,31 @@
       '<aside class="callout tips"><div class="callout-ikon" aria-hidden="true">💡</div><div class="callout-tekst"><strong class="lesbar callout-tittel">Slik unngår du at noen blir pekt ut</strong><div class="lesbar">Bruk de samme navnene for alle. La elevene velge nivå selv og bytte underveis. Del ut arkene i en blandet bunke, eller legg alle tre nivåene på et bord. Ikke referer til nivå høyt i klassen.</div></div></aside></section>';
     h += '<section class="seksjon farge-3" id="lv-rutiner"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">🧩</span><h2>Arbeidsmåter</h2></header><div class="kort-rad">' +
       RUTINER.map(k => '<div class="mini-kort"><strong class="lesbar">' + k[0] + '</strong><div class="lesbar">' + k[1] + '</div></div>').join('') + '</div></section>';
+
+    h += '<section class="seksjon farge-2" id="lv-les"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">🔎</span><h2>Les, tolk og begrunn</h2></header>' +
+      '<p class="lesbar">Dette er en øvingsdel for det mange elever sliter med på prøver: å forstå hva det spørres om, finne riktig informasjon, føre oppgaven ryddig og forklare hvorfor. Fritekstsvar rettes ikke av siden. Der får eleven en modellsvar-sjekkliste å sammenligne med, og du eller en medelev vurderer.</p>' +
+      '<p><a class="knapp primær" href="' + H(mode, 'les') + '">🔎 Åpne Les, tolk og begrunn</a> <a class="knapp liten" href="' + H(mode, 'spill', 'jeopardy-8') + '">🎯 Jeopardy 8</a> <a class="knapp liten" href="' + H(mode, 'spill', 'jeopardy-9') + '">🎯 Jeopardy 9</a> <a class="knapp liten" href="' + H(mode, 'spill', 'jeopardy-10') + '">🎯 Jeopardy 10</a> <a class="knapp liten" href="' + H(mode, 'ark') + '">🗂️ Ark: Før pent og rett, Les og tolk, Sparringskort</a></p>' +
+      '<h3>Slik kan det brukes</h3><ul class="liste">' + li([
+        '**Begrunn svaret** er bygd opp i faste steg: ordbank i tre vanskelighetsgrader, et vist eksempel, setningsbygging av brikker (trykk og plasser, eller dra) og først til slutt fritekst. Flere brikker kan være riktige i hver rute, så elevene får øve på ulike formuleringer. Siden sjekker at setningen er bygd riktig, men kan ikke vurdere en fritt skrevet begrunnelse.',
+        '**Les teksten** starter med et steg-for-steg-eksempel på hvordan man markerer spørsmål, tall og unødvendig info, før elevene markerer selv.',
+        '**Før pent og rett** er malen for føring. Skriv ut ark med mal og bruk samme mal i boka og på prøver, slik at elevene kjenner igjen strukturen.',
+        '**Les og tolk** (arkene): elevene ringer rundt tall og enheter, understreker spørsmålet og krysser ut det som ikke trengs, før de svarer.',
+        '**Jeopardy**: laget får en tekst eller graf og skal finne riktig spørsmål. Velg «Læreren dømmer» hvis dere vil høre begrunnelsene i klassen.',
+        '**Sparringskort**: tre roller (forsvarer, utfordrer, observatør). Bytt rolle etter hver påstand.'
+      ]) + '</ul>' +
+      '<h3>Vurderingskriterier for begrunnelse (forslag)</h3><div class="tabell-wrap"><table class="tabell"><thead><tr><th>Svaret viser …</th><th>Eksempel på tegn</th></tr></thead><tbody>' +
+      '<tr><td class="første">Påstand</td><td>Svaret sier tydelig hva eleven mener eller har funnet. Ikke bare et tall.</td></tr>' +
+      '<tr><td class="første">Begrunnelse</td><td>Svaret har et «fordi» som bruker en regel, et begrep eller en sammenheng. «Fordi det er riktig» teller ikke.</td></tr>' +
+      '<tr><td class="første">Eksempel eller utregning</td><td>Eleven viser med tall, tegning eller en graf at påstanden holder.</td></tr>' +
+      '<tr><td class="første">Fagspråk</td><td>Eleven bruker ord som variabel, vekstfaktor, stigningstall, prosentpoeng riktig for sitt trinn.</td></tr>' +
+      '<tr><td class="første">Sjekk og svarsetning</td><td>Svaret har enhet, er satt inn i teksten og er sjekket mot spørsmålet.</td></tr></tbody></table></div>' +
+      '<h3>Vurderingskriterier for føring (forslag)</h3><ul class="liste">' + li([
+        'Oppgavenummer, gitt og finn, regel/formel, utregning med ett steg per linje, svarsetning med enhet og sjekk.',
+        'Likhetstegn brukes riktig, og feil er strøket over, ikke visket ut.',
+        'Poeng kan gis for hver del, slik at en elev med riktig metode, men en regnefeil, fortsatt får uttelling.'
+      ]) + '</ul>' +
+      '<h3>Samtalestartere</h3><ul class="liste">' + li(['«Hva er det oppgaven egentlig spør om? Si det med egne ord.»', '«Hvilke tall trenger vi, og hvilke kan vi la ligge?»', '«Hvordan vet du at svaret er rimelig?»', '«Gjelder det alltid, eller bare her?»', '«Kan du vise det på en annen måte, for eksempel med en tegning eller en graf?»']) + '</ul>' +
+      '<aside class="callout advarsel"><div class="callout-ikon" aria-hidden="true">⚠️</div><div class="callout-tekst"><strong class="lesbar callout-tittel">Gjennomgå innholdet selv</strong><div class="lesbar">Tekstoppgaver, grafer, påstander og Jeopardy-spørsmål er laget av Claude og er ikke testet med elever. Les gjennom det du skal bruke, og rett det som ikke passer klassen din. Kriteriene over er forslag, ikke en offisiell vurderingsmal.</div></div></aside></section>';
     CUR.forEach(function (tr) {
       h += '<section class="seksjon farge-' + (tr.trinn === 8 ? 4 : tr.trinn === 9 ? 5 : 6) + '" id="lv-' + tr.trinn + '"><header class="seksjon-hode"><span class="seksjon-nr" aria-hidden="true">🧭</span><h2>' + tr.tittel + ': årsplan og opplegg</h2></header>' + arsplan(tr) +
         '<p class="lesbar">Tidsforslagene er veiledende og må tilpasses timetall og klasse. Rekkefølgen følger forsiden.</p>' + tr.temaer.map(t => temaHTML(mode, tr, t)).join('') + '</section>';

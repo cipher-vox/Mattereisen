@@ -129,7 +129,7 @@ let feil = 0; const ok = (c, m) => { if (!c) { feil++; console.log('  ✗ ' + m)
 
   /* UI */
   await page.goto(url + '#/ark/8/ligninger'); await page.reload(); await page.waitForTimeout(300);
-  ok((await page.$$('.ark-type')).length === 14, '14 arktyper');
+  ok((await page.$$('.ark-type')).length === 17, '17 arktyper');
   ok((await page.$$('.ark-side')).length >= 2, 'forhåndsvisning har ark + fasit');
   await page.screenshot({ path: path.join(out, 'ark-1-side.png') });
   const el = await page.$('.ark-side'); if (el) await el.screenshot({ path: path.join(out, 'ark-2-oppgaveark.png') });

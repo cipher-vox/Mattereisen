@@ -17,7 +17,7 @@
 
   /* Del en tekst i setninger slik at hver tanke får sin egen linje (brukes i Rolig). */
   function setninger(t) {
-    return String(t).split(/(?<=[a-zæøåA-ZÆØÅ0-9)»%][.!?])\s+(?=[A-ZÆØÅ(−\d«])/);
+    return String(t).replace(/([a-zæøåA-ZÆØÅ0-9)»%][.!?])\s+(?=[A-ZÆØÅ(−\d«])/g, '$1\u0001').split('\u0001');
   }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 

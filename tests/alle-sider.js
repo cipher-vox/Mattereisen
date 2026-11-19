@@ -10,6 +10,8 @@ const { chromium } = require('playwright'); const path = require('path'); const 
   CUR.forEach(t => t.temaer.filter(x => x.klar).forEach(x => { ['', 'steg/', 'ekstra/', 'steg/ekstra/', 'tempo/'].forEach(m => urls.push('#/' + m + t.trinn + '/' + x.id)); }));
   ['python', 'geogebra', 'regneark'].forEach(v => { urls.push('#/verktoy/' + v); urls.push('#/steg/verktoy/' + v); });
   ['#/ark', '#/ark/regelbok', '#/ark/kapittel/8/ligninger', '#/laerer', '#/spill', '#/tempo', '#/tempo/8', '#/tempo/verktoy/python'].forEach(u => urls.push(u));
+  ['tekst', 'graf', 'foring', 'kommando', 'begrunn', 'diskusjon'].forEach(m => [8, 9, 10].forEach(t => urls.push('#/les/' + m + '/' + t)));
+  urls.push('#/les', '#/steg/les', '#/spill/jeopardy-8', '#/spill/jeopardy-9', '#/spill/jeopardy-10', '#/ark/foring', '#/ark/les', '#/ark/sparring');
   CUR.forEach(t => t.temaer.filter(x => x.klar).slice(0, 2).forEach(x => urls.push('#/ark/' + t.trinn + '/' + x.id)));
   let bad = 0, n = 0;
   for (const u of urls) {

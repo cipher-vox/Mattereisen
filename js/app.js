@@ -30,7 +30,7 @@
       '<a href="' + hU + '"' + (mode === 'utforsk' ? ' aria-current="true"' : '') + '>🔭 Utforsk</a>' +
       '<a href="' + hS + '"' + (mode === 'steg' ? ' aria-current="true"' : '') + '>🪜 Steg for steg</a>' +
       '<a href="' + hT + '"' + (mode === 'tempo' ? ' aria-current="true"' : '') + '>🎚️ Tre nivåer</a></div>' +
-      '<nav class="topnav" aria-label="Meny"><a href="' + M.href(mode, 'spill') + '">🎮 Spill</a><a href="' + M.href(mode, 'ekstra') + '">📚 Ekstra oppgaver</a><a href="' + M.href(mode, 'verktoy') + '">🛠️ Verktøy</a><a href="' + M.href(mode, 'ark') + '">🗂️ Ark</a><a href="' + M.href(mode, 'ark', 'regelbok') + '">📒 Regelbok</a><a href="' + M.href(mode, 'laerer') + '">👩‍🏫 Lærere</a>' +
+      '<nav class="topnav" aria-label="Meny"><a href="' + M.href(mode, 'les') + '">🔎 Les og begrunn</a><a href="' + M.href(mode, 'spill') + '">🎮 Spill</a><a href="' + M.href(mode, 'ekstra') + '">📚 Ekstra oppgaver</a><a href="' + M.href(mode, 'verktoy') + '">🛠️ Verktøy</a><a href="' + M.href(mode, 'ark') + '">🗂️ Ark</a><a href="' + M.href(mode, 'ark', 'regelbok') + '">📒 Regelbok</a><a href="' + M.href(mode, 'laerer') + '">👩‍🏫 Lærere</a>' +
       '<button type="button" id="lh-knapp" class="knapp liten lh-knapp" aria-pressed="' + ntt + '" aria-controls="lh-panel">📖 Lesehjelp</button></nav></div></div>';
   }
 
@@ -56,6 +56,7 @@
     if (!parts.length) html = P.home(mode);
     else if (parts[0] === 'verktoy') html = parts.length >= 2 ? P.topic(mode, 'verktoy', parts[1]) : P.verktoy(mode);
     else if (parts[0] === 'spill') html = parts.length >= 2 ? P.spill(mode, parts[1]) : P.spillIndex(mode);
+    else if (parts[0] === 'les') html = P.les(mode, parts[1], parts[2]);
     else if (parts[0] === 'laerer') html = P.laerer(mode);
     else if (parts[0] === 'ark') html = P.ark(mode, parts[1], parts[2], parts[3]);
     else if (parts[0] === 'ekstra') html = parts.length >= 3 ? P.ekstra(mode, parts[1], parts[2]) : P.ekstraIndex(mode);

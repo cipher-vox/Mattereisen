@@ -820,3 +820,140 @@ body.modus-tempo[data-nivaa="utfordring"] { --aksent: var(--s5); --aksent-bg: #f
 .uv-svg { width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; }
 .uv-linje, .uv-linje2 { margin: .4rem 0; } .uv-linje2:empty { display: none; }
 .uv-tips { font-size: .92rem; color: var(--muted); margin: .2rem 0 0; }
+
+/* ---------- Les, tolk og begrunn ---------- */
+.les-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.les-modul { display: grid; gap: .4rem; align-content: start; background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow); }
+.les-modul h3 { margin: 0; } .les-modul p { margin: 0; }
+.les-chips { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .4rem; }
+.les-chip { display: inline-block; padding: .35rem .8rem; border-radius: 999px; font-weight: 700; font-size: .92rem; text-decoration: none; background: var(--t8-bg); color: var(--ink); border: 2px solid var(--t8); }
+.les-chip:nth-child(2) { background: var(--t9-bg); border-color: var(--t9); } .les-chip:nth-child(3) { background: var(--t10-bg); border-color: var(--t10); }
+.les-chip:hover { transform: translateY(-1px); } .les-chip.snart, .les-snart { opacity: .55; font-size: .85rem; padding: .35rem .8rem; }
+.les-to { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: .8rem 0; }
+.les-god, .les-bad { border-radius: 16px; padding: .9rem 1.1rem; border: 2px solid; } .les-god { background: #e1f6e8; border-color: #16a34a; } .les-bad { background: #ffe9e2; border-color: #dc2626; }
+.les-god ul, .les-bad ul { margin: .4rem 0 0; padding-left: 1.2rem; } .les-god pre, .les-bad pre { background: rgba(255, 255, 255, .7); }
+.les-god p, .les-bad p { margin: .3rem 0 0; }
+.les-kontroller { display: flex; gap: 1rem 2rem; flex-wrap: wrap; align-items: flex-start; margin-bottom: 1.2rem; }
+.les-trinnvelger { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.les-trinn-merke { font-size: .5em; background: rgba(255, 255, 255, .25); padding: .15rem .7rem; border-radius: 999px; vertical-align: middle; }
+.les-kort { background: var(--card); border: 2px solid var(--line); border-top: 8px solid var(--aksent); border-radius: var(--radius); padding: 1.2rem 1.4rem; margin-bottom: 1.4rem; box-shadow: var(--shadow); }
+.les-kort h3 { margin-bottom: .4rem; } .les-instr, .les-merk, .les-lagres-ikke { color: var(--muted); }
+.les-lagres-ikke { font-size: .85rem; margin: .3rem 0 .6rem; }
+.les-verktoy, .les-enig { display: flex; gap: .5rem; flex-wrap: wrap; margin: .6rem 0; }
+.les-verk { border: 2px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: .4rem .9rem; font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer; min-height: 40px; }
+.les-verk.valgt, .les-verk[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.les-verk.v-t.valgt { background: #1d4ed8; border-color: #1d4ed8; } .les-verk.v-s.valgt { background: #c2650b; border-color: #c2650b; } .les-verk.v-u.valgt { background: #4b5563; border-color: #4b5563; }
+.les-tekstboks { background: #fcfdff; border: 2px dashed var(--line); border-radius: 16px; padding: .8rem 1rem; margin: .6rem 0; }
+.les-tekst { font-size: 1.2rem; line-height: 2.3; margin: 0 0 .4rem; }
+.les-ord { border: 0; background: transparent; font: inherit; color: inherit; padding: .1rem .2rem; margin: 0; border-radius: 6px; cursor: pointer; }
+.les-ord:hover { background: #eaf0fa; }
+.les-ord.m-t { background: #cfe0ff; box-shadow: inset 0 -3px 0 #2563eb; } .les-ord.m-t::before { content: '🔵'; font-size: .65em; margin-right: .15em; }
+.les-ord.m-s { background: #ffe0b8; box-shadow: inset 0 -3px 0 #d9730d; } .les-ord.m-s::before { content: '🟠'; font-size: .65em; margin-right: .15em; }
+.les-ord.m-u { background: #e5e7eb; color: #4b5563; text-decoration: line-through; } .les-ord.m-u::before { content: '⚪'; font-size: .65em; margin-right: .15em; }
+.les-ord.ok { outline: 3px solid #16a34a; outline-offset: 1px; } .les-ord.feil { outline: 3px solid #dc2626; outline-offset: 1px; } .les-ord.mangler { outline: 3px dashed #d97706; outline-offset: 1px; }
+.les-knapper { display: flex; gap: .5rem; flex-wrap: wrap; margin: .6rem 0; }
+.les-resultat { margin-top: .4rem; } .les-merk { margin-top: .4rem; }
+.les-mc { margin-top: .8rem; } .les-spm { margin-bottom: .5rem; }
+.les-valg { display: grid; gap: .5rem; }
+.les-valg-knapp { text-align: left; border: 2px solid var(--line); background: #fff; color: var(--ink); border-radius: 14px; padding: .6rem 1rem; font: inherit; font-weight: 600; cursor: pointer; min-height: 46px; }
+.les-valg-knapp:hover:not(:disabled) { border-color: var(--aksent); background: var(--aksent-bg); }
+.les-valg-knapp.ok { background: #e1f6e8; border-color: #16a34a; } .les-valg-knapp.feil { background: #ffe9e2; border-color: #dc2626; opacity: .8; } .les-valg-knapp:disabled { cursor: default; }
+.les-mc-svar { margin-top: .5rem; min-height: 1.2rem; }
+.les-svg-boks { max-width: 640px; margin: .6rem 0; border: 2px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+.les-svg { width: 100%; height: auto; display: block; }
+.les-svg [data-d] { cursor: pointer; } .les-svg [data-d]:hover { opacity: .7; } .les-svg [data-d]:focus-visible { outline: 3px solid #f59e0b; }
+.les-svg rect.d-ok, .les-svg circle.d-ok { stroke: #16a34a; stroke-width: 5; } .les-svg rect.d-feil, .les-svg circle.d-feil { stroke: #dc2626; stroke-width: 5; } .les-svg rect.d-vis, .les-svg circle.d-vis { stroke: #d97706; stroke-width: 5; stroke-dasharray: 6 3; }
+.les-svg text.d-ok { fill: #15803d; font-weight: 800; } .les-svg text.d-feil { fill: #b91c1c; font-weight: 800; } .les-svg text.d-vis { fill: #b45309; font-weight: 800; text-decoration: underline; }
+.les-graf-oppg { margin-top: .6rem; } .les-teller { color: var(--muted); font-size: .9rem; margin: 0 0 .3rem; }
+.les-ferdig { background: #e1f6e8; border: 2px solid #16a34a; border-radius: 14px; padding: .8rem 1rem; }
+.les-tab { margin: .5rem 0; } .les-tabell { border-collapse: collapse; margin-top: .5rem; } .les-tabell th, .les-tabell td { border: 1px solid var(--line); padding: .3rem .8rem; text-align: left; }
+.les-mal { display: grid; gap: .5rem; margin: 1rem 0; }
+.les-mal-rad { display: grid; grid-template-columns: minmax(150px, 1fr) 2fr; gap: .8rem; background: #fbfcff; border: 2px solid var(--line); border-left: 8px solid var(--aksent); border-radius: 14px; padding: .6rem 1rem; }
+.les-mal-navn { display: grid; gap: .1rem; } .les-mal-navn span { color: var(--muted); font-size: .92rem; }
+.les-kort pre, .les-mal pre, .les-sammenlign pre, .les-ordkort pre, .les-god pre, .les-bad pre, .les-elevsvar pre, .les-bygd { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .98rem; white-space: pre-wrap; margin: .3rem 0; line-height: 1.55; }
+.les-mal-eks pre { margin: 0; }
+.les-sammenlign { margin-bottom: 1.2rem; }
+.les-bunke { display: flex; flex-wrap: wrap; gap: .5rem; margin: .6rem 0; }
+.les-linje { border: 2px solid var(--line); background: #fff; color: var(--ink); border-radius: 12px; padding: .4rem .8rem; font: inherit; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .95rem; cursor: pointer; min-height: 42px; text-align: left; }
+.les-linje:hover:not(:disabled) { border-color: var(--aksent); } .les-linje:disabled { opacity: .35; cursor: default; } .les-linje.feil { background: #ffe9e2; border-color: #dc2626; }
+.les-bygd { background: #fffdf0; border: 2px dashed #eab308; border-radius: 12px; padding: .6rem .9rem; min-height: 3rem; }
+.les-tre { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .8rem; margin: .6rem 0; }
+.les-elevsvar { background: #fbfcff; border: 2px solid var(--line); border-radius: 14px; padding: .7rem 1rem; } .les-elevsvar pre, .les-elevsvar p { margin: .3rem 0 0; }
+.les-ord-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.les-ordkort { background: #fbfcff; border: 2px solid var(--line); border-radius: 16px; padding: 1rem; } .les-ordkort h3 { margin-bottom: .3rem; } .les-ordkort p { margin: .3rem 0; }
+.les-ordkort .les-to { grid-template-columns: 1fr; gap: .5rem; }
+.les-trapp { display: grid; gap: .6rem; margin: 1rem 0; }
+.les-trinn { border-radius: 14px; padding: .7rem 1rem; border: 2px solid; } .les-trinn p { margin: .2rem 0 0; } .les-trinn-nr { font-size: .85rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; }
+.les-trinn-1 { background: #ffe9e2; border-color: #dc2626; margin-right: 40%; } .les-trinn-2 { background: #fff8d6; border-color: #eab308; margin-right: 20%; } .les-trinn-3 { background: #e1f6e8; border-color: #16a34a; }
+.les-svakt { background: #ffe9e2; border-radius: 10px; padding: .5rem .8rem; }
+.les-skriv-label { display: grid; gap: .4rem; } .les-felt { width: 100%; font: inherit; padding: .6rem .8rem; border: 2px solid var(--line); border-radius: 12px; resize: vertical; min-height: 4rem; }
+.les-sjekk { border: 2px solid var(--line); border-radius: 14px; margin: .6rem 0; padding: .5rem 1rem .7rem; } .les-sjekk legend { font-weight: 700; padding: 0 .4rem; } .les-sjekk label { display: block; padding: .2rem 0; cursor: pointer; }
+.les-modell { background: #e1f6e8; border: 2px solid #16a34a; border-radius: 14px; padding: .7rem 1rem; margin-top: .6rem; } .les-modell p { margin: .3rem 0 0; }
+.les-pastand-tekst { font-size: 1.3rem; font-weight: 700; }
+.les-pbe { display: grid; gap: .6rem; margin: .8rem 0; } .les-pbe label { display: grid; gap: .3rem; }
+.les-roller { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; } .les-rolle { background: #fbfcff; border: 2px solid var(--line); border-radius: 16px; padding: 1rem; } .les-rolle h3 { margin-bottom: .3rem; }
+.les-bunn { display: flex; gap: .6rem; flex-wrap: wrap; margin: 2rem 0 1rem; }
+@media (max-width: 640px) { .les-mal-rad { grid-template-columns: 1fr; } .les-trinn-1, .les-trinn-2 { margin-right: 0; } }
+@media print {
+  .les-verktoy, .les-enig, .les-knapper, .les-bunn, .les-bunke, .les-reset, .les-vis, .nivaa-velger, .les-kontroller { display: none !important; }
+  .les-kort, .seksjon, .les-ordkort { break-inside: avoid; box-shadow: none; }
+  .les-felt { min-height: 6rem; border: 1px solid #000; background: repeating-linear-gradient(transparent, transparent 1.7rem, #bbb 1.7rem, #bbb 1.75rem); }
+  .les-modell[hidden] { display: none; }
+}
+
+/* ---------- Jeopardy ---------- */
+.jp-oppsett { display: grid; gap: 1rem; max-width: 640px; } .jp-antall { display: flex; gap: .5rem; flex-wrap: wrap; }
+.jp-navn { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .6rem; } .jp-navn label { display: grid; gap: .2rem; font-weight: 700; }
+.jp-navn input { font: inherit; padding: .5rem .7rem; border: 2px solid var(--line); border-radius: 12px; }
+.jp-laerer { display: flex; gap: .5rem; align-items: center; font-weight: 600; cursor: pointer; }
+.jp-tavle { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: .8rem; }
+.jp-lag { flex: 1 1 140px; background: #fff; border: 3px solid var(--line); border-radius: 16px; padding: .5rem .9rem; display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; }
+.jp-lag.aktiv { border-color: var(--aksent); background: var(--aksent-bg); box-shadow: 0 0 0 3px var(--aksent); }
+.jp-lag-navn { font-weight: 800; overflow: hidden; text-overflow: ellipsis; } .jp-lag-poeng { font-size: 1.7rem; font-weight: 900; }
+.jp-tur { margin: .2rem 0 .6rem; }
+.jp-brett { display: grid; grid-template-columns: repeat(var(--kol), minmax(0, 1fr)); gap: .5rem; }
+.jp-kat { background: var(--ink); color: #fff; border-radius: 12px; padding: .6rem .4rem; text-align: center; font-weight: 800; font-size: .95rem; display: flex; flex-direction: column; justify-content: center; line-height: 1.25; }
+.jp-rute { font: inherit; font-weight: 900; font-size: clamp(1.3rem, 4vw, 2rem); background: var(--aksent); color: #fff; border: 0; border-radius: 14px; min-height: 72px; cursor: pointer; transition: transform .12s; }
+.jp-rute:hover:not(:disabled) { transform: scale(1.04); } .jp-rute.brukt { background: #e5e7eb; color: #9ca3af; cursor: default; }
+.jp-clue { background: #fff; border: 3px solid var(--aksent); border-radius: var(--radius); padding: 1.2rem 1.4rem; display: grid; gap: .8rem; }
+.jp-clue-hode { display: flex; justify-content: space-between; gap: .6rem; flex-wrap: wrap; font-weight: 800; color: var(--muted); }
+.jp-opplysninger { font-size: 1.25rem; background: #fbfcff; border-left: 8px solid var(--aksent); padding: .7rem 1rem; border-radius: 12px; }
+.jp-graf { max-width: 520px; }
+.jp-svar { display: flex; gap: .8rem; align-items: baseline; flex-wrap: wrap; background: #fff8d6; border: 3px solid #eab308; border-radius: 14px; padding: .6rem 1rem; } .jp-svar span { font-weight: 700; } .jp-svar strong { font-size: 1.7rem; }
+.jp-dom { display: flex; gap: .6rem; flex-wrap: wrap; } .jp-forslag { background: #e1f6e8; border: 2px solid #16a34a; border-radius: 12px; padding: .5rem 1rem; } .jp-forslag p { margin: .2rem 0; }
+.jp-hvorfor { color: var(--muted); }
+@media (max-width: 640px) { .jp-brett { gap: .3rem; } .jp-kat { font-size: .75rem; padding: .4rem .2rem; } .jp-rute { min-height: 56px; } }
+
+/* ---------- Les og begrunn: ordbank, eksempel, bygg setningen, leseintro ---------- */
+.les-ordniv-rad { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.les-ordniv { border: 2px solid var(--line); border-radius: 16px; padding: .8rem 1rem; background: #fff; }
+.les-ordniv.na { border-color: var(--aksent, #2563eb); background: var(--aksent-bg, #eef4ff); box-shadow: 0 0 0 3px rgba(37, 99, 235, .12); }
+.les-ordniv h3 { margin: 0 0 .4rem; } .les-ordniv ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.les-ordniv li { display: grid; gap: .1rem; } .les-ordniv li strong { font-size: 1.05rem; } .les-bruk { color: var(--muted); font-size: .92rem; } .les-ordniv li em { font-size: .92rem; }
+.les-na { font-size: .7rem; font-weight: 800; background: var(--aksent, #2563eb); color: #fff; padding: .1rem .5rem; border-radius: 999px; vertical-align: middle; text-transform: uppercase; letter-spacing: .03em; }
+.les-signal { background: #fff3a8; color: inherit; padding: 0 .2em; border-radius: 4px; font-weight: 700; }
+.les-se-oppg { background: #f7f9fd; border: 2px solid var(--line); border-radius: 14px; padding: .8rem 1rem; margin: .8rem 0; }
+.les-graf-stat { max-width: 560px; margin: .5rem 0; } .les-graf-stat svg { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+.les-del { border-radius: 14px; padding: .6rem 1rem .5rem; margin: .6rem 0; border: 2px solid; } .les-del p { margin: .25rem 0; }
+.les-del-navn { font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; }
+.les-del-hvorfor { font-size: .92rem; color: var(--muted); }
+.les-del-p { background: #ffe9cc; border-color: #d9730d; } .les-del-b { background: #dce8ff; border-color: #2563eb; } .les-del-e { background: #dcf5e4; border-color: #16a34a; } .les-del-k { background: #eee4ff; border-color: #7c3aed; }
+.les-se-svakt { margin-top: 1rem; } .les-se-svakt ul { margin: .4rem 0 0 1.2rem; }
+.les-ruter { display: flex; flex-wrap: wrap; gap: .5rem; margin: .8rem 0; align-items: stretch; }
+.les-rute { display: grid; gap: .1rem; text-align: left; min-width: 7.5rem; max-width: 100%; border: 2px dashed #9aa7bd; background: #f7f9fd; color: var(--ink); border-radius: 12px; padding: .35rem .7rem; font: inherit; cursor: pointer; min-height: 52px; }
+.les-rute-navn { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); } .les-rute-tekst { font-size: .98rem; }
+.les-rute:not(.fylt) .les-rute-tekst { color: #8a97ad; font-style: italic; }
+.les-rute.fylt { border-style: solid; border-color: var(--aksent, #2563eb); background: #fff; }
+.les-rute.over { background: #fff8d6; border-color: #eab308; }
+.les-rute.ok { border-color: #16a34a; background: #e1f6e8; } .les-rute.feil { border-color: #dc2626; background: #ffe9e2; } .les-rute.mangler { border-color: #d97706; background: #fff4e0; }
+.les-pool { display: flex; flex-wrap: wrap; gap: .45rem; margin: .3rem 0 .8rem; }
+.les-brikke { border: 2px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: .4rem .9rem; font: inherit; cursor: pointer; min-height: 42px; text-align: left; }
+.les-brikke:hover { border-color: var(--aksent, #2563eb); } .les-brikke.valgt { background: #fff3a8; border-color: #eab308; box-shadow: 0 0 0 3px rgba(234, 179, 8, .3); }
+.les-pool-tom { color: var(--muted); font-style: italic; }
+.les-bygd { background: #e1f6e8; border: 2px solid #16a34a; border-radius: 12px; padding: .7rem 1rem; margin-top: .6rem; font-size: 1.05rem; line-height: 1.55; font-family: inherit; white-space: normal; }
+.les-ordtag-boks { background: #f7f9fd; border: 2px solid var(--line); border-radius: 12px; padding: .6rem .8rem; margin: .6rem 0; display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.les-ordtag { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: .15rem .7rem; font-size: .92rem; }
+.les-tekstboks .les-intro-ord { cursor: default; }
+.les-intro-steg { background: #fff8d6; border-radius: 12px; padding: .5rem .8rem; margin: .6rem 0; } .les-intro-steg:empty { display: none; }
+.les-intro-plan { background: #e1f6e8; border-radius: 12px; padding: .5rem .8rem; margin: .5rem 0; font-weight: 600; }
+@media print { .les-pool, .les-bygg-sjekk, .les-bygg-reset { display: none; } .les-rute { border-style: solid; min-height: 40px; } }

@@ -11,7 +11,7 @@ const { chromium } = require('playwright');
   await p.goto(base + '#/spill'); await p.waitForTimeout(300);
   const ids = await p.evaluate(() => MATTE.games.map(g => g.id));
   let dårlige = 0;
-  for (const id of ids.filter(i => i.includes(filter))) {
+  for (const id of ids.filter(i => i.includes(filter) && !i.startsWith('jeopardy'))) {   // Jeopardy testes i les-test.js
     for (const niv of ['rolig', 'vanlig', 'utfordring']) {
       errs.length = 0;
       await p.evaluate(n => { MATTE.nivå = n; }, niv);

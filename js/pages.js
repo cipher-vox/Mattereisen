@@ -104,6 +104,7 @@
 
       '<section aria-labelledby="mer-tittel"><h2 id="mer-tittel" class="seksjon-tittel">Mer å utforske</h2><div class="mer-grid">' +
       '<a class="mer-kort spill-kort" href="' + H(mode, 'spill') + '"><span class="mini-ikon" aria-hidden="true">🎮</span><strong>Spill for å lære</strong><span class="lesbar">Spill og puslespill som lærer deg matte uten at du merker det. Ingenting lagres.</span></a>' +
+      '<a class="mer-kort" href="' + H(mode, 'les') + '"><span class="mini-ikon" aria-hidden="true">🔎</span><strong>Les, tolk og begrunn</strong><span class="lesbar">Finn viktig info i tekst, les grafer, før pent og rett og lær å begrunne svarene dine.</span></a>' +
       '<a class="mer-kort" href="' + H(mode, 'ekstra') + '"><span class="mini-ikon" aria-hidden="true">📚</span><strong>Ekstra oppgaver</strong><span class="lesbar">Mange flere oppgaver, delt inn i trinn og temaer. Fasit kommer når du har prøvd.</span></a>' +
       '<a class="mer-kort" href="' + H(mode, 'verktoy') + '"><span class="mini-ikon" aria-hidden="true">🛠️</span><strong>Python, GeoGebra og Excel</strong><span class="lesbar">Lær å bruke digitale verktøy i matte, helt fra start.</span></a>' +
       '</div></section>' +

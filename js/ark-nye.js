@@ -62,10 +62,10 @@
     while (vakt++ < 60) {
       if (/\((?![+-]?\d+(?:\.\d+)?\))[^()]+\)/.test(cur)) { bytt(/\(([^()]+)\)/, (m, inn) => /^[+-]?\d+(\.\d+)?$/.test(inn) ? m : (v => v < 0 ? '(' + v + ')' : String(v))(verdi(inn))); continue; }
       cur = cur.replace(/\((-?\d+(?:\.\d+)?)\)/g, '$1');
-      if (bytt(new RegExp('(?<![\\d.])' + NUM + '\\*\\*(\\d+)'), (m, a, b) => String(R1(Math.pow(+a, +b))))) continue;
-      if (bytt(new RegExp('(?<![\\d.])' + NUM + '([*/])' + NUM), (m, a, o, b) => String(R1(o === '*' ? +a * +b : +a / +b)))) continue;
+      if (bytt(new RegExp('(^|[^\\d.])' + NUM + '\\*\\*(\\d+)'), (m, p, a, b) => p + String(R1(Math.pow(+a, +b))))) continue;
+      if (bytt(new RegExp('(^|[^\\d.])' + NUM + '([*/])' + NUM), (m, p, a, o, b) => p + String(R1(o === '*' ? +a * +b : +a / +b)))) continue;
       if (bytt(new RegExp('^' + NUM + '([+-])' + NUM), (m, a, o, b) => String(R1(o === '+' ? +a + +b : +a - +b)))) continue;
-      if (bytt(new RegExp('(?<![\\d.])' + NUM + '([+-])' + NUM), (m, a, o, b) => String(R1(o === '+' ? +a + +b : +a - +b)))) continue;
+      if (bytt(new RegExp('(^|[^\\d.])' + NUM + '([+-])' + NUM), (m, p, a, o, b) => p + String(R1(o === '+' ? +a + +b : +a - +b)))) continue;
       break;
     }
     return steg;

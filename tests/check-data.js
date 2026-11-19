@@ -6,7 +6,7 @@ const root = path.join(__dirname, '..');
 const ctx = { console, Math, Date, JSON, Array, Object, String, Number, RegExp, Error, isNaN, parseFloat, parseInt, Function };
 ctx.window = ctx; ctx.document = { body: { classList: { contains: () => false } }, addEventListener() { } };
 vm.createContext(ctx);
-const dataFiles = fs.readdirSync(path.join(root, 'data')).filter(f => f.endsWith('.js') && f !== 'curriculum.js').sort().map(f => 'data/' + f);
+const dataFiles = fs.readdirSync(path.join(root, 'data')).filter(f => f.endsWith('.js') && f !== 'curriculum.js' && !f.startsWith('les-')).sort().map(f => 'data/' + f);
 ['data/curriculum.js', 'js/util.js', 'js/tasks.js', 'js/pyinterp.js'].concat(dataFiles)
   .forEach(f => vm.runInContext(fs.readFileSync(path.join(root, f), 'utf8'), ctx, { filename: f }));
 const WIDGETS = new Set(); ['js/widgets.js', 'js/w-alg.js', 'js/w-verktoy.js', 'js/w-geo.js', 'js/w-stat.js'].forEach(f => { const fp = path.join(root, f); if (fs.existsSync(fp)) (fs.readFileSync(fp, 'utf8').match(/\bW\.([a-zæøå0-9_]+) = function/g) || []).forEach(m => WIDGETS.add(m.replace(/^W\./, '').replace(/ = function$/, ''))); });
